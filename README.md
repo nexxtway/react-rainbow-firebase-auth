@@ -1,1 +1,1 @@
-# aws-amplify-example
+# react-rainbow-firebase-auth

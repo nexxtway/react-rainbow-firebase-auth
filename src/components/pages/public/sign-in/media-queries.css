@@ -1,0 +1,30 @@
+@media (max-width: 750px) {
+    .aws-amplify-app-signup_card {
+        width: 600px;
+    }
+}
+
+@media (max-width: 620px) {
+    .aws-amplify-app-signin_container {
+        height: 100%;
+    }
+    .aws-amplify-app-signin_card {
+        width: 100%;
+        border-radius: 0;
+        padding: 20px;
+        flex-direction: column;
+    }
+    .aws-amplify-app-signin_inputs-container {
+        border-left: 0;
+        padding-left: 0;
+        width: 100%;
+    }
+    .aws-amplify-app-signin_header {
+        font-size: 20px;
+        margin: 8px 0 12px 0;
+    }
+    .aws-amplify-app-signin_image {
+        height: 32px;
+        width: 32px;
+    }
+}

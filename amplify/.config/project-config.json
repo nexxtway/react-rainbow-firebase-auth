@@ -1,0 +1,20 @@
+{
+    "projectName": "awsamplifyweb",
+    "projectPath": "/Users/reinierguerra/projects/aws-amplify-web",
+    "defaultEditor": "none",
+    "frontendHandler": {
+        "javascript": "/Users/reinierguerra/.nvm/versions/node/v9.10.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "npm run-script start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/reinierguerra/.nvm/versions/node/v9.10.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

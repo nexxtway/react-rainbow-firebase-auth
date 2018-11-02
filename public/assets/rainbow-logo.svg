@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>rainbow-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="examples" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Authentication-sign-in-V1" transform="translate(-492.000000, -44.000000)" fill-rule="nonzero">
+            <g id="rainbow-logo" transform="translate(492.000000, 44.000000)">
+                <rect id="Rectangle-path" fill="#323B45" x="1.77066667" y="1.71022222" width="36.4088889" height="36.4088889"></rect>
+                <rect id="Rectangle-path" fill="#1DE9B6" x="28.1528889" y="0.032" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#01B6F5" x="14.08" y="0.032" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#FE4849" x="0.110222222" y="0.032" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#F4F6F9" x="28.0746667" y="13.9946667" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#FFCC00" x="14.0053333" y="13.9946667" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#F8752D" x="0.032" y="13.9946667" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#01B6F5" x="28.0746667" y="27.9537778" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#EA4243" x="14.0053333" y="27.9537778" width="11.84" height="11.84" rx="2"></rect>
+                <rect id="Rectangle-path" fill="#1AD1A3" x="0.032" y="27.9537778" width="11.84" height="11.84" rx="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

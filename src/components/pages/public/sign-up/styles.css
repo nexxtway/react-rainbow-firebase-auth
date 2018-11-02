@@ -1,0 +1,59 @@
+.aws-amplify-app-signup_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    height: 100vh;
+}
+
+.aws-amplify-app-signup_image {
+    height: 40px;
+    width: 40px;
+}
+
+.aws-amplify-app-signup_header {
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    color: #576574;
+    margin: 16px 0 20px 0;
+}
+
+.aws-amplify-app-signup_card {
+    display: flex;
+    align-items: center;
+    padding: 32px;
+    width: 720px;
+    margin-bottom: 16px;
+}
+
+.aws-amplify-app-signup_inputs-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    border-left: solid 1px #e3e5ed;
+    width: 50%;
+}
+
+.aws-amplify-app-signup_inputs-container > :not(:first-child) {
+    margin-top: 24px;
+}
+
+.aws-amplify-app-signup_inputs-container > :last-child {
+    margin-top: 16px;
+}
+
+.aws-amplify-app-signup_link {
+    color: #01b6f5;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.aws-amplify-app-signup_terms-conditions {
+    font-size: 14px;
+    line-height: 1.5rem;
+    text-align: center;
+}

@@ -1,0 +1,56 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "awsamplifyweb-20181012190415-authRole",
+			"UnauthRoleArn": "arn:aws:iam::998141903405:role/awsamplifyweb-20181012190415-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::998141903405:role/awsamplifyweb-20181012190415-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "awsamplifyweb-20181012190415-deployment",
+			"UnauthRoleName": "awsamplifyweb-20181012190415-unauthRole",
+			"StackName": "awsamplifyweb-20181012190415",
+			"StackId": "arn:aws:cloudformation:us-east-1:998141903405:stack/awsamplifyweb-20181012190415/4992c960-ce8c-11e8-8263-50d5cd1ea836"
+		}
+	},
+	"auth": {
+		"cognito9ff81d74": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/awsamplifyweb-20181012190415-deployment/amplify-cfn-templates/auth/cognito9ff81d74-cloudformation-template.yml",
+				"logicalId": "authcognito9ff81d74"
+			},
+			"lastPushTimeStamp": "2018-10-20T05:59:42.673Z",
+			"output": {
+				"AppClientSecret": "1tg8iht5e299dcs9fsunu88daneuh5pi9snvtucf2hhgcdmk1tbd",
+				"UserPoolId": "us-east-1_4KO8zN0Yy",
+				"AppClientIDWeb": "1rkp83ee1s9rk2eln6tuaauhen",
+				"AppClientID": "6a5lu79uqsessneabno3nc8bn",
+				"IdentityPoolId": "us-east-1:390f1662-25fc-4e07-9977-21211dc915d0",
+				"IdentityPoolName": "cognito9ff81d74_identitypool_9ff81d74",
+				"UserPoolName": "cognito9ff81d74_userpool_9ff81d74"
+			},
+			"lastPushDirHash": "5qQIxL3W4ezzoiRPqkb7ppWEtrI="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/awsamplifyweb-20181012190415-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-10-20T05:59:42.675Z",
+			"output": {
+				"CloudFrontSecureURL": "https://dzjmxdfuuwmc6.cloudfront.net",
+				"S3BucketSecureURL": "https://aws-amplify-example.s3.amazonaws.com",
+				"WebsiteURL": "http://aws-amplify-example.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E2NA0ZF0D6BWKW",
+				"Region": "us-east-1",
+				"HostingBucketName": "aws-amplify-example",
+				"CloudFrontDomainName": "dzjmxdfuuwmc6.cloudfront.net"
+			},
+			"lastPushDirHash": "6e0a/BBOIHBsopbVGOmQ0tJGuBE="
+		}
+	}
+}

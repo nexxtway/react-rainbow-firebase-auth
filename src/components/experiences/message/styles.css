@@ -1,0 +1,26 @@
+.aws-amplify-app-message_container {
+    background-color: #fe4849;
+    padding: 16px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aws-amplify-app-message_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 960px;
+}
+
+.aws-amplify-app-message_text {
+    color: #ffffff;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.aws-amplify-app-message_icon, .aws-amplify-app-message_close-button {
+    flex-shrink: 0;
+}

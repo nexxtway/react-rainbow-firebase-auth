@@ -1,4 +1,4 @@
-import { update } from './../firebase';
+import { update } from '../firebase';
 
 export default function updateUser(user, profile) {
     return user.updateProfile({

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-rainbow-components/components/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import logout from './../../../redux/actions/logout';
+import { logoutUser } from '../../../redux/actions/authentication';
 
 class AuthApp extends Component {
     render() {
@@ -11,12 +11,16 @@ class AuthApp extends Component {
         const {
             className,
             style,
+            logoutUser,
         } = props;
         const name = props.user.getUsername ? props.user.getUsername() : props.user.name;
         return (
-            <div className={className} style={style} >
-                Welcome {name}!!
-                <Button label="Logout" onClick={props.logout} />
+            <div className={className} style={style}>
+                Welcome
+                {' '}
+                {name}
+!!
+                <Button label="Logout" onClick={logoutUser} />
             </div>
         );
     }
@@ -33,14 +37,15 @@ AuthApp.defaultProps = {
 };
 
 function stateToProps(state) {
+    const { authentication } = state;
     return {
-        user: state.app.currentUser,
-    }
+        user: authentication.get('user'),
+    };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        logout,
+        logoutUser,
     }, dispatch);
 }
 

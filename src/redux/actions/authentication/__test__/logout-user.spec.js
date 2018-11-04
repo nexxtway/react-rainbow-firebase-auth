@@ -1,7 +1,7 @@
 import logoutUser from './../logout-user';
-import signOutUser from './../../services/firebase/sign-out-user';
+import signOutUser from './../../../services/firebase/sign-out-user';
 
-jest.mock('./../../services/firebase/sign-out-user', () => jest.fn(() => Promise.resolve()));
+jest.mock('./../../../services/firebase/sign-out-user', () => jest.fn(() => Promise.resolve()));
 
 describe('logoutUser', () => {
     it('should call signOutUser', () => {

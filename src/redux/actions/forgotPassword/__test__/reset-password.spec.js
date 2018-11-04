@@ -1,8 +1,8 @@
 import sendEmailResetPassword from './../reset-password';
-import sendPasswordResetEmail from './../../services/firebase/send-password-reset-email';
+import sendPasswordResetEmail from './../../../services/firebase/send-password-reset-email';
 
-jest.mock('./../../services/firebase/send-password-reset-email', () => jest.fn());
-const email = 'doe@gmail.com';
+jest.mock('./../../../services/firebase/send-password-reset-email', () => jest.fn());
+const email = { email: 'doe@gmail.com' };
 
 describe('sendEmailResetPassword action', () => {
     it('should dispatch SEND_PASS_RESET_EMAIL', () => {
@@ -18,7 +18,7 @@ describe('sendEmailResetPassword action', () => {
         sendPasswordResetEmail.mockReset();
         sendPasswordResetEmail.mockReturnValue(Promise.resolve());
         return sendEmailResetPassword(email)(dispatch)
-            .then(() => expect(sendPasswordResetEmail).toHaveBeenCalledWith(email));
+            .then(() => expect(sendPasswordResetEmail).toHaveBeenCalledWith(email.email));
     });
     it('should dispatch RESET_EMAIL_SENT', () => {
         expect.assertions(1);

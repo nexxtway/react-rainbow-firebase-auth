@@ -1,5 +1,4 @@
-import { signInWithEmailAndPassword } from './../../services/firebase';
-import authenticateUser from './authenticate-user';
+import { signInWithEmailAndPassword } from '../../services/firebase';
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
@@ -8,10 +7,7 @@ export default function handleSignInWithEmailAndPassword(user) {
     return (dispatch) => {
         const { email, password } = user;
         return signInWithEmailAndPassword(email, password)
-            .then((firebaseUser) => {
-                dispatch({ type: AUTH_SUCCESS });
-                // dispatch(authenticateUser(firebaseUser));
-            })
+            .then(() => dispatch({ type: AUTH_SUCCESS }))
             .catch((error) => {
                 dispatch({
                     type: AUTH_ERROR,

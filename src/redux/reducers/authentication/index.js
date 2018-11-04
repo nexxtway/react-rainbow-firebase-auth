@@ -11,8 +11,7 @@ import {
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
     AUTH_ERROR_WITH_FACEBOOK,
-} from './../../actions/authentication';
-import { NAME_CHANGED } from './../../actions/change-name-modal/change-name';
+} from '../../actions/authentication';
 
 import * as userGetters from './user-getters';
 
@@ -26,6 +25,7 @@ const initialState = fromJS({
 });
 
 function authenticateUser(state, user) {
+    console.log(user);
     return state.set('user', {
         ...user,
         ...userGetters,
@@ -100,9 +100,6 @@ export default function (state = initialState, action) {
 
         case AUTH_SUCCESS_WITH_FACEBOOK:
             return state.set('isLoadingFacebook', false);
-
-        case NAME_CHANGED:
-            return nameChanged(state, action);
 
         default:
             return state;

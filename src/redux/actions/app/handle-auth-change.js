@@ -1,7 +1,6 @@
-import saveUserLocaleInDb from './../../services/users/save-user-locale';
-import {authenticateUser} from './../authentication';
-import getCurrentLocale from './../../services/app/get-current-locale';
-import startPresenceLogs from './../../services/firebase/prensence';
+import saveUserLocaleInDb from '../../services/users/save-user-locale';
+import { authenticateUser } from '../authentication';
+import getCurrentLocale from '../../services/app/get-current-locale';
 
 export const START_APP_INITIALIZATION = 'START_APP_INITIALIZATION';
 function startAppInitialization() {
@@ -20,10 +19,8 @@ function doneAppInitialization() {
 export default function handleAuthenticationChange(user) {
     return (dispatch, getState) => {
         const locale = getCurrentLocale(getState());
-        console.log(user);
         if (user) {
             saveUserLocaleInDb(locale);
-            startPresenceLogs();
             dispatch(startAppInitialization());
             setTimeout(() => {
                 dispatch(authenticateUser(user));

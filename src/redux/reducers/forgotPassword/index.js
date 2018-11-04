@@ -4,7 +4,7 @@ import {
     SEND_PASS_RESET_EMAIL,
     PASS_RESET_ERROR,
     RESET_FORM,
-} from './../../actions/forgotPassword';
+} from '../../actions/forgotPassword';
 
 const initialState = fromJS({
     isLoading: false,

@@ -4,17 +4,15 @@ import { bindActionCreators } from 'redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
-import CloseIcon from './../../icons/close/index.js';
-import ErrorIcon from './../../icons/error/index.js';
+import CloseIcon from '../../icons/close/index.js';
+import ErrorIcon from '../../icons/error/index.js';
 import './styles.css';
-import hideErrorMessage from './../../../redux/actions/hide-error-message';
 
 function Message(props) {
     const {
         className,
         style,
         errorMessage,
-        hideErrorMessage,
     } = props;
 
     function getClassName() {
@@ -32,7 +30,7 @@ function Message(props) {
                     <ButtonIcon
                         size="medium"
                         icon={<CloseIcon />}
-                        onClick={hideErrorMessage}
+                        onClick={() => {}}
                         className="aws-amplify-app-message_close-button" />
                 </div>
             </article>
@@ -55,12 +53,11 @@ function stateToProps(state) {
     const { errorMessage } = state.app;
     return {
         errorMessage,
-    }
+    };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        hideErrorMessage,
     }, dispatch);
 }
 

@@ -9,11 +9,6 @@ describe('i18n module', () => {
             expect(resolveLocale()).toBe('es');
         });
 
-        it('should return userLocale storage in local browser storage if so', () => {
-            global.localStorage = { getItem: () => 'en' };
-            expect(resolveLocale()).toBe('en');
-        });
-
         it('should return default locale "es" if what is in the storage locale is invalid', () => {
             global.localStorage = { getItem: () => 'abcd' };
             expect(resolveLocale()).toBe('es');

@@ -1,13 +1,13 @@
-import createAccount from './../create-account';
-import createUser from './../../services/firebase/create-user';
-import updateUser from './../../services/registration/update-user';
+import createAccount from '../create-account';
+import createUser from '../../../services/firebase/create-user';
+import updateUser from '../../../services/registration/update-user';
 
-jest.mock('./../../services/app/get-current-locale', () => jest.fn(() => 'en'));
-jest.mock('./../../services/firebase/create-user', () => jest.fn(() => Promise.resolve({
+jest.mock('./../../../services/app/get-current-locale', () => jest.fn(() => 'en'));
+jest.mock('./../../../services/firebase/create-user', () => jest.fn(() => Promise.resolve({
     email: 'leo@gmail.com',
     uid: 'user_60',
 })));
-jest.mock('./../../services/registration/update-user', () => jest.fn());
+jest.mock('./../../../services/registration/update-user', () => jest.fn());
 const user = {
     name: 'Leo',
     email: 'leo@gmail.com',

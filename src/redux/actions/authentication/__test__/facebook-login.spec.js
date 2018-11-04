@@ -1,9 +1,9 @@
 import loginWithFacebook from './../facebook-login';
-import getCurrentLocale from './../../services/app/get-current-locale';
-import signInWithFacebook from './../../services/firebase/facebook-sign-in';
+import getCurrentLocale from './../../../services/app/get-current-locale';
+import signInWithFacebook from './../../../services/firebase/facebook-sign-in';
 
-jest.mock('./../../services/app/get-current-locale', () => jest.fn(() => 'es'));
-jest.mock('./../../services/firebase/facebook-sign-in', () => jest.fn(() => Promise.resolve()));
+jest.mock('./../../../services/app/get-current-locale', () => jest.fn(() => 'es'));
+jest.mock('./../../../services/firebase/facebook-sign-in', () => jest.fn(() => Promise.resolve()));
 
 describe('loginWithFacebook', () => {
     it('should dispatch AUTH_START_WITH_FACEBOOK', () => {

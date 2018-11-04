@@ -1,7 +1,7 @@
-import handleSignInWithEmailAndPassword from './../handle-email-password-sign-in';
-import signInWithEmailAndPassword from './../../services/firebase/email-password-sign-in';
+import handleSignInWithEmailAndPassword from '../handle-email-password-sign-in';
+import signInWithEmailAndPassword from '../../../services/firebase/email-password-sign-in';
 
-jest.mock('./../../services/firebase/email-password-sign-in', () => jest.fn(() => Promise.resolve({
+jest.mock('./../../../services/firebase/email-password-sign-in', () => jest.fn(() => Promise.resolve({
     email: 'pepe@gmail.com',
     password: '1234',
     uid: 'cus_1',
@@ -21,19 +21,12 @@ describe('handleSignInWithEmailAndPassword', () => {
             });
     });
 
-    it('should dispatch AUTH_SUCCESS and then USER_AUTHENTICATED with the user data', () => {
-        expect.assertions(2);
+    it('should dispatch AUTH_SUCCESS', () => {
+        expect.assertions(1);
         const dispatch = jest.fn();
         return handleSignInWithEmailAndPassword(user)(dispatch)
             .then(() => {
                 expect(dispatch.mock.calls[0][0]).toEqual({ type: 'AUTH_SUCCESS' });
-                expect(dispatch.mock.calls[1][0]).toEqual({
-                    type: 'USER_AUTHENTICATED',
-                    user: {
-                        ...user,
-                        uid: 'cus_1',
-                    },
-                });
             });
     });
 

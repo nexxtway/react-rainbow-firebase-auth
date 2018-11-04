@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -8,78 +8,91 @@ import { Field, reduxForm } from 'redux-form';
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import UserIcon from './../../../icons/user/index.js';
-import BackIcon from './../../../icons/back/index.js';
+import BackIcon from '../../../icons/back/index.js';
 import './styles.css';
 import './media-queries.css';
-import sendForgotPasswordCode from './../../../../redux/actions/send-forgot-password-code';
+import { resetForm, sendEmailResetPassword } from '../../../../redux/actions/forgotPassword';
+import EmailIcon from '../../../icons/email';
 
-function ForgotPassword(props) {
-    const {
-        className,
-        style,
-        handleSubmit,
-        sendForgotPasswordCode,
-    } = props;
+class ForgotPassword extends Component {
+    componentDidMount() {
+        const { resetForm } = this.props;
+        resetForm();
+    }
 
-    function getClassName() {
+    getClassName() {
+        const { className } = this.props;
         return classnames('aws-amplify-app-forgot-password_container', className);
     }
 
-    return (
-        <form onSubmit={handleSubmit(sendForgotPasswordCode)} noValidate>
-            <section className={getClassName()} style={style}>
-                <Link className="aws-amplify-app-forgot-password_back-link" to="/home/signin">
-                    <BackIcon className="aws-amplify-app-forgot-password_back-icon"/>
-                    Back
-                </Link>
-                <Link to="/home">
-                    <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-forgot-password_image" />
-                </Link>
-                <p className="aws-amplify-app-forgot-password_header">Reset Password</p>
-                <Card className="aws-amplify-app-forgot-password_card">
-                    <article className="aws-amplify-app-forgot-password_content">
-                        <p className="aws-amplify-app-forgot-password_message">
-                            A security code will be sent to your email address.
-                        </p>
-                        <Field
-                            component={Input}
-                            name="username"
-                            label="Username"
-                            required
-                            placeholder="Enter your username"
-                            icon={<UserIcon />} />
-                        <Button
-                            variant="brand"
-                            type="submit"
-                            label="Send code"
-                        />
-                    </article>
-                </Card>
-            </section>
-        </form>
-    )
+    render() {
+        const {
+            handleSubmit,
+            sendEmailResetPassword,
+            isLoading,
+            style,
+        } = this.props;
+        return (
+            <form onSubmit={handleSubmit(email => sendEmailResetPassword(email))} noValidate>
+                <section className={this.getClassName()} style={style}>
+                    <Link className="aws-amplify-app-forgot-password_back-link" to="/home/signin">
+                        <BackIcon className="aws-amplify-app-forgot-password_back-icon" />
+                        Back
+                    </Link>
+                    <Link to="/home">
+                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-forgot-password_image" />
+                    </Link>
+                    <p className="aws-amplify-app-forgot-password_header">Reset Password</p>
+                    <Card className="aws-amplify-app-forgot-password_card">
+                        <article className="aws-amplify-app-forgot-password_content">
+                            <p className="aws-amplify-app-forgot-password_message">
+                                A security code will be sent to your email address.
+                            </p>
+                            <Field
+                                component={Input}
+                                name="email"
+                                label="Email Address"
+                                required
+                                placeholder="Enter your email address"
+                                icon={<EmailIcon />} />
+                            <Button
+                                variant="brand"
+                                type="submit"
+                                label="Send email"
+                                isLoading={isLoading}
+                            />
+                        </article>
+                    </Card>
+                </section>
+            </form>
+        );
+    }
 }
 
 ForgotPassword.propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    sendEmailResetPassword: PropTypes.func.isRequired,
+    resetForm: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
 };
 
 ForgotPassword.defaultProps = {
+    handleSubmit: () => {},
     className: undefined,
     style: {},
 };
 
 function stateToProps(state) {
-    return {
-
-    }
+    const { forgot } = state;
+    return forgot.toJS();
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        sendForgotPasswordCode,
+        sendEmailResetPassword,
+        resetForm,
     }, dispatch);
 }
 

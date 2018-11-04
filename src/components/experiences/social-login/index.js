@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Button from 'react-rainbow-components/components/Button';
@@ -10,8 +11,6 @@ import './styles.css';
 
 function SocialLogin(props) {
     const {
-        googleSignIn,
-        amazonSignIn,
         loginWithFacebook,
         isLoadingFacebook,
     } = props;
@@ -24,14 +23,14 @@ function SocialLogin(props) {
                 <FacebookIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Facebook
             </Button>
-            <Button variant="neutral" className="aws-amplify-app-social-login_button" onClick={googleSignIn}>
+            <Button variant="neutral" className="aws-amplify-app-social-login_button" onClick={() => {}}>
                 <GoogleIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Google
             </Button>
             <Button
                 variant="neutral"
                 className="aws-amplify-app-social-login_button aws-amplify-app-social-login_amazon-button"
-                onClick={amazonSignIn}>
+                onClick={() => {}}>
                 <AmazonIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Amazon
             </Button>
@@ -39,8 +38,16 @@ function SocialLogin(props) {
     );
 }
 
+SocialLogin.propTypes = {
+    loginWithFacebook: PropTypes.func.isRequired,
+    isLoadingFacebook: PropTypes.bool.isRequired,
+};
+
 function stateToProps(state) {
-    return state.authentication.toJS();
+    const { authentication } = state;
+    return {
+        isLoadingFacebook: authentication.get('isLoadingFacebook'),
+    };
 }
 
 function dispatchToProps(dispatch) {

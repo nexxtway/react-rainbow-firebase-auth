@@ -1,14 +1,8 @@
-import handleAuthenticationChange from './../handle-auth-change';
-import saveUserLocaleInDb from './../../services/users/save-user-locale';
-import resolveInitialData from './../../services/app/resolve-initial-data';
-import initializeStores from './../initialize-stores';
+import handleAuthenticationChange from '../handle-auth-change';
+import saveUserLocaleInDb from '../../../services/users/save-user-locale';
 
-jest.mock('./../../services/users/save-user-locale', () => jest.fn());
-jest.mock('./../../services/app/resolve-initial-data', () => jest.fn(() => Promise.resolve({
-    baseOptions: { price: 20 },
-    topups: [],
-})));
-jest.mock('./../initialize-stores', () => jest.fn(() => Promise.resolve()));
+jest.mock('./../../../services/users/save-user-locale', () => jest.fn());
+
 const getState = () => ({
     i18n: {
         locale: 'en',
@@ -48,30 +42,6 @@ describe('handleAuthenticationChange', () => {
                 },
             });
         }, 0);
-        jest.runAllTimers();
-    });
-
-    it('should call resolveInitialData', () => {
-        expect.assertions(1);
-        const dispatch = jest.fn();
-        resolveInitialData.mockReset();
-        resolveInitialData.mockReturnValue(Promise.resolve());
-        handleAuthenticationChange(user)(dispatch, getState);
-        setTimeout(() => expect(resolveInitialData).toHaveBeenCalledTimes(1), 0);
-        jest.runAllTimers();
-    });
-
-    it('should dispatch initializeStores with the right data', () => {
-        expect.assertions(1);
-        const dispatch = jest.fn();
-        handleAuthenticationChange(user)(dispatch, getState);
-        setTimeout(() => resolveInitialData()
-            .then(() => {
-                expect(initializeStores).toHaveBeenCalledWith({
-                    baseOptions: { price: 20 },
-                    topups: [],
-                });
-            }), 0);
         jest.runAllTimers();
     });
 

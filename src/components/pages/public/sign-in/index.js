@@ -8,19 +8,20 @@ import { reduxForm, Field } from 'redux-form';
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import LockIcon from './../../../icons/lock/index.js';
-import UserIcon from './../../../icons/user/index.js';
-import SocialLogin from './../../../experiences/social-login';
+import { loginWithEmailAndPassword, resetAuthForm } from '../../../../redux/actions/authentication';
+import LockIcon from '../../../icons/lock/index.js';
+import UserIcon from '../../../icons/user/index.js';
+import SocialLogin from '../../../experiences/social-login';
 import './styles.css';
 import './media-queries.css';
-import login from './../../../../redux/actions/login';
 
 function SignIn(props) {
     const {
         className,
         style,
         handleSubmit,
-        login,
+        loginWithEmailAndPassword,
+        isLoading,
     } = props;
 
     function getClassName() {
@@ -28,7 +29,7 @@ function SignIn(props) {
     }
 
     return (
-        <form noValidate onSubmit={handleSubmit(login)}>
+        <form noValidate onSubmit={handleSubmit(loginWithEmailAndPassword)}>
             <section className={getClassName()} style={style}>
                 <Link to="/home">
                     <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-signin_image" />
@@ -56,6 +57,7 @@ function SignIn(props) {
                             variant="brand"
                             type="submit"
                             label="Login"
+                            isLoading={isLoading}
                         />
                         <Link to="/home/forgot-password" className="aws-amplify-app-signin_link">
                             Forgot your password?
@@ -69,29 +71,32 @@ function SignIn(props) {
 }
 
 SignIn.propTypes = {
+    loginWithEmailAndPassword: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    handleSubmit: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
 };
 
 SignIn.defaultProps = {
+    handleSubmit: () => {},
     className: undefined,
-    style: {},
+    style: undefined,
 };
 
 function stateToProps(state) {
-    return {
-
-    }
+    return state.authentication.toJS();
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        login,
+        loginWithEmailAndPassword,
+        resetAuthForm,
     }, dispatch);
 }
 
 export default connect(stateToProps, dispatchToProps)(
     reduxForm({
         form: 'signin',
-    })(SignIn)
+    })(SignIn),
 );

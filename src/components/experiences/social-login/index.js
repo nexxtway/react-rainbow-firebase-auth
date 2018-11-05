@@ -1,31 +1,36 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import Button from 'react-rainbow-components/components/Button';
 import FacebookIcon from './icons/facebookIcon';
 import GoogleIcon from './icons/googleIcon';
 import AmazonIcon from './icons/amazonIcon';
-import { withFederated } from 'aws-amplify-react';
-import { authenticate } from './../../../redux/actions/authenticate';
+import {loginWithFacebook} from '../../../redux/actions/authentication';
 import './styles.css';
 
-function SocialLoginUI(props) {
+function SocialLogin(props) {
     const {
-        googleSignIn,
-        facebookSignIn,
-        amazonSignIn,
+        loginWithFacebook,
+        isLoadingFacebook,
     } = props;
     return (
         <article className="aws-amplify-app-social-login_buttons-container">
-            <Button className="aws-amplify-app-social-login_button aws-amplify-app-social-login_facebook-button" onClick={facebookSignIn}>
+            <Button
+                className="aws-amplify-app-social-login_button aws-amplify-app-social-login_facebook-button"
+                onClick={loginWithFacebook}
+                isLoading={isLoadingFacebook}>
                 <FacebookIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Facebook
             </Button>
-            <Button variant="neutral" className="aws-amplify-app-social-login_button" onClick={googleSignIn}>
+            <Button variant="neutral" className="aws-amplify-app-social-login_button" onClick={() => {}}>
                 <GoogleIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Google
             </Button>
-            <Button variant="neutral" className="aws-amplify-app-social-login_button aws-amplify-app-social-login_amazon-button" onClick={amazonSignIn}>
+            <Button
+                variant="neutral"
+                className="aws-amplify-app-social-login_button aws-amplify-app-social-login_amazon-button"
+                onClick={() => {}}>
                 <AmazonIcon className="aws-amplify-app-social-login_social-icon" />
                 Login with Amazon
             </Button>
@@ -33,28 +38,21 @@ function SocialLoginUI(props) {
     );
 }
 
-const Federated = withFederated(SocialLoginUI);
-
-const federatedIds = {
-    google_client_id: '324986215207-askmdchlagvi9r92anspcas9sp15l9ct.apps.googleusercontent.com',
-    facebook_app_id: '947511325433571',
-    amazon_client_id: 'amzn1.devportal.webapp.5e9ae7ce8d354631a251df71dd14446c',
+SocialLogin.propTypes = {
+    loginWithFacebook: PropTypes.func.isRequired,
+    isLoadingFacebook: PropTypes.bool.isRequired,
 };
 
-function SocialLogin(props) {
-    function handleStateChange(event, user) {
-        props.authenticate(user);
-    }
-    return <Federated federated={federatedIds} onStateChange={handleStateChange} />;
-}
-
 function stateToProps(state) {
-    return {};
+    const { authentication } = state;
+    return {
+        isLoadingFacebook: authentication.get('isLoadingFacebook'),
+    };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        authenticate,
+        loginWithFacebook,
     }, dispatch);
 }
 

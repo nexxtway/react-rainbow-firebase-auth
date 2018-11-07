@@ -25,7 +25,6 @@ const initialState = fromJS({
 });
 
 function authenticateUser(state, user) {
-    console.log(user);
     return state.set('user', {
         ...user,
         ...userGetters,
@@ -59,14 +58,6 @@ function authStartWithFacebook(state) {
 function authErrorWithFacebook(state, error) {
     state = state.set('isLoadingFacebook', false);
     return state.set('facebookErrorMessage', error);
-}
-
-function nameChanged(state, { displayName }) {
-    const user = state.get('user');
-    return state.set('user', {
-        ...user,
-        displayName,
-    });
 }
 
 export default function (state = initialState, action) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignIn from './sign-in';
 import SignUp from './sign-up';
@@ -18,3 +19,13 @@ export default function PublicRoutes(props) {
         </Switch>
     );
 }
+
+PublicRoutes.propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
+};
+
+PublicRoutes.defaultProps = {
+    className: undefined,
+    style: undefined,
+};

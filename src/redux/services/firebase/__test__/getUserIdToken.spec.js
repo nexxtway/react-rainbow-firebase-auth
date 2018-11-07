@@ -1,4 +1,4 @@
-import getUserIdToken from './../get-user-id-token';
+import getUserIdToken from '../get-user-id-token';
 
 jest.mock('./../../../../firebase', () => ({
     auth() {

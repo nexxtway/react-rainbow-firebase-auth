@@ -1,5 +1,5 @@
-import getCurrentLocale from './../../services/app/get-current-locale';
-import { signInWithFacebook } from './../../services/firebase';
+import getCurrentLocale from '../../services/app/get-current-locale';
+import { signInWithFacebook } from '../../services/firebase';
 
 export const AUTH_START_WITH_FACEBOOK = 'AUTH_START_WITH_FACEBOOK';
 export const AUTH_SUCCESS_WITH_FACEBOOK = 'AUTH_SUCCESS_WITH_FACEBOOK';

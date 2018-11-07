@@ -28,7 +28,7 @@ class App extends Component {
                 <Message />
                 <Routes isAuth={isAuthenticated} />
             </Application>
-        )
+        );
     }
 }
 

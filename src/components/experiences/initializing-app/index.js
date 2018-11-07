@@ -8,7 +8,7 @@ export default function InitializingApp(props) {
         style,
     } = props;
     return (
-        <div className={className} style={style} >
+        <div className={className} style={style}>
             <Spinner />
         </div>
     );

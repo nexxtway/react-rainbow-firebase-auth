@@ -1,5 +1,5 @@
-import loginWithEmailAndPassword from './../email-password-login';
-import handleSignInWithEmailAndPassword from './../handle-email-password-sign-in';
+import loginWithEmailAndPassword from '../email-password-login';
+import handleSignInWithEmailAndPassword from '../handle-email-password-sign-in';
 
 jest.mock('./../handle-email-password-sign-in', () => jest.fn());
 const user = {

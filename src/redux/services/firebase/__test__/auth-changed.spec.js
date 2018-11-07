@@ -1,5 +1,5 @@
-import firebase from './../../../../firebase';
-import onAuthStateChanged from './../auth-changed';
+import firebase from '../../../../firebase';
+import onAuthStateChanged from '../auth-changed';
 
 jest.mock('./../../../../firebase', () => {
     let fn;

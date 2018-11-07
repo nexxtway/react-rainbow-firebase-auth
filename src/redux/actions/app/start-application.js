@@ -1,5 +1,5 @@
 import handleAuthenticationChange from './handle-auth-change';
-import {onAuthStateChanged} from '../../services/firebase';
+import { onAuthStateChanged } from '../../services/firebase';
 
 export default function startApplication() {
     return (dispatch) => {

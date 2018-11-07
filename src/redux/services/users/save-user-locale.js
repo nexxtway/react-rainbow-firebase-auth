@@ -1,4 +1,4 @@
-import { getCurrentUser, update } from './../firebase';
+import { getCurrentUser, update } from '../firebase';
 
 export default function saveUserLocale(locale) {
     const user = getCurrentUser();

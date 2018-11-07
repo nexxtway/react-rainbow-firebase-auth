@@ -1,4 +1,4 @@
-import firebase from './../../../firebase';
+import firebase from '../../../firebase';
 import getCurrentUser from './get-current-user';
 import updateProfile from './update-profile';
 

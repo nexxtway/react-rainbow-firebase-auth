@@ -54,11 +54,12 @@ describe('createAccount action', () => {
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({ type: 'CREATE_ACCOUNT_SUCCESS' }));
     });
     it('should dispatch CREATE_ACCOUNT_ERROR with the error received when createUser reject', () => {
+        const ERROR = 'registration error';
         expect.assertions(1);
         const dispatch = jest.fn();
         const getState = jest.fn();
         createUser.mockReset();
-        createUser.mockReturnValue(Promise.reject('registration error'));
+        createUser.mockReturnValue(Promise.reject(ERROR));
         return createAccount(user)(dispatch, getState)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
                 type: 'CREATE_ACCOUNT_ERROR',

@@ -1,4 +1,4 @@
-import processResponse from './../process-response';
+import processResponse from '../process-response';
 
 describe('processResponse', () => {
     it('should resolves object with data and response status when content-type is application/json', () => {

@@ -17,7 +17,7 @@ const GoogleIcon = (props) => {
             </g>
         </svg>
     );
-}
+};
 
 GoogleIcon.propTypes = {
     className: PropTypes.string.isRequired,

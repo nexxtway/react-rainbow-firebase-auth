@@ -1,4 +1,4 @@
-import signInWithEmailAndPassword from './../email-password-sign-in';
+import signInWithEmailAndPassword from '../email-password-sign-in';
 
 jest.mock('./../../../../firebase', () => ({
     auth() {

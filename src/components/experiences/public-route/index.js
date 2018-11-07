@@ -17,7 +17,6 @@ export default function PublicRoute(props) {
             return <Redirect to={to} />;
         }
         return <Component {...props} />;
-
     }
 
     return <Route {...rest} render={render} />;

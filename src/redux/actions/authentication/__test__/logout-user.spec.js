@@ -1,5 +1,5 @@
-import logoutUser from './../logout-user';
-import signOutUser from './../../../services/firebase/sign-out-user';
+import logoutUser from '../logout-user';
+import signOutUser from '../../../services/firebase/sign-out-user';
 
 jest.mock('./../../../services/firebase/sign-out-user', () => jest.fn(() => Promise.resolve()));
 

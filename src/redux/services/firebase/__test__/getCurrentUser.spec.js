@@ -1,4 +1,4 @@
-import getCurrentUser from './../get-current-user';
+import getCurrentUser from '../get-current-user';
 
 jest.mock('./../../../../firebase', () => ({
     auth() {

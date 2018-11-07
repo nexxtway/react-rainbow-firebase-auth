@@ -27,7 +27,7 @@ class SignUp extends Component {
 
     getClassName() {
         const { className } = this.props;
-        return classnames('aws-amplify-app-signup_container', className);
+        return classnames('rainbow-auth-firebase-signup_container', className);
     }
 
     signup(user) {
@@ -47,12 +47,12 @@ class SignUp extends Component {
             <form noValidate onSubmit={handleSubmit((user) => { createAccount(user); })}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-signup_image" />
+                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
                     </Link>
-                    <p className="aws-amplify-app-signup_header">Sign up</p>
-                    <Card className="aws-amplify-app-signup_card">
+                    <p className="rainbow-auth-firebase-signup_header">Sign up</p>
+                    <Card className="rainbow-auth-firebase-signup_card">
                         <SocialLogin />
-                        <article className="aws-amplify-app-signup_inputs-container">
+                        <article className="rainbow-auth-firebase-signup_inputs-container">
 
                             <Field
                                 component={Input}
@@ -83,13 +83,13 @@ class SignUp extends Component {
                                 onClick={handleSubmit((user) => { createAccount(user); })}
                                 isLoading={isLoading}
                             />
-                            <p className="aws-amplify-app-signup_terms-conditions">
+                            <p className="rainbow-auth-firebase-signup_terms-conditions">
                                 By creating an account you agree to our Terms and
                                 Conditions and our Privacy Policy.
                             </p>
                         </article>
                     </Card>
-                    <Link className="aws-amplify-app-signup_link" to="/home/signin">Sign in?</Link>
+                    <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">Sign in?</Link>
                 </section>
             </form>
         );

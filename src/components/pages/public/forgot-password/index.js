@@ -22,7 +22,7 @@ class ForgotPassword extends Component {
 
     getClassName() {
         const { className } = this.props;
-        return classnames('aws-amplify-app-forgot-password_container', className);
+        return classnames('rainbow-auth-firebase-forgot-password_container', className);
     }
 
     render() {
@@ -35,17 +35,17 @@ class ForgotPassword extends Component {
         return (
             <form onSubmit={handleSubmit(email => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
-                    <Link className="aws-amplify-app-forgot-password_back-link" to="/home/signin">
-                        <BackIcon className="aws-amplify-app-forgot-password_back-icon" />
+                    <Link className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
+                        <BackIcon className="rainbow-auth-firebase-forgot-password_back-icon" />
                         Back
                     </Link>
                     <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-forgot-password_image" />
+                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-forgot-password_image" />
                     </Link>
-                    <p className="aws-amplify-app-forgot-password_header">Reset Password</p>
-                    <Card className="aws-amplify-app-forgot-password_card">
-                        <article className="aws-amplify-app-forgot-password_content">
-                            <p className="aws-amplify-app-forgot-password_message">
+                    <p className="rainbow-auth-firebase-forgot-password_header">Reset Password</p>
+                    <Card className="rainbow-auth-firebase-forgot-password_card">
+                        <article className="rainbow-auth-firebase-forgot-password_content">
+                            <p className="rainbow-auth-firebase-forgot-password_message">
                                 A security code will be sent to your email address.
                             </p>
                             <Field

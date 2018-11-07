@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {Field, reduxForm} from 'redux-form';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Field, reduxForm } from 'redux-form';
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import {loginWithEmailAndPassword, resetAuthForm} from '../../../../redux/actions/authentication';
+import { loginWithEmailAndPassword, resetAuthForm } from '../../../../redux/actions/authentication';
 import LockIcon from '../../../icons/lock/index.js';
 import SocialLogin from '../../../experiences/social-login';
 import './styles.css';
@@ -23,7 +23,7 @@ class SignIn extends Component {
 
     getClassName() {
         const { className } = this.props;
-        return classnames('aws-amplify-app-signin_container', className);
+        return classnames('rainbow-auth-firebase-signin_container', className);
     }
 
     render() {
@@ -38,12 +38,12 @@ class SignIn extends Component {
             <form noValidate onSubmit={handleSubmit(user => loginWithEmailAndPassword(user))}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="aws-amplify-app-signin_image" />
+                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signin_image" />
                     </Link>
-                    <p className="aws-amplify-app-signin_header">Sign in</p>
-                    <Card className="aws-amplify-app-signin_card">
+                    <p className="rainbow-auth-firebase-signin_header">Sign in</p>
+                    <Card className="rainbow-auth-firebase-signin_card">
                         <SocialLogin />
-                        <article className="aws-amplify-app-signin_inputs-container">
+                        <article className="rainbow-auth-firebase-signin_inputs-container">
                             <Field
                                 component={Input}
                                 name="email"
@@ -65,12 +65,12 @@ class SignIn extends Component {
                                 label="Login"
                                 isLoading={isLoading}
                             />
-                            <Link to="/home/forgot-password" className="aws-amplify-app-signin_link">
+                            <Link to="/home/forgot-password" className="rainbow-auth-firebase-signin_link">
                                 Forgot your password?
                             </Link>
                         </article>
                     </Card>
-                    <Link className="aws-amplify-app-signin_link" to="/home/signup">Sign up?</Link>
+                    <Link className="rainbow-auth-firebase-signin_link" to="/home/signup">Sign up?</Link>
                 </section>
             </form>
         );

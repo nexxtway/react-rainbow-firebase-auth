@@ -1,4 +1,4 @@
-.aws-amplify-app-signup_container {
+.rainbow-auth-firebase-signup_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,12 +8,12 @@
     height: 100vh;
 }
 
-.aws-amplify-app-signup_image {
+.rainbow-auth-firebase-signup_image {
     height: 40px;
     width: 40px;
 }
 
-.aws-amplify-app-signup_header {
+.rainbow-auth-firebase-signup_header {
     font-family: Lato;
     font-size: 24px;
     font-weight: 300;
@@ -22,7 +22,7 @@
     margin: 16px 0 20px 0;
 }
 
-.aws-amplify-app-signup_card {
+.rainbow-auth-firebase-signup_card {
     display: flex;
     align-items: center;
     padding: 32px;
@@ -30,7 +30,7 @@
     margin-bottom: 16px;
 }
 
-.aws-amplify-app-signup_inputs-container {
+.rainbow-auth-firebase-signup_inputs-container {
     display: flex;
     flex-direction: column;
     padding-left: 24px;
@@ -38,21 +38,21 @@
     width: 50%;
 }
 
-.aws-amplify-app-signup_inputs-container > :not(:first-child) {
+.rainbow-auth-firebase-signup_inputs-container > :not(:first-child) {
     margin-top: 24px;
 }
 
-.aws-amplify-app-signup_inputs-container > :last-child {
+.rainbow-auth-firebase-signup_inputs-container > :last-child {
     margin-top: 16px;
 }
 
-.aws-amplify-app-signup_link {
+.rainbow-auth-firebase-signup_link {
     color: #01b6f5;
     text-align: center;
     font-size: 1rem;
 }
 
-.aws-amplify-app-signup_terms-conditions {
+.rainbow-auth-firebase-signup_terms-conditions {
     font-size: 14px;
     line-height: 1.5rem;
     text-align: center;

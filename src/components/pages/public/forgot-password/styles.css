@@ -1,4 +1,4 @@
-.aws-amplify-app-forgot-password_container {
+.rainbow-auth-firebase-forgot-password_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.aws-amplify-app-forgot-password_back-link {
+.rainbow-auth-firebase-forgot-password_back-link {
     display: flex;
     align-items: center;
     position: absolute;
@@ -20,23 +20,23 @@
     font-size: 1rem;
 }
 
-.aws-amplify-app-forgot-password_back-link:hover, .aws-amplify-app-forgot-password_back-link:hover svg {
+.rainbow-auth-firebase-forgot-password_back-link:hover, .rainbow-auth-firebase-forgot-password_back-link:hover svg {
     color: #005fb2;
     fill: #005fb2;
 }
 
-.aws-amplify-app-forgot-password_back-icon {
+.rainbow-auth-firebase-forgot-password_back-icon {
     margin-right: 8px;
     width: 16px;
     height: 16px;
 }
 
-.aws-amplify-app-forgot-password_image {
+.rainbow-auth-firebase-forgot-password_image {
     height: 40px;
     width: 40px;
 }
 
-.aws-amplify-app-forgot-password_header {
+.rainbow-auth-firebase-forgot-password_header {
     font-family: Lato;
     font-size: 24px;
     font-weight: 300;
@@ -45,7 +45,7 @@
     margin: 16px 0 20px 0;
 }
 
-.aws-amplify-app-forgot-password_card {
+.rainbow-auth-firebase-forgot-password_card {
     display: flex;
     justify-content: center;
     padding: 32px 40px;
@@ -53,7 +53,7 @@
     margin-bottom: 16px;
 }
 
-.aws-amplify-app-forgot-password_message {
+.rainbow-auth-firebase-forgot-password_message {
     font-size: 14px;
     text-align: center;
     font-weight: 300;
@@ -61,21 +61,21 @@
     padding: 0 32px;
 }
 
-.aws-amplify-app-forgot-password_content {
+.rainbow-auth-firebase-forgot-password_content {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.aws-amplify-app-forgot-password_content > :not(:first-child) {
+.rainbow-auth-firebase-forgot-password_content > :not(:first-child) {
     margin-top: 16px;
 }
 
-.aws-amplify-app-forgot-password_content > :last-child {
+.rainbow-auth-firebase-forgot-password_content > :last-child {
     margin-top: 24px;
 }
 
-.aws-amplify-app-forgot-password_link {
+.rainbow-auth-firebase-forgot-password_link {
     color: #01b6f5;
     text-align: center;
     font-size: 1rem;

@@ -1,41 +1,41 @@
-.aws-amplify-app-social-login_buttons-container {
+.rainbow-auth-firebase-social-login_buttons-container {
     display: flex;
     flex-direction: column;
     padding-right: 24px;
     width: 50%;
 }
 
-.aws-amplify-app-social-login_buttons-container > :not(:last-child) {
+.rainbow-auth-firebase-social-login_buttons-container > :not(:last-child) {
     margin-bottom: 24px;
 }
 
-.aws-amplify-app-social-login_social-icon {
+.rainbow-auth-firebase-social-login_social-icon {
     position: absolute;
     left: 16px;
 }
 
-.aws-amplify-app-social-login_button {
+.rainbow-auth-firebase-social-login_button {
     height: 44px;
 }
 
-.aws-amplify-app-social-login_facebook-button {
+.rainbow-auth-firebase-social-login_facebook-button {
     background-color: #004ca9;
     border-color: #004ca9;
     color: #fff;
 }
 
-.aws-amplify-app-social-login_facebook-button:hover, .aws-amplify-app-social-login_facebook-button:focus {
+.rainbow-auth-firebase-social-login_facebook-button:hover, .rainbow-auth-firebase-social-login_facebook-button:focus {
     background-color: #023a7e;
     border-color: #023a7e;
     color: #fff;
 }
 
-.aws-amplify-app-social-login_amazon-button, .aws-amplify-app-social-login_amazon-button:hover {
+.rainbow-auth-firebase-social-login_amazon-button, .rainbow-auth-firebase-social-login_amazon-button:hover {
     color: #061C3F;
 }
 
 @media (max-width: 620px) {
-    .aws-amplify-app-social-login_buttons-container {
+    .rainbow-auth-firebase-social-login_buttons-container {
         padding: 0 0 24px 0;
         width: 100%;
     }

@@ -16,22 +16,22 @@ function Message(props) {
     } = props;
 
     function getClassName() {
-        return classnames('aws-amplify-app-message_container', className);
+        return classnames('rainbow-auth-firebase-message_container', className);
     }
 
     if (errorMessage) {
         return (
             <article className={getClassName()} style={style}>
-                <div className="aws-amplify-app-message_content">
-                    <ErrorIcon className="aws-amplify-app-message_icon" />
-                    <p className="aws-amplify-app-message_text">
+                <div className="rainbow-auth-firebase-message_content">
+                    <ErrorIcon className="rainbow-auth-firebase-message_icon" />
+                    <p className="rainbow-auth-firebase-message_text">
                         {errorMessage}
                     </p>
                     <ButtonIcon
                         size="medium"
                         icon={<CloseIcon />}
                         onClick={() => {}}
-                        className="aws-amplify-app-message_close-button" />
+                        className="rainbow-auth-firebase-message_close-button" />
                 </div>
             </article>
         );
@@ -42,11 +42,13 @@ function Message(props) {
 Message.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
+    errorMessage: PropTypes.string,
 };
 
 Message.defaultProps = {
     className: undefined,
     style: {},
+    errorMessage: undefined,
 };
 
 function stateToProps(state) {

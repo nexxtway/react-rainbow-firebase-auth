@@ -14,6 +14,7 @@ import SocialLogin from '../../../experiences/social-login';
 import './styles.css';
 import './media-queries.css';
 import EmailIcon from '../../../icons/email';
+import validate from './validate';
 
 class SignIn extends Component {
     componentDidMount() {
@@ -105,5 +106,7 @@ function dispatchToProps(dispatch) {
 export default connect(stateToProps, dispatchToProps)(
     reduxForm({
         form: 'signin',
+        touchOnBlur: false,
+        validate,
     })(SignIn),
 );

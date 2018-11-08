@@ -13,6 +13,7 @@ import './styles.css';
 import './media-queries.css';
 import { resetForm, sendEmailResetPassword } from '../../../../redux/actions/forgotPassword';
 import EmailIcon from '../../../icons/email';
+import validate from './validate';
 
 class ForgotPassword extends Component {
     componentDidMount() {
@@ -99,5 +100,7 @@ function dispatchToProps(dispatch) {
 export default connect(stateToProps, dispatchToProps)(
     reduxForm({
         form: 'forgot-password',
+        touchOnBlur: false,
+        validate,
     })(ForgotPassword),
 );

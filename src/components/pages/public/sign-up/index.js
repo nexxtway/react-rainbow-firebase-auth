@@ -14,7 +14,6 @@ import LockIcon from '../../../icons/lock/index.js';
 import UserIcon from '../../../icons/user/index.js';
 import { loginWithFacebook } from '../../../../redux/actions/authentication';
 import { createAccount, reset } from '../../../../redux/actions/registration';
-
 import './styles.css';
 import './media-queries.css';
 import validate from './validate';
@@ -131,6 +130,7 @@ function dispatchToProps(dispatch) {
 export default connect(stateToProps, dispatchToProps)(
     reduxForm({
         form: 'signup',
+        touchOnBlur: false,
         validate,
     })(SignUp),
 );

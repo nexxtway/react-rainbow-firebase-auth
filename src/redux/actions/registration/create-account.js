@@ -5,7 +5,7 @@ import updateUser from '../../services/registration/update-user';
 
 export const CREATE_ACCOUNT_LOADING = 'CREATE_ACCOUNT_LOADING';
 export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS';
-export const CREATE_ACCOUNT_ERROR = 'CREATE_ACCOUNT_ERROR';
+export const SHOW_ERROR_MESSAGE = 'CREATE_ACCOUNT_ERROR';
 export default function createAccount(user) {
     return (dispatch, getState) => {
         const {
@@ -23,7 +23,7 @@ export default function createAccount(user) {
             })
             .catch((error) => {
                 dispatch({
-                    type: CREATE_ACCOUNT_ERROR,
+                    type: SHOW_ERROR_MESSAGE,
                     error,
                 });
             });

@@ -2,7 +2,7 @@ import { sendPasswordResetEmail } from '../../services/firebase';
 
 export const SEND_PASS_RESET_EMAIL = 'SEND_PASS_RESET_EMAIL';
 export const RESET_EMAIL_SENT = 'RESET_EMAIL_SENT';
-export const PASS_RESET_ERROR = 'PASS_RESET_ERROR';
+export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 export default function sendEmailResetPassword({ email }) {
     return (dispatch) => {
@@ -11,6 +11,6 @@ export default function sendEmailResetPassword({ email }) {
             .then(() => {
                 dispatch({ type: RESET_EMAIL_SENT });
             })
-            .catch(error => dispatch({ type: PASS_RESET_ERROR, error }));
+            .catch(error => dispatch({ type: SHOW_ERROR_MESSAGE, error }));
     };
 }

@@ -2,9 +2,9 @@ import { fromJS } from 'immutable';
 import {
     RESET_EMAIL_SENT,
     SEND_PASS_RESET_EMAIL,
-    PASS_RESET_ERROR,
     RESET_FORM,
 } from '../../actions/forgotPassword';
+import { SHOW_ERROR_MESSAGE } from '../../actions/app/show-error-message';
 
 const initialState = fromJS({
     isLoading: false,
@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
         case RESET_EMAIL_SENT:
             state = state.set('isEmailSent', true);
             return state.set('isLoading', false);
-        case PASS_RESET_ERROR:
+        case SHOW_ERROR_MESSAGE:
             state = state.set('error', action.error);
             return state.set('isLoading', false);
         case RESET_FORM:

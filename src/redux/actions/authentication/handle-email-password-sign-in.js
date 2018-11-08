@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from '../../services/firebase';
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const AUTH_ERROR = 'AUTH_ERROR';
+export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 export default function handleSignInWithEmailAndPassword(user) {
     return (dispatch) => {
@@ -10,7 +10,7 @@ export default function handleSignInWithEmailAndPassword(user) {
             .then(() => dispatch({ type: AUTH_SUCCESS }))
             .catch((error) => {
                 dispatch({
-                    type: AUTH_ERROR,
+                    type: SHOW_ERROR_MESSAGE,
                     error,
                 });
             });

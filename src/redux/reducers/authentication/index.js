@@ -3,7 +3,6 @@ import { fromJS } from 'immutable';
 import {
     USER_AUTHENTICATED,
     USER_LOGOUT_DONE,
-    AUTH_ERROR,
     AUTH_SUCCESS,
     AUTH_START,
     AUTH_RESET_FORM,
@@ -12,6 +11,7 @@ import {
     AUTH_SUCCESS_WITH_FACEBOOK,
     AUTH_ERROR_WITH_FACEBOOK,
 } from '../../actions/authentication';
+import { SHOW_ERROR_MESSAGE } from '../../actions/app/show-error-message';
 
 import * as userGetters from './user-getters';
 
@@ -68,7 +68,7 @@ export default function (state = initialState, action) {
         case AUTH_START:
             return authStart(state);
 
-        case AUTH_ERROR:
+        case SHOW_ERROR_MESSAGE:
             return authError(state, action.error);
 
         case AUTH_SUCCESS:

@@ -16,7 +16,10 @@ const Error = (props) => {
 };
 
 Error.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+Error.defaultProps = {
+    className: undefined,
 };
 
 export default Error;

@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { fromJS } from 'immutable';
 import {
-    CREATE_ACCOUNT_ERROR,
     CREATE_ACCOUNT_LOADING,
     CREATE_ACCOUNT_SUCCESS,
     CREATE_ACCOUNT_RESET_FORM,
 } from '../../actions/registration';
+import { SHOW_ERROR_MESSAGE } from '../../actions/app/show-error-message';
 
 const initialState = fromJS({
     isLoading: false,
@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
             state = state.set('errorMessage', '');
             return state.set('isLoading', true);
 
-        case CREATE_ACCOUNT_ERROR:
+        case SHOW_ERROR_MESSAGE:
             /* eslint-disable no-param-reassign */
             state = state.set('isLoading', false);
             return state.set('errorMessage', action.error);

@@ -28,7 +28,7 @@ describe('sendEmailResetPassword action', () => {
         return sendEmailResetPassword(email)(dispatch)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({ type: 'RESET_EMAIL_SENT' }));
     });
-    it('should dispatch PASS_RESET_ERROR with the error when the reset email fails', () => {
+    it('should dispatch SHOW_ERROR_MESSAGE with the error when the reset email fails', () => {
         const ERROR = 'the email was not send';
         expect.assertions(1);
         const dispatch = jest.fn();
@@ -36,7 +36,7 @@ describe('sendEmailResetPassword action', () => {
         sendPasswordResetEmail.mockReturnValue(Promise.reject(ERROR));
         return sendEmailResetPassword(email)(dispatch)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
-                type: 'PASS_RESET_ERROR',
+                type: 'SHOW_ERROR_MESSAGE',
                 error: 'the email was not send',
             }));
     });

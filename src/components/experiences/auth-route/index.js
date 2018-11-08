@@ -9,12 +9,13 @@ export default function AuthRoute(props) {
     } = props;
 
     function render(props) {
+        const { location } = props;
         if (isAuth) {
             return <Component {...props} />;
         }
         const to = {
             pathname: '/home',
-            state: { from: props.location },
+            state: { from: location },
         };
         return <Redirect to={to} />;
     }

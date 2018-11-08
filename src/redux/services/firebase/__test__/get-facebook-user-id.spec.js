@@ -1,4 +1,4 @@
-import getFacebookUserId from './../get-facebook-user-id';
+import getFacebookUserId from '../get-facebook-user-id';
 
 describe('getFacebookUserId service', () => {
     it('should return the facebook user id', () => {

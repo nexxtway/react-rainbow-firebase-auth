@@ -5,7 +5,7 @@ import {
     CREATE_ACCOUNT_LOADING,
     CREATE_ACCOUNT_SUCCESS,
     CREATE_ACCOUNT_RESET_FORM,
-} from './../../actions/registration';
+} from '../../actions/registration';
 
 const initialState = fromJS({
     isLoading: false,

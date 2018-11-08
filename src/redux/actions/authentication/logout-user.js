@@ -1,4 +1,4 @@
-import { signOutUser } from './../../services/firebase';
+import { signOutUser } from '../../services/firebase';
 
 export const USER_LOGOUT_DONE = 'USER_LOGOUT_DONE';
 export default function logoutUser() {

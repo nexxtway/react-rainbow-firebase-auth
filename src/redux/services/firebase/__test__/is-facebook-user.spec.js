@@ -1,4 +1,4 @@
-import isFacebookUser from './../is-facebook-user';
+import isFacebookUser from '../is-facebook-user';
 
 describe('isFacebookUser service', () => {
     it('should return false if the user passed is not from facebook', () => {

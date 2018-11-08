@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
-import getCurrentLocale from './../../services/app/get-current-locale';
-import { createUser } from './../../services/firebase';
-import updateUser from './../../services/registration/update-user';
+import getCurrentLocale from '../../services/app/get-current-locale';
+import { createUser } from '../../services/firebase';
+import updateUser from '../../services/registration/update-user';
 
 export const CREATE_ACCOUNT_LOADING = 'CREATE_ACCOUNT_LOADING';
 export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS';
@@ -18,7 +18,8 @@ export default function createAccount(user) {
 
         return createUser(email, password)
             .then(user => updateUser(user, { displayName, i18n: { locale } }))
-            .then(() => { dispatch({ type: CREATE_ACCOUNT_SUCCESS });
+            .then(() => {
+                dispatch({ type: CREATE_ACCOUNT_SUCCESS });
             })
             .catch((error) => {
                 dispatch({

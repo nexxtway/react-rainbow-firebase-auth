@@ -14,7 +14,7 @@ const Back = (props) => {
             </g>
         </svg>
     );
-}
+};
 
 Back.propTypes = {
     className: PropTypes.string.isRequired,

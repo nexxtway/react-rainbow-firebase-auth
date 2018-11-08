@@ -1,7 +1,7 @@
-import request from './../';
-import getUserIdToken from './../../get-user-id-token';
-import makeRequest from './../make-request';
-import processResponse from './../process-response';
+import request from '..';
+import getUserIdToken from '../../get-user-id-token';
+import makeRequest from '../make-request';
+import processResponse from '../process-response';
 
 jest.mock('./../../get-user-id-token', () => jest.fn(() => Promise.resolve('1234qwerty')));
 jest.mock('./../make-request', () => jest.fn(() => Promise.resolve({

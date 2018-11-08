@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import * as firebase from 'firebase';
-import firebaseInstance from './../../../firebase';
+import firebaseInstance from '../../../firebase';
 import getFacebookProvider from './get-facebook-provider';
 
 const defaultScopes = ['public_profile', 'email'];

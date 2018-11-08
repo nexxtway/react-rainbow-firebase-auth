@@ -1,5 +1,5 @@
-import updateUser from './../update-user';
-import update from './../../firebase/update';
+import updateUser from '../update-user';
+import update from '../../firebase/update';
 
 jest.mock('./../../firebase/update', () => jest.fn());
 const user = {

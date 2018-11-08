@@ -12,7 +12,7 @@ const FacebookIcon = (props) => {
             </g>
         </svg>
     );
-}
+};
 
 FacebookIcon.propTypes = {
     className: PropTypes.string.isRequired,

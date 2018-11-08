@@ -1,4 +1,4 @@
-import { isFacebookUser, getFacebookUserId } from './../../services/firebase';
+import { isFacebookUser, getFacebookUserId } from '../../services/firebase';
 
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export default function authenticateUser(user) {

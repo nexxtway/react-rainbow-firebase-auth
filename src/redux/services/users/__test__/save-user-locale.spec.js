@@ -1,5 +1,5 @@
-import saveUserLocale from './../save-user-locale';
-import { update, getCurrentUser } from './../../firebase';
+import saveUserLocale from '../save-user-locale';
+import { update, getCurrentUser } from '../../firebase';
 
 jest.mock('./../../firebase/get-current-user', () => jest.fn());
 jest.mock('./../../firebase/update', () => jest.fn(() => Promise.resolve()));

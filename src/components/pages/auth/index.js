@@ -17,10 +17,7 @@ function AuthApp(props) {
 
     return (
         <div className={className} style={style}>
-        Welcome
-            {' '}
-            {name}
-!!
+            {`Welcome ${name}!!`}
             <Button label="Logout" onClick={logoutUser} />
         </div>
     );

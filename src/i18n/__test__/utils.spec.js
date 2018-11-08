@@ -1,6 +1,6 @@
 import { resolveLocale } from '../utils';
 
-const { localStorage } = global.localStorage;
+const { localStorage } = global;
 
 describe('i18n module', () => {
     describe('#resolveLocale()', () => {

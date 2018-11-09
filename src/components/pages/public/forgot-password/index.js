@@ -5,6 +5,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
+import {
+    FormattedMessage,
+    injectIntl,
+    intlShape,
+    defineMessages,
+} from 'react-intl';
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
@@ -16,6 +22,24 @@ import EmailIcon from '../../../icons/email';
 import validate from './validate';
 
 class ForgotPassword extends Component {
+    constructor(props) {
+        super(props);
+        this.translations = defineMessages({
+            emailLabel: {
+                id: 'form.sign.email.label',
+                defaultValue: 'Email address',
+            },
+            emailPlaceholder: {
+                id: 'form.sign.email.placeholder',
+                defaultValue: 'Enter your email address',
+            },
+            forgotButton: {
+                id: 'forgotpassword.button',
+                defaultValue: 'Send email',
+            },
+        });
+    }
+
     componentDidMount() {
         const { resetForm } = this.props;
         resetForm();
@@ -32,34 +56,39 @@ class ForgotPassword extends Component {
             sendEmailResetPassword,
             isLoading,
             style,
+            intl,
         } = this.props;
         return (
             <form onSubmit={handleSubmit(email => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
                     <Link className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
                         <BackIcon className="rainbow-auth-firebase-forgot-password_back-icon" />
-                        Back
+                        <FormattedMessage id="forgotpassword.back.login" defaultMessage="Back" />
                     </Link>
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-forgot-password_image" />
                     </Link>
-                    <p className="rainbow-auth-firebase-forgot-password_header">Reset Password</p>
+                    <p className="rainbow-auth-firebase-forgot-password_header">
+                        <FormattedMessage id="forgotpassword.title" defaultMessage="Reset password" />
+                    </p>
                     <Card className="rainbow-auth-firebase-forgot-password_card">
                         <article className="rainbow-auth-firebase-forgot-password_content">
                             <p className="rainbow-auth-firebase-forgot-password_message">
-                                A security code will be sent to your email address.
+                                <FormattedMessage
+                                    id="forgotpassword.header.text"
+                                    defaultMessage="A security code will be sent to your email address." />
                             </p>
                             <Field
                                 component={Input}
                                 name="email"
-                                label="Email Address"
+                                label={intl.formatMessage(this.translations.emailLabel)}
                                 required
-                                placeholder="Enter your email address"
+                                placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label="Send email"
+                                label={intl.formatMessage(this.translations.forgotButton)}
                                 isLoading={isLoading}
                             />
                         </article>
@@ -77,6 +106,7 @@ ForgotPassword.propTypes = {
     handleSubmit: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
+    intl: intlShape.isRequired,
 };
 
 ForgotPassword.defaultProps = {
@@ -102,5 +132,5 @@ export default connect(stateToProps, dispatchToProps)(
         form: 'forgot-password',
         touchOnBlur: false,
         validate,
-    })(ForgotPassword),
+    })(injectIntl(ForgotPassword)),
 );

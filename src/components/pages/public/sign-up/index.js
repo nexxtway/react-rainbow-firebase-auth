@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -5,6 +6,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
+import {
+    FormattedMessage,
+    injectIntl,
+    intlShape,
+    defineMessages,
+} from 'react-intl';
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
@@ -19,6 +26,40 @@ import './media-queries.css';
 import validate from './validate';
 
 class SignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.translations = defineMessages({
+            usernameLabel: {
+                id: 'form.sign.username.label',
+                defaultValue: 'User name',
+            },
+            usernamePlaceholder: {
+                id: 'form.sign.username.placeholder',
+                defaultValue: 'Enter your user name',
+            },
+            emailLabel: {
+                id: 'form.sign.email.label',
+                defaultValue: 'Email address',
+            },
+            emailPlaceholder: {
+                id: 'form.sign.email.placeholder',
+                defaultValue: 'Enter your email address',
+            },
+            passwordLabel: {
+                id: 'form.sign.password.label',
+                defaultValue: 'Password',
+            },
+            passwordPlaceholder: {
+                id: 'form.sign.password.placeholder',
+                defaultValue: 'Enter your password',
+            },
+            signupButton: {
+                id: 'login.to.signup',
+                defaultValue: 'Create Account',
+            },
+        });
+    }
+
     componentDidMount() {
         const { reset } = this.props;
         reset();
@@ -40,6 +81,7 @@ class SignUp extends Component {
             isLoading,
             createAccount,
             style,
+            intl,
         } = this.props;
 
         return (
@@ -48,7 +90,9 @@ class SignUp extends Component {
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
                     </Link>
-                    <p className="rainbow-auth-firebase-signup_header">Sign up</p>
+                    <p className="rainbow-auth-firebase-signup_header">
+                        <FormattedMessage id="form.sign.up" defaultMessage="Sign up" />
+                    </p>
                     <Card className="rainbow-auth-firebase-signup_card">
                         <SocialLogin />
                         <article className="rainbow-auth-firebase-signup_inputs-container">
@@ -56,39 +100,45 @@ class SignUp extends Component {
                             <Field
                                 component={Input}
                                 name="username"
-                                label="Username"
+                                label={intl.formatMessage(this.translations.usernameLabel)}
                                 required
-                                placeholder="Enter your username"
+                                placeholder={intl.formatMessage(this.translations.usernamePlaceholder)}
                                 icon={<UserIcon />} />
                             <Field
                                 component={Input}
                                 name="email"
-                                label="Email Address"
+                                label={intl.formatMessage(this.translations.emailLabel)}
                                 required
-                                placeholder="Enter your email address"
+                                placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label="Password"
-                                placeholder="Enter your password"
+                                label={intl.formatMessage(this.translations.passwordLabel)}
+                                placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
                                 type="password"
                                 required
                                 icon={<LockIcon />} />
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label="Create Account"
+                                label={intl.formatMessage(this.translations.signupButton)}
                                 onClick={handleSubmit((user) => { createAccount(user); })}
                                 isLoading={isLoading}
                             />
                             <p className="rainbow-auth-firebase-signup_terms-conditions">
-                                By creating an account you agree to our Terms and
-                                Conditions and our Privacy Policy.
+                                <FormattedMessage
+                                    id="sign.up.terms.and.conditions"
+                                    defaultMessage="By creating an account you agree to our Terms and
+                                Conditions and our Privacy Policy." />
                             </p>
                         </article>
                     </Card>
-                    <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">Sign in?</Link>
+                    <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">
+                        <FormattedMessage
+                            id="sign.in"
+                            defaultMessage="Sign in?" />
+                    </Link>
                 </section>
             </form>
         );
@@ -102,6 +152,7 @@ SignUp.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     className: PropTypes.string,
     style: PropTypes.object,
+    intl: intlShape.isRequired,
 };
 
 SignUp.defaultProps = {
@@ -132,5 +183,5 @@ export default connect(stateToProps, dispatchToProps)(
         form: 'signup',
         touchOnBlur: false,
         validate,
-    })(SignUp),
+    })(injectIntl(SignUp)),
 );

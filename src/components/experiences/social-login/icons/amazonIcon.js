@@ -17,7 +17,10 @@ const AmazonIcon = (props) => {
 };
 
 AmazonIcon.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+AmazonIcon.defaultProps = {
+    className: undefined,
 };
 
 export default AmazonIcon;

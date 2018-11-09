@@ -11,7 +11,10 @@ const Close = (props) => {
 };
 
 Close.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+Close.defaultProps = {
+    className: undefined,
 };
 
 export default Close;

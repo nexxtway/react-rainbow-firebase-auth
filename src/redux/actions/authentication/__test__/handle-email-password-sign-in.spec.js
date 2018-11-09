@@ -30,7 +30,7 @@ describe('handleSignInWithEmailAndPassword', () => {
             });
     });
 
-    it('should dispatch AUTH_ERROR with the error rejected', () => {
+    it('should dispatch SHOW_ERROR_MESSAGE with the error rejected', () => {
         const ERROR = 'The user does not exist';
         expect.assertions(1);
         const dispatch = jest.fn();
@@ -39,7 +39,7 @@ describe('handleSignInWithEmailAndPassword', () => {
         return handleSignInWithEmailAndPassword(user)(dispatch)
             .then(() => {
                 expect(dispatch.mock.calls[0][0]).toEqual({
-                    type: 'AUTH_ERROR',
+                    type: 'SHOW_ERROR_MESSAGE',
                     error: 'The user does not exist',
                 });
             });

@@ -21,7 +21,6 @@ export default function (state = initialState, action) {
             state = state.set('isEmailSent', true);
             return state.set('isLoading', false);
         case SHOW_ERROR_MESSAGE:
-            state = state.set('error', action.error);
             return state.set('isLoading', false);
         case RESET_FORM:
             return initialState;

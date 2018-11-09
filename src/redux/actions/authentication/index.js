@@ -6,7 +6,7 @@ import loginWithFacebook, {
     AUTH_ERROR_WITH_FACEBOOK,
 } from './facebook-login';
 import loginWithEmailAndPassword, { AUTH_START } from './email-password-login';
-import { AUTH_SUCCESS, SHOW_ERROR_MESSAGE } from './handle-email-password-sign-in';
+import { AUTH_SUCCESS } from './handle-email-password-sign-in';
 import resetAuthForm, { AUTH_RESET_FORM } from './reset-auth-form';
 import updateUserData, { UPDATE_USER_DATA } from './update-user-data';
 
@@ -21,7 +21,6 @@ export {
     AUTH_ERROR_WITH_FACEBOOK,
     AUTH_START,
     AUTH_SUCCESS,
-    SHOW_ERROR_MESSAGE,
     loginWithEmailAndPassword,
     AUTH_RESET_FORM,
     resetAuthForm,

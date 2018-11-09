@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
             return state.set('isInitializing', false);
 
         case SHOW_ERROR_MESSAGE:
-            return state.set('errorMessage', action.error.message);
+            return state.set('errorMessage', action.message);
 
         case HIDE_ERROR_MESSAGE:
             return state.set('errorMessage', undefined);

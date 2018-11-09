@@ -21,8 +21,7 @@ export default function (state = initialState, action) {
 
         case SHOW_ERROR_MESSAGE:
             /* eslint-disable no-param-reassign */
-            state = state.set('isLoading', false);
-            return state.set('errorMessage', action.error);
+            return state.set('isLoading', false);
 
         case CREATE_ACCOUNT_SUCCESS:
             return state.set('isLoading', false);

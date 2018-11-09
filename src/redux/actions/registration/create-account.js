@@ -2,10 +2,10 @@
 import getCurrentLocale from '../../services/app/get-current-locale';
 import { createUser } from '../../services/firebase';
 import updateUser from '../../services/registration/update-user';
+import showErrorMessage from '../app/show-error-message';
 
 export const CREATE_ACCOUNT_LOADING = 'CREATE_ACCOUNT_LOADING';
 export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS';
-export const SHOW_ERROR_MESSAGE = 'CREATE_ACCOUNT_ERROR';
 export default function createAccount(user) {
     return (dispatch, getState) => {
         const {
@@ -21,11 +21,6 @@ export default function createAccount(user) {
             .then(() => {
                 dispatch({ type: CREATE_ACCOUNT_SUCCESS });
             })
-            .catch((error) => {
-                dispatch({
-                    type: SHOW_ERROR_MESSAGE,
-                    error,
-                });
-            });
+            .catch(error => dispatch(showErrorMessage(error)));
     };
 }

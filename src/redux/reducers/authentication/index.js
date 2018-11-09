@@ -36,11 +36,6 @@ function authStart(state) {
     return state.set('isLoading', true);
 }
 
-function authError(state, error) {
-    state = state.set('isLoading', false);
-    return state.set('errorMessage', error);
-}
-
 function updateUserData(state, data) {
     const user = state.get('user');
     return state.set('user', Object.assign(user, data));
@@ -69,7 +64,7 @@ export default function (state = initialState, action) {
             return authStart(state);
 
         case SHOW_ERROR_MESSAGE:
-            return authError(state, action.error);
+            return state.set('isLoading', false);
 
         case AUTH_SUCCESS:
             return state.set('isLoading', false);

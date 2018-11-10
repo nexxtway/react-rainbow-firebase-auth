@@ -1,7 +1,7 @@
 {
     "en": {
         "actions": "Actions",
-        "authenticated.exp.my.profile": "My profile",
+        "authenticated.profile.edit": "Edit profile",
         "authenticated.exp.personal.inf": "Personal information",
         "authenticated.exp.transactions": "History",
         "authenticated.exp.welcome": "Welcome {name}!!",
@@ -126,7 +126,7 @@
     },
     "es": {
         "actions": "Acciones",
-        "authenticated.exp.my.profile": "Mi perfil",
+        "authenticated.profile.edit": "Editar perfil",
         "authenticated.exp.personal.inf": "Información personal",
         "authenticated.exp.addressbook": "Contactos",
         "authenticated.exp.transactions": "Historial",

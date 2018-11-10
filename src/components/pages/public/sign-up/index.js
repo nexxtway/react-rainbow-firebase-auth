@@ -43,12 +43,16 @@ class SignUp extends Component {
         } = this.props;
 
         return (
-            <form noValidate onSubmit={handleSubmit((user) => { createAccount(user); })}>
+            <form noValidate onSubmit={handleSubmit(user => createAccount(user))}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
                     </Link>
-                    <p className="rainbow-auth-firebase-signup_header">Sign up</p>
+                    <p className="rainbow-auth-firebase-signup_header">Create Account</p>
+                    <p className="rainbow-auth-firebase-signup_have-account">
+                        Already have an account?
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/signin"> Login here</Link>
+                    </p>
                     <Card className="rainbow-auth-firebase-signup_card">
                         <SocialLogin />
                         <article className="rainbow-auth-firebase-signup_inputs-container">
@@ -58,20 +62,20 @@ class SignUp extends Component {
                                 name="username"
                                 label="Username"
                                 required
-                                placeholder="Enter your username"
+                                placeholder="Username"
                                 icon={<UserIcon />} />
                             <Field
                                 component={Input}
                                 name="email"
                                 label="Email Address"
                                 required
-                                placeholder="Enter your email address"
+                                placeholder="Email Address"
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
                                 label="Password"
-                                placeholder="Enter your password"
+                                placeholder="Password"
                                 type="password"
                                 required
                                 icon={<LockIcon />} />
@@ -82,13 +86,14 @@ class SignUp extends Component {
                                 onClick={handleSubmit((user) => { createAccount(user); })}
                                 isLoading={isLoading}
                             />
-                            <p className="rainbow-auth-firebase-signup_terms-conditions">
-                                By creating an account you agree to our Terms and
-                                Conditions and our Privacy Policy.
-                            </p>
                         </article>
                     </Card>
-                    <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">Sign in?</Link>
+                    <p className="rainbow-auth-firebase-signup_terms-conditions">
+                        By creating an account you agree to our<br/>
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/terms"> Terms and Conditions </Link>
+                        and our
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/policy"> Privacy Policy</Link>
+                    </p>
                 </section>
             </form>
         );

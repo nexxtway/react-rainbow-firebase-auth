@@ -6,7 +6,7 @@
 }
 
 .rainbow-auth-firebase-social-login_buttons-container > :not(:last-child) {
-    margin-bottom: 24px;
+    margin-bottom: 34px;
 }
 
 .rainbow-auth-firebase-social-login_social-icon {
@@ -32,6 +32,14 @@
 
 .rainbow-auth-firebase-social-login_amazon-button, .rainbow-auth-firebase-social-login_amazon-button:hover {
     color: #061C3F;
+}
+
+.rainbow-auth-firebase-social-language {
+    position: absolute;
+    width: 140px;
+    height: 40px;
+    align-self: center;
+    bottom: 32px
 }
 
 @media (max-width: 620px) {

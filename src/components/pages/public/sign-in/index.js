@@ -27,25 +27,13 @@ class SignIn extends Component {
     constructor(props) {
         super(props);
         this.translations = defineMessages({
-            emailLabel: {
-                id: 'form.sign.email.label',
-                defaultValue: 'Email address',
-            },
             emailPlaceholder: {
                 id: 'form.sign.email.placeholder',
                 defaultValue: 'Enter your email address',
             },
-            passwordLabel: {
-                id: 'form.sign.password.label',
-                defaultValue: 'Password',
-            },
             passwordPlaceholder: {
                 id: 'form.sign.password.placeholder',
                 defaultValue: 'Enter your password',
-            },
-            loginButton: {
-                id: 'login.to.login',
-                defaultValue: 'Login',
             },
         });
     }
@@ -86,14 +74,14 @@ class SignIn extends Component {
                             <Field
                                 component={Input}
                                 name="email"
-                                label={intl.formatMessage(this.translations.emailLabel)}
+                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label={intl.formatMessage(this.translations.passwordLabel)}
+                                label={<FormattedMessage id="form.sign.password.label" defaultMessage="Password" />}
                                 placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
                                 type="password"
                                 required
@@ -101,7 +89,7 @@ class SignIn extends Component {
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label={intl.formatMessage(this.translations.loginButton)}
+                                label={<FormattedMessage id="login.to.login" defaultMessage="Login" />}
                                 isLoading={isLoading}
                             />
                             <Link to="/home/forgot-password" className="rainbow-auth-firebase-signin_link">

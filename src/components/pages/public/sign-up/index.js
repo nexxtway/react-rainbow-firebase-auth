@@ -29,33 +29,17 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.translations = defineMessages({
-            usernameLabel: {
-                id: 'form.sign.username.label',
-                defaultValue: 'User name',
-            },
             usernamePlaceholder: {
                 id: 'form.sign.username.placeholder',
                 defaultValue: 'Enter your user name',
-            },
-            emailLabel: {
-                id: 'form.sign.email.label',
-                defaultValue: 'Email address',
             },
             emailPlaceholder: {
                 id: 'form.sign.email.placeholder',
                 defaultValue: 'Enter your email address',
             },
-            passwordLabel: {
-                id: 'form.sign.password.label',
-                defaultValue: 'Password',
-            },
             passwordPlaceholder: {
                 id: 'form.sign.password.placeholder',
                 defaultValue: 'Enter your password',
-            },
-            signupButton: {
-                id: 'login.to.signup',
-                defaultValue: 'Create Account',
             },
         });
     }
@@ -100,21 +84,21 @@ class SignUp extends Component {
                             <Field
                                 component={Input}
                                 name="username"
-                                label={intl.formatMessage(this.translations.usernameLabel)}
+                                label={<FormattedMessage id="form.sign.username.label" defaultMessage="User name" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.usernamePlaceholder)}
                                 icon={<UserIcon />} />
                             <Field
                                 component={Input}
                                 name="email"
-                                label={intl.formatMessage(this.translations.emailLabel)}
+                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label={intl.formatMessage(this.translations.passwordLabel)}
+                                label={<FormattedMessage id="form.sign.password.label" defaultMessage="Password" />}
                                 placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
                                 type="password"
                                 required
@@ -122,7 +106,7 @@ class SignUp extends Component {
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label={intl.formatMessage(this.translations.signupButton)}
+                                label={<FormattedMessage id="login.to.signup" defaultMessage="Create Account" />}
                                 onClick={handleSubmit((user) => { createAccount(user); })}
                                 isLoading={isLoading}
                             />

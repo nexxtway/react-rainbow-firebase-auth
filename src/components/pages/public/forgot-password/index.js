@@ -25,17 +25,9 @@ class ForgotPassword extends Component {
     constructor(props) {
         super(props);
         this.translations = defineMessages({
-            emailLabel: {
-                id: 'form.sign.email.label',
-                defaultValue: 'Email address',
-            },
             emailPlaceholder: {
                 id: 'form.sign.email.placeholder',
                 defaultValue: 'Enter your email address',
-            },
-            forgotButton: {
-                id: 'forgotpassword.button',
-                defaultValue: 'Send email',
             },
         });
     }
@@ -81,14 +73,14 @@ class ForgotPassword extends Component {
                             <Field
                                 component={Input}
                                 name="email"
-                                label={intl.formatMessage(this.translations.emailLabel)}
+                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label={intl.formatMessage(this.translations.forgotButton)}
+                                label={<FormattedMessage id="forgotpassword.button" defaultMessage="Send email" />}
                                 isLoading={isLoading}
                             />
                         </article>

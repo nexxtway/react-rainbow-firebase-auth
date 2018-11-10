@@ -26,5 +26,5 @@ export function resolveError(error) {
         }
         return error.message;
     }
-    return error;
+    return error.message || JSON.stringify(error);
 }

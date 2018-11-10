@@ -1,38 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { FormattedMessage } from 'react-intl';
 import AvatarMenu from 'react-rainbow-components/components/AvatarMenu';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import MenuDivider from 'react-rainbow-components/components/MenuDivider';
 import MenuItem from 'react-rainbow-components/components/MenuItem';
-import Select from 'react-rainbow-components/components/Select';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {
-    FormattedMessage,
-} from 'react-intl';
 import { logoutUser } from '../../../redux/actions/authentication';
+import LanguageSelector from '../../experiences/language-selector';
 import PowerIcon from './powerIcon';
 import PencilIcon from './pencilIcon';
 import './styles.css';
-
-const languageOptions = [
-    {
-        value: 'en',
-        label: 'English',
-    },
-    {
-        value: 'es',
-        label: 'Español',
-    },
-];
 
 function AuthApp(props) {
     const {
         className,
         style,
+        user,
         logoutUser,
     } = props;
+
+    const userName = {
+        name: user.displayName,
+    };
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase-auth_container', className);
 
@@ -40,28 +32,29 @@ function AuthApp(props) {
         <section className={getContainerClassNames()} style={style}>
             <div className="rainbow-auth-firebase-auth_top-bar">
                 <img
-                    src="/assets/rainbow-logo.svg"
+                    src={user.photoURL}
                     alt="rainbow logo"
                     className="rainbow-auth-firebase-signin_image" />
                 <div className="rainbow-auth-firebase_top-bar-content">
-                    <Select options={languageOptions} className="rainbow-auth-firebase_language-selector" />
+                    <LanguageSelector />
                     <AvatarMenu
                         id="avatar-menu"
-                        src="/assets/user2.jpg"
-                        assistiveText="Tahimi Leon"
+                        src={user.photoURL}
+                        assistiveText={user.displayName}
                         menuAlignment="right"
                         menuSize="small"
                         avatarSize="large"
-                        title="Tahimi Leon">
-                        <li>
+                        className="rainbow-auth-firebase_avatar-menu"
+                        title={user.displayName}>
+                        <li className="rainbow-auth-firebase_avatar-menu_user">
                             <Avatar
                                 src="/assets/user2.jpg"
-                                assistiveText="Tahimi Leon"
-                                title="Tahimi Leon"
+                                assistiveText={user.displayName}
+                                title={user.displayName}
                                 size="medium" />
-                            <div className="rainbow-m-left_x-small">
-                                <p className="rainbow-font-size-text_medium rainbow-color_dark-1">Tahimi</p>
-                                <p className="rainbow-font-size-text_small rainbow-color_gray-3">janedoe@gmail.com</p>
+                            <div className="rainbow-auth-firebase_avatar-menu_user-detail">
+                                <p className="rainbow-auth-firebase_avatar-menu_user-name">{user.displayName}</p>
+                                <p className="rainbow-auth-firebase_avatar-menu_user-email">{user.email}</p>
                             </div>
                         </li>
                         <MenuDivider variant="space" />
@@ -77,7 +70,9 @@ function AuthApp(props) {
                     </AvatarMenu>
                 </div>
             </div>
-            <span className="rainbow-auth-firebase-auth_title">Wellcome Tahimi</span>
+            <span className="rainbow-auth-firebase-auth_title">
+                <FormattedMessage id="welcome" values={userName} defaultMessage={`Wellcome ${user.displayName}`} />
+            </span>
         </section>
     );
 }

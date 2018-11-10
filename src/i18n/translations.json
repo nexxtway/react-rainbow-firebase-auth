@@ -122,7 +122,8 @@
         "verify.your.number": "Verify your number",
         "via.email": "Via email",
         "view.history": "View history",
-        "wrong.password": "The password is invalid"
+        "wrong.password": "The password is invalid",
+        "welcome": "Wellcome {name}"
     },
     "es": {
         "actions": "Acciones",
@@ -256,6 +257,7 @@
         "verify.your.number": "Verifique su número",
         "via.email": "Vía correo electrónico",
         "view.history": "Ver historial",
-        "wrong.password": "La contraseña es inválida"
+        "wrong.password": "La contraseña es inválida",
+        "welcome": "Bienvenido"
     }
 }

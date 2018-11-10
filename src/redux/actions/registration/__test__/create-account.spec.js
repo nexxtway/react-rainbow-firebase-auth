@@ -1,6 +1,7 @@
 import createAccount from '../create-account';
 import createUser from '../../../services/firebase/create-user';
 import updateUser from '../../../services/registration/update-user';
+import showErrorMessage from '../../app/show-error-message';
 
 jest.mock('./../../../services/app/get-current-locale', () => jest.fn(() => 'en'));
 jest.mock('./../../../services/firebase/create-user', () => jest.fn(() => Promise.resolve({
@@ -8,6 +9,8 @@ jest.mock('./../../../services/firebase/create-user', () => jest.fn(() => Promis
     uid: 'user_60',
 })));
 jest.mock('./../../../services/registration/update-user', () => jest.fn());
+jest.mock('../../app/show-error-message', () => jest.fn());
+
 const user = {
     name: 'Leo',
     email: 'leo@gmail.com',
@@ -53,17 +56,17 @@ describe('createAccount action', () => {
         return createAccount(user)(dispatch, getState)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({ type: 'CREATE_ACCOUNT_SUCCESS' }));
     });
-    it('should dispatch CREATE_ACCOUNT_ERROR with the error received when createUser reject', () => {
+    it('should dispatch showErrorMessage with the error received when createUser reject', () => {
         const ERROR = 'registration error';
-        expect.assertions(1);
+        expect.assertions(2);
         const dispatch = jest.fn();
         const getState = jest.fn();
         createUser.mockReset();
         createUser.mockReturnValue(Promise.reject(ERROR));
         return createAccount(user)(dispatch, getState)
-            .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
-                type: 'SHOW_ERROR_MESSAGE',
-                message: 'registration error',
-            }));
+            .then(() => {
+                expect(dispatch).toHaveBeenCalledTimes(2);
+                expect(showErrorMessage).toHaveBeenCalledWith(ERROR);
+            });
     });
 });

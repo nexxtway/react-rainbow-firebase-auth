@@ -40,7 +40,7 @@ describe('handleSignInWithEmailAndPassword', () => {
             .then(() => {
                 expect(dispatch.mock.calls[0][0]).toEqual({
                     type: 'SHOW_ERROR_MESSAGE',
-                    error: 'The user does not exist',
+                    message: 'The user does not exist',
                 });
             });
     });

@@ -30,10 +30,6 @@
     color: #fff;
 }
 
-.rainbow-auth-firebase-social-login_amazon-button, .rainbow-auth-firebase-social-login_amazon-button:hover {
-    color: #061C3F;
-}
-
 @media (max-width: 620px) {
     .rainbow-auth-firebase-social-login_buttons-container {
         padding: 0 0 24px 0;

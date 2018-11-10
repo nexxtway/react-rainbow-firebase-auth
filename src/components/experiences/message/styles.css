@@ -12,8 +12,8 @@
 .rainbow-auth-firebase-message_content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    max-width: 960px;
+    justify-content: space-between;
+    width: 980px;
 }
 
 .rainbow-auth-firebase-message_text {
@@ -21,6 +21,8 @@
     padding: 0 16px;
     font-size: 14px;
     font-weight: 300;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .rainbow-auth-firebase-message_icon, .rainbow-auth-firebase-message_close-button {

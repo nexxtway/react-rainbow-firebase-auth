@@ -22,7 +22,6 @@
     font-size: 14px;
     font-weight: 300;
     flex-grow: 1;
-    text-align: center;
 }
 
 .rainbow-auth-firebase-message_icon, .rainbow-auth-firebase-message_close-button {

@@ -31,8 +31,6 @@ function AuthApp(props) {
         name: user.getUsername ? user.getUsername() : user.name,
     };
 
-    console.log(userName, user);
-
     return (
         <div className={className} style={style}>
             <FormattedMessage

@@ -62,8 +62,8 @@ describe('createAccount action', () => {
         createUser.mockReturnValue(Promise.reject(ERROR));
         return createAccount(user)(dispatch, getState)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
-                type: 'CREATE_ACCOUNT_ERROR',
-                error: 'registration error',
+                type: 'SHOW_ERROR_MESSAGE',
+                message: 'registration error',
             }));
     });
 });

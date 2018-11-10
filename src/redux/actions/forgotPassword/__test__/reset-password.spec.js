@@ -37,7 +37,7 @@ describe('sendEmailResetPassword action', () => {
         return sendEmailResetPassword(email)(dispatch)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
                 type: 'SHOW_ERROR_MESSAGE',
-                error: 'the email was not send',
+                message: 'the email was not send',
             }));
     });
 });

@@ -13,6 +13,7 @@ import { logoutUser } from '../../../../redux/actions/authentication';
 import LanguageSelector from '../../../experiences/language-selector';
 import PowerIcon from '../../../icons/power';
 import PencilIcon from '../../../icons/pencil';
+import PersonIcon from '../../../icons/person';
 import './styles.css';
 
 function Home(props) {
@@ -40,6 +41,7 @@ function Home(props) {
                     <LanguageSelector />
                     <AvatarMenu
                         src={user.photoURL}
+                        icon={<PersonIcon />}
                         assistiveText={user.displayName}
                         menuAlignment="right"
                         menuSize="small"
@@ -49,6 +51,7 @@ function Home(props) {
                         <li className="rainbow-auth-firebase_avatar-menu_user">
                             <Avatar
                                 src={user.photoURL}
+                                icon={<PersonIcon />}
                                 assistiveText={user.displayName}
                                 title={user.displayName}
                                 size="medium" />

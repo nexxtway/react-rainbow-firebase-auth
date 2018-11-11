@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import firebaseInstance from '../../../firebase';
 import getGoogleProvider from './get-google-provider';
 

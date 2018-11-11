@@ -1,4 +1,4 @@
-const localStoreI18nLocale = 'ponlaya-i18n-user-locale';
+const localStoreI18nLocale = 'rainbow-firebase-auth-i18n-user-locale';
 const validUserLocales = {
     en: true,
     es: true,

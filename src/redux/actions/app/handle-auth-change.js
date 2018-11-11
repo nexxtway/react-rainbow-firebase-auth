@@ -1,6 +1,4 @@
-import saveUserLocaleInDb from '../../services/users/save-user-locale';
 import { authenticateUser } from '../authentication';
-import getCurrentLocale from '../../services/app/get-current-locale';
 
 export const START_APP_INITIALIZATION = 'START_APP_INITIALIZATION';
 function startAppInitialization() {
@@ -17,15 +15,11 @@ function doneAppInitialization() {
 }
 
 export default function handleAuthenticationChange(user) {
-    return (dispatch, getState) => {
-        const locale = getCurrentLocale(getState());
+    return (dispatch) => {
         if (user) {
-            saveUserLocaleInDb(locale);
             dispatch(startAppInitialization());
-            setTimeout(() => {
-                dispatch(authenticateUser(user));
-                dispatch(doneAppInitialization());
-            }, 0);
+            dispatch(authenticateUser(user));
+            dispatch(doneAppInitialization());
         } else {
             dispatch(doneAppInitialization());
         }

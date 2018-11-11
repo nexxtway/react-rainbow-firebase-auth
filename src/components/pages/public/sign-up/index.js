@@ -83,7 +83,7 @@ class SignUp extends Component {
 
                             <Field
                                 component={Input}
-                                name="username"
+                                name="name"
                                 label={<FormattedMessage id="form.sign.username.label" defaultMessage="User name" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.usernamePlaceholder)}

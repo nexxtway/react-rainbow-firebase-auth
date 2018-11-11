@@ -47,19 +47,4 @@ describe('loginWithFacebook', () => {
                 expect(dispatch.mock.calls[1][0]).toEqual({ type: 'AUTH_SUCCESS_WITH_FACEBOOK' });
             });
     });
-
-    it('should dispatch AUTH_ERROR_WITH_FACEBOOK with the error passed', () => {
-        expect.assertions(1);
-        const dispatch = jest.fn();
-        const getState = jest.fn();
-        signInWithFacebook.mockReset();
-        signInWithFacebook.mockReturnValue(Promise.reject());
-        return loginWithFacebook()(dispatch, getState)
-            .then((error) => {
-                expect(dispatch.mock.calls[1][0]).toEqual({
-                    type: 'AUTH_ERROR_WITH_FACEBOOK',
-                    error,
-                });
-            });
-    });
 });

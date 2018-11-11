@@ -3,6 +3,7 @@ import getCurrentUser from './get-current-user';
 import onAuthStateChanged from './auth-changed';
 import signInWithEmailAndPassword from './email-password-sign-in';
 import signInWithFacebook from './facebook-sign-in';
+import signInWithGoogle from './google-sign-in';
 import signOutUser from './sign-out-user';
 import sendPasswordResetEmail from './send-password-reset-email';
 import createUser from './create-user';
@@ -16,6 +17,7 @@ export {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithFacebook,
+    signInWithGoogle,
     signOutUser,
     sendPasswordResetEmail,
     createUser,

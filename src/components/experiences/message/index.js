@@ -44,7 +44,7 @@ function Message(props) {
 Message.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    errorMessage: PropTypes.string,
+    errorMessage: PropTypes.node,
     hideErrorMessage: PropTypes.func.isRequired,
 };
 

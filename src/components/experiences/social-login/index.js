@@ -54,7 +54,7 @@ function SocialLogin(props) {
 SocialLogin.propTypes = {
     loginWithFacebook: PropTypes.func.isRequired,
     isLoadingFacebook: PropTypes.bool.isRequired,
-    loginWithGoogle: PropTypes.bool.isRequired,
+    loginWithGoogle: PropTypes.func.isRequired,
     isLoadingGoogle: PropTypes.bool.isRequired,
     changeLocale: PropTypes.func.isRequired,
     locale: PropTypes.string.isRequired,

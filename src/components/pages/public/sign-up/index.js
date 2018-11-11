@@ -69,15 +69,20 @@ class SignUp extends Component {
         } = this.props;
 
         return (
-            <form noValidate onSubmit={handleSubmit((user) => { createAccount(user); })}>
+            <form noValidate onSubmit={handleSubmit(createAccount)}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
                     </Link>
-                    <p className="rainbow-auth-firebase-signup_header">Create Account</p>
+                    <p className="rainbow-auth-firebase-signup_header">
+                        <FormattedMessage id="form.create.account" defaultMessage="Create Account" />
+                    </p>
                     <p className="rainbow-auth-firebase-signup_have-account">
-                        Already have an account?
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/signin"> Login here</Link>
+                        <FormattedMessage id="login.do.you.have.account" defaultMessage="Already have an account?" />
+                        <span>{' '}</span>
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">
+                            <FormattedMessage id="login.here" defaultMessage="Login here" />
+                        </Link>
                     </p>
                     <Card className="rainbow-auth-firebase-signup_card">
                         <SocialLogin />
@@ -109,16 +114,22 @@ class SignUp extends Component {
                                 variant="brand"
                                 type="submit"
                                 label={<FormattedMessage id="login.to.signup" defaultMessage="Create Account" />}
-                                onClick={handleSubmit((user) => { createAccount(user); })}
                                 isLoading={isLoading}
                             />
                         </article>
                     </Card>
                     <p className="rainbow-auth-firebase-signup_terms-conditions">
-                        By creating an account you agree to our<br/>
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/terms"> Terms and Conditions </Link>
-                        and our
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/policy"> Privacy Policy</Link>
+                        <FormattedMessage id="sign.up.creating.account.agree" defaultMessage="By creating an account you agree to our" />
+                        <br />
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/terms">
+                            <FormattedMessage id="sign.up.terms" defaultMessage="Terms and Conditions" />
+                        </Link>
+                        <span>{' '}</span>
+                        <FormattedMessage id="sign.up.terms.and" defaultMessage="and our" />
+                        <span>{' '}</span>
+                        <Link className="rainbow-auth-firebase-signup_link" to="/home/privacy">
+                            <FormattedMessage id="sign.up.privacy" defaultMessage="Privacy Policy" />
+                        </Link>
                     </p>
                 </section>
             </form>

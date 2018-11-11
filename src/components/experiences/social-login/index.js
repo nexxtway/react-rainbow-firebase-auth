@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import Button from 'react-rainbow-components/components/Button';
 import Select from 'react-rainbow-components/components/Select';
 import FacebookIcon from './icons/facebookIcon';
@@ -15,10 +15,13 @@ const languages = [
     { value: 'en', label: 'English' },
     { value: 'es', label: 'Spanish' },
 ];
+
 function SocialLogin(props) {
     const {
         loginWithFacebook,
         isLoadingFacebook,
+        changeLocale,
+        locale,
     } = props;
     return (
         <article className="rainbow-auth-firebase-social-login_buttons-container">
@@ -31,9 +34,13 @@ function SocialLogin(props) {
             </Button>
             <Button variant="neutral" className="rainbow-auth-firebase-social-login_button" onClick={() => {}}>
                 <GoogleIcon className="rainbow-auth-firebase-social-login_social-icon" />
-                Login with Google
+                <FormattedMessage id="google.button.login" defaultMessage="Login with Google" />
             </Button>
-            <Select className="rainbow-auth-firebase-social-language" options={languages} onChange={value => changeLocale(value)} />
+            <Select
+                className="rainbow-auth-firebase-social-language"
+                options={languages}
+                value={locale}
+                onChange={event => changeLocale(event.target.value)} />
         </article>
     );
 }
@@ -41,12 +48,15 @@ function SocialLogin(props) {
 SocialLogin.propTypes = {
     loginWithFacebook: PropTypes.func.isRequired,
     isLoadingFacebook: PropTypes.bool.isRequired,
+    changeLocale: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 function stateToProps(state) {
-    const { authentication } = state;
+    const { authentication, i18n } = state;
     return {
         isLoadingFacebook: authentication.get('isLoadingFacebook'),
+        locale: i18n.locale,
     };
 }
 
@@ -57,4 +67,4 @@ function dispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default connect(stateToProps, dispatchToProps)(SocialLogin);
+export default connect(stateToProps, dispatchToProps)(injectIntl(SocialLogin));

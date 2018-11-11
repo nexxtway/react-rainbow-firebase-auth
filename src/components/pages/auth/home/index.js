@@ -39,7 +39,6 @@ function Home(props) {
                 <div className="rainbow-auth-firebase_top-bar-content">
                     <LanguageSelector />
                     <AvatarMenu
-                        id="avatar-menu"
                         src={user.photoURL}
                         assistiveText={user.displayName}
                         menuAlignment="right"
@@ -73,7 +72,7 @@ function Home(props) {
                 </div>
             </div>
             <span className="rainbow-auth-firebase-auth_title">
-                <FormattedMessage id="welcome" values={userName} defaultMessage={`Wellcome ${user.displayName}`} />
+                <FormattedMessage id="welcome" values={userName} defaultMessage={`Welcome ${user.displayName}`} />
             </span>
         </section>
     );

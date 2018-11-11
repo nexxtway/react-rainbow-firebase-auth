@@ -23,21 +23,18 @@ import './media-queries.css';
 import EmailIcon from '../../../icons/email';
 import validate from './validate';
 
-class SignIn extends Component {
-    constructor(props) {
-        super(props);
-        this.translations = defineMessages({
-            emailPlaceholder: {
-                id: 'form.sign.email.placeholder',
-                defaultValue: 'Enter your email address',
-            },
-            passwordPlaceholder: {
-                id: 'form.sign.password.placeholder',
-                defaultValue: 'Enter your password',
-            },
-        });
-    }
+const translations = defineMessages({
+    emailPlaceholder: {
+        id: 'form.email.placeholder',
+        defaultValue: 'Enter your email address',
+    },
+    passwordPlaceholder: {
+        id: 'form.password.placeholder',
+        defaultValue: 'Enter your password',
+    },
+});
 
+class SignIn extends Component {
     componentDidMount() {
         const { resetAuthForm } = this.props;
         resetAuthForm();
@@ -74,15 +71,15 @@ class SignIn extends Component {
                             <Field
                                 component={Input}
                                 name="email"
-                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
+                                label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
-                                placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
+                                placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label={<FormattedMessage id="form.sign.password.label" defaultMessage="Password" />}
-                                placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
+                                label={<FormattedMessage id="form.password.label" defaultMessage="Password" />}
+                                placeholder={intl.formatMessage(translations.passwordPlaceholder)}
                                 type="password"
                                 required
                                 icon={<LockIcon />} />

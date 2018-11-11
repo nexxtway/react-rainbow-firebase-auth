@@ -10,7 +10,6 @@ const initialState = fromJS({
 });
 
 export default function (state = initialState, action) {
-    /* eslint-disable no-param-reassign */
     switch (action.type) {
         case UPDATE_PROFILE_START:
             return state.set('isLoading', true);

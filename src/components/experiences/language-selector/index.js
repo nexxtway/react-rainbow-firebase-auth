@@ -20,11 +20,11 @@ const languageOptions = [
 function LanguageSelector(props) {
     const {
         locale,
-        changeLanguageState,
+        onChangeLanguage,
     } = props;
 
     const handleLanguageChange = (event) => {
-        changeLanguageState(event.target.value);
+        onChangeLanguage(event.target.value);
     };
 
     return (
@@ -38,12 +38,12 @@ function LanguageSelector(props) {
 
 LanguageSelector.propTypes = {
     locale: PropTypes.string,
-    changeLanguageState: PropTypes.func,
+    onChangeLanguage: PropTypes.func,
 };
 
 LanguageSelector.defaultProps = {
     locale: 'en',
-    changeLanguageState: () => {},
+    onChangeLanguage: () => {},
 };
 
 function stateToProps(state) {
@@ -55,7 +55,7 @@ function stateToProps(state) {
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        changeLanguageState: locale => dispatch(changeLocale(locale)),
+        onChangeLanguage: locale => dispatch(changeLocale(locale)),
     }, dispatch);
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import Button from 'react-rainbow-components/components/Button';
 import Select from 'react-rainbow-components/components/Select';
 import FacebookIcon from './icons/facebookIcon';
@@ -67,4 +67,4 @@ function dispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default connect(stateToProps, dispatchToProps)(injectIntl(SocialLogin));
+export default connect(stateToProps, dispatchToProps)(SocialLogin);

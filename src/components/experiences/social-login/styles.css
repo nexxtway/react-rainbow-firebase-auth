@@ -22,6 +22,7 @@
     background-color: #004ca9;
     border-color: #004ca9;
     color: #fff;
+    margin-top: 60px;
 }
 
 .rainbow-auth-firebase-social-login_facebook-button:hover, .rainbow-auth-firebase-social-login_facebook-button:focus {
@@ -35,11 +36,10 @@
 }
 
 .rainbow-auth-firebase-social-language {
-    position: absolute;
     width: 140px;
     height: 40px;
     align-self: center;
-    bottom: 32px
+    margin-top: 40px;
 }
 
 @media (max-width: 620px) {

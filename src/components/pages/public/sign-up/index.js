@@ -84,21 +84,21 @@ class SignUp extends Component {
                             <Field
                                 component={Input}
                                 name="username"
-                                label={<FormattedMessage id="form.sign.username.label" defaultMessage="User name" />}
+                                label={<FormattedMessage id="form.username.label" defaultMessage="User name" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.usernamePlaceholder)}
                                 icon={<UserIcon />} />
                             <Field
                                 component={Input}
                                 name="email"
-                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
+                                label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label={<FormattedMessage id="form.sign.password.label" defaultMessage="Password" />}
+                                label={<FormattedMessage id="form.password.label" defaultMessage="Password" />}
                                 placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
                                 type="password"
                                 required

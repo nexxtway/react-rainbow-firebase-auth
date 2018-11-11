@@ -16,6 +16,7 @@ export default function (state = initialState, action) {
     /* eslint-disable no-param-reassign */
     switch (action.type) {
         case SEND_PASS_RESET_EMAIL:
+            state = state.set('email', action.email);
             return state.set('isLoading', true);
         case RESET_EMAIL_SENT:
             state = state.set('isEmailSent', true);

@@ -1,0 +1,43 @@
+.rainbow-auth-firebase-reset-password-confirmation_container {
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 0 16px;
+}
+
+.rainbow-auth-firebase-reset-password-confirmation_title {
+    margin: 24px 0 18px 0;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    color: #576574;
+}
+
+.rainbow-auth-firebase-reset-password-confirmation_content {
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    color: #061c3f;
+}
+
+.rainbow-auth-firebase-reset-password-confirmation_user-mail {
+    font-weight: 900;
+    display: inline;
+}
+
+.rainbow-auth-firebase-reset-password-confirmation_button {
+    margin-top: 24px;
+}
+
+@media (max-width: 620px) {
+    .rainbow-auth-firebase-reset-password-confirmation_container {
+        padding: 0 0 24px 0;
+        width: 100%;
+    }
+}

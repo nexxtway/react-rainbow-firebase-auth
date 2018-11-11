@@ -141,7 +141,8 @@
         "wrong.password": "The password is invalid",
         "invalid.email": "The email address is badly formatted",
         "weak.password": "Password should be at least 6 characters",
-        "welcome": "Welcome {name}"
+        "welcome": "Welcome {name}",
+        "mail.send.button.done": "Done"
     },
     "es": {
         "actions": "Acciones",
@@ -292,6 +293,7 @@
         "wrong.password": "La contraseña es inválida",
         "invalid.email": "La dirección de correo electrónico está mal formateada",
         "weak.password": "La contraseña debe tener al menos 6 caracteres",
-        "welcome": "Bienvenido {name}"
+        "welcome": "Bienvenido {name}",
+        "mail.send.button.done": "Aceptar"
     }
 }

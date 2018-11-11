@@ -20,7 +20,10 @@ const GoogleIcon = (props) => {
 };
 
 GoogleIcon.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+GoogleIcon.defaultProps = {
+    className: undefined,
 };
 
 export default GoogleIcon;

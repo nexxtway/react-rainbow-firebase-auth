@@ -1,7 +1,10 @@
 import sendEmailResetPassword from '../reset-password';
 import sendPasswordResetEmail from '../../../services/firebase/send-password-reset-email';
+import showErrorMessage from '../../app/show-error-message';
 
 jest.mock('./../../../services/firebase/send-password-reset-email', () => jest.fn());
+jest.mock('../../app/show-error-message', () => jest.fn());
+
 const email = { email: 'doe@gmail.com' };
 
 describe('sendEmailResetPassword action', () => {
@@ -28,16 +31,16 @@ describe('sendEmailResetPassword action', () => {
         return sendEmailResetPassword(email)(dispatch)
             .then(() => expect(dispatch.mock.calls[1][0]).toEqual({ type: 'RESET_EMAIL_SENT' }));
     });
-    it('should dispatch PASS_RESET_ERROR with the error when the reset email fails', () => {
+    it('should dispatch showErrorMessage with the error when the reset email fails', () => {
         const ERROR = 'the email was not send';
-        expect.assertions(1);
+        expect.assertions(2);
         const dispatch = jest.fn();
         sendPasswordResetEmail.mockReset();
         sendPasswordResetEmail.mockReturnValue(Promise.reject(ERROR));
         return sendEmailResetPassword(email)(dispatch)
-            .then(() => expect(dispatch.mock.calls[1][0]).toEqual({
-                type: 'PASS_RESET_ERROR',
-                error: 'the email was not send',
-            }));
+            .then(() => {
+                expect(dispatch).toHaveBeenCalledTimes(2);
+                expect(showErrorMessage).toHaveBeenCalledWith(ERROR);
+            });
     });
 });

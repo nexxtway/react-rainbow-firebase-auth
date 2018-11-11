@@ -17,7 +17,10 @@ const Back = (props) => {
 };
 
 Back.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+Back.defaultProps = {
+    className: undefined,
 };
 
 export default Back;

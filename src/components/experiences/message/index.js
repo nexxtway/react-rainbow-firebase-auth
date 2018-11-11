@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
 import CloseIcon from '../../icons/close/index.js';
 import ErrorIcon from '../../icons/error/index.js';
+import hideErrorMessage from '../../../redux/actions/app/hide-error-message';
 import './styles.css';
 
 function Message(props) {
@@ -13,6 +14,7 @@ function Message(props) {
         className,
         style,
         errorMessage,
+        hideErrorMessage,
     } = props;
 
     function getClassName() {
@@ -30,7 +32,7 @@ function Message(props) {
                     <ButtonIcon
                         size="medium"
                         icon={<CloseIcon />}
-                        onClick={() => {}}
+                        onClick={hideErrorMessage}
                         className="rainbow-auth-firebase-message_close-button" />
                 </div>
             </article>
@@ -43,6 +45,7 @@ Message.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     errorMessage: PropTypes.string,
+    hideErrorMessage: PropTypes.func.isRequired,
 };
 
 Message.defaultProps = {
@@ -52,14 +55,14 @@ Message.defaultProps = {
 };
 
 function stateToProps(state) {
-    const { errorMessage } = state.app;
     return {
-        errorMessage,
+        errorMessage: state.app.get('errorMessage'),
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
+        hideErrorMessage,
     }, dispatch);
 }
 

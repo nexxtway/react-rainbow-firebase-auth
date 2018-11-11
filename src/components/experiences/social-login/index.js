@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { FormattedMessage } from 'react-intl';
 import Button from 'react-rainbow-components/components/Button';
 import Select from 'react-rainbow-components/components/Select';
 import FacebookIcon from './icons/facebookIcon';
@@ -26,7 +27,7 @@ function SocialLogin(props) {
                 onClick={loginWithFacebook}
                 isLoading={isLoadingFacebook}>
                 <FacebookIcon className="rainbow-auth-firebase-social-login_social-icon" />
-                Login with Facebook
+                <FormattedMessage id="facebook.button.login" defaultMessage="Login with Facebook" />
             </Button>
             <Button variant="neutral" className="rainbow-auth-firebase-social-login_button" onClick={() => {}}>
                 <GoogleIcon className="rainbow-auth-firebase-social-login_social-icon" />

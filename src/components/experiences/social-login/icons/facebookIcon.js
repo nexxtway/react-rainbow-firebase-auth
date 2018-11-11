@@ -15,7 +15,10 @@ const FacebookIcon = (props) => {
 };
 
 FacebookIcon.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+FacebookIcon.defaultProps = {
+    className: undefined,
 };
 
 export default FacebookIcon;

@@ -1,9 +1,9 @@
 import getCurrentLocale from '../../services/app/get-current-locale';
 import { signInWithFacebook } from '../../services/firebase';
+import showErrorMessage from '../app/show-error-message';
 
 export const AUTH_START_WITH_FACEBOOK = 'AUTH_START_WITH_FACEBOOK';
 export const AUTH_SUCCESS_WITH_FACEBOOK = 'AUTH_SUCCESS_WITH_FACEBOOK';
-export const AUTH_ERROR_WITH_FACEBOOK = 'AUTH_ERROR_WITH_FACEBOOK';
 
 export default function loginWithFacebook() {
     return (dispatch, getState) => {
@@ -13,11 +13,6 @@ export default function loginWithFacebook() {
             .then(() => {
                 dispatch({ type: AUTH_SUCCESS_WITH_FACEBOOK });
             })
-            .catch((error) => {
-                dispatch({
-                    type: AUTH_ERROR_WITH_FACEBOOK,
-                    error,
-                });
-            });
+            .catch(error => dispatch(showErrorMessage(error)));
     };
 }

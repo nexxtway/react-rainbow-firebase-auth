@@ -6,13 +6,15 @@ import { FormattedMessage } from 'react-intl';
 import Button from 'react-rainbow-components/components/Button';
 import FacebookIcon from './icons/facebookIcon';
 import GoogleIcon from './icons/googleIcon';
-import { loginWithFacebook } from '../../../redux/actions/authentication';
+import { loginWithFacebook, loginWithGoogle } from '../../../redux/actions/authentication';
 import './styles.css';
 
 function SocialLogin(props) {
     const {
         loginWithFacebook,
         isLoadingFacebook,
+        loginWithGoogle,
+        isLoadingGoogle,
     } = props;
     return (
         <article className="rainbow-auth-firebase-social-login_buttons-container">
@@ -23,9 +25,13 @@ function SocialLogin(props) {
                 <FacebookIcon className="rainbow-auth-firebase-social-login_social-icon" />
                 <FormattedMessage id="facebook.button.login" defaultMessage="Login with Facebook" />
             </Button>
-            <Button variant="neutral" className="rainbow-auth-firebase-social-login_button" onClick={() => {}}>
+            <Button
+                variant="neutral"
+                className="rainbow-auth-firebase-social-login_button"
+                onClick={loginWithGoogle}
+                isLoading={isLoadingGoogle}>
                 <GoogleIcon className="rainbow-auth-firebase-social-login_social-icon" />
-                Login with Google
+                <FormattedMessage id="google.button.login" defaultMessage="Login with Google" />
             </Button>
         </article>
     );
@@ -34,18 +40,22 @@ function SocialLogin(props) {
 SocialLogin.propTypes = {
     loginWithFacebook: PropTypes.func.isRequired,
     isLoadingFacebook: PropTypes.bool.isRequired,
+    loginWithGoogle: PropTypes.bool.isRequired,
+    isLoadingGoogle: PropTypes.bool.isRequired,
 };
 
 function stateToProps(state) {
     const { authentication } = state;
     return {
         isLoadingFacebook: authentication.get('isLoadingFacebook'),
+        isLoadingGoogle: authentication.get('isLoadingGoogle'),
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithFacebook,
+        loginWithGoogle,
     }, dispatch);
 }
 

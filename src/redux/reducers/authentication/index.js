@@ -9,7 +9,8 @@ import {
     UPDATE_USER_DATA,
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
-    AUTH_ERROR_WITH_FACEBOOK,
+    AUTH_START_WITH_GOOGLE,
+    AUTH_SUCCESS_WITH_GOOGLE,
 } from '../../actions/authentication';
 import { SHOW_ERROR_MESSAGE } from '../../actions/app/show-error-message';
 
@@ -18,10 +19,9 @@ import * as userGetters from './user-getters';
 const initialState = fromJS({
     authenticationResolved: false,
     isLoading: false,
-    errorMessage: '',
     user: null,
     isLoadingFacebook: false,
-    facebookErrorMessage: '',
+    isLoadingGoogle: false,
 });
 
 function authenticateUser(state, user) {
@@ -32,7 +32,6 @@ function authenticateUser(state, user) {
 }
 
 function authStart(state) {
-    state = state.set('errorMessage', '');
     return state.set('isLoading', true);
 }
 
@@ -46,13 +45,11 @@ function logoutUser(state) {
 }
 
 function authStartWithFacebook(state) {
-    state = state.set('facebookErrorMessage', '');
     return state.set('isLoadingFacebook', true);
 }
 
-function authErrorWithFacebook(state, error) {
-    state = state.set('isLoadingFacebook', false);
-    return state.set('facebookErrorMessage', error);
+function authStartWithGoogle(state) {
+    return state.set('isLoadingGoogle', true);
 }
 
 export default function (state = initialState, action) {
@@ -81,11 +78,14 @@ export default function (state = initialState, action) {
         case AUTH_START_WITH_FACEBOOK:
             return authStartWithFacebook(state);
 
-        case AUTH_ERROR_WITH_FACEBOOK:
-            return authErrorWithFacebook(state, action.error);
-
         case AUTH_SUCCESS_WITH_FACEBOOK:
             return state.set('isLoadingFacebook', false);
+
+        case AUTH_START_WITH_GOOGLE:
+            return authStartWithGoogle(state);
+
+        case AUTH_SUCCESS_WITH_GOOGLE:
+            return state.set('isLoadingGoogle', false);
 
         default:
             return state;

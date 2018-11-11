@@ -54,11 +54,6 @@ class SignUp extends Component {
         return classnames('rainbow-auth-firebase-signup_container', className);
     }
 
-    signup(user) {
-        const { createAccount } = this.props;
-        createAccount(user);
-    }
-
     render() {
         const {
             handleSubmit,

@@ -1,0 +1,31 @@
+.rainbow-auth-firebase-terms-condition_header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 300;
+    color: #061c3f;
+    height: 72px;
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+    border: solid 1px #e3e5ed;
+    background-color: #ffffff;
+}
+
+.rainbow-auth-firebase-terms-condition_content {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 300;
+    color: #061c3f;
+    padding: 32px 30px;
+}
+
+.rainbow-auth-firebase-terms-condition_back {
+    position: absolute;
+    left: 30px;
+}
+
+.rainbow-auth-firebase-terms-condition_back-icon {
+    margin-right: 8px;
+}

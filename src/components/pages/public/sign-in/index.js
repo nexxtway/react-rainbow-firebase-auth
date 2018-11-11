@@ -68,6 +68,13 @@ class SignIn extends Component {
                             id="form.sign.in"
                             defaultMessage="Sign in" />
                     </p>
+                    <p className="rainbow-auth-firebase-signin_do-not-have-account">
+                        <FormattedMessage id="login.do.not.have.account" defaultMessage="Don’t have an account?" />
+                        <span>{' '}</span>
+                        <Link className="rainbow-auth-firebase-signin_link" to="/home/signup">
+                            <FormattedMessage id="sign.up" defaultMessage="Create Account here" />
+                        </Link>
+                    </p>
                     <Card className="rainbow-auth-firebase-signin_card">
                         <SocialLogin />
                         <article className="rainbow-auth-firebase-signin_inputs-container">
@@ -99,11 +106,6 @@ class SignIn extends Component {
                             </Link>
                         </article>
                     </Card>
-                    <Link className="rainbow-auth-firebase-signin_link" to="/home/signup">
-                        <FormattedMessage
-                            id="sign.up"
-                            defaultMessage="Sign up?" />
-                    </Link>
                 </section>
             </form>
         );

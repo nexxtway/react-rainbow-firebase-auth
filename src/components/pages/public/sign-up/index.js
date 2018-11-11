@@ -25,25 +25,22 @@ import './styles.css';
 import './media-queries.css';
 import validate from './validate';
 
-class SignUp extends Component {
-    constructor(props) {
-        super(props);
-        this.translations = defineMessages({
-            usernamePlaceholder: {
-                id: 'form.sign.username.placeholder',
-                defaultValue: 'Enter your user name',
-            },
-            emailPlaceholder: {
-                id: 'form.sign.email.placeholder',
-                defaultValue: 'Enter your email address',
-            },
-            passwordPlaceholder: {
-                id: 'form.sign.password.placeholder',
-                defaultValue: 'Enter your password',
-            },
-        });
-    }
+const translations = defineMessages({
+    usernamePlaceholder: {
+        id: 'form.username.placeholder',
+        defaultValue: 'Enter your user name',
+    },
+    emailPlaceholder: {
+        id: 'form.email.placeholder',
+        defaultValue: 'Enter your email address',
+    },
+    passwordPlaceholder: {
+        id: 'form.password.placeholder',
+        defaultValue: 'Enter your password',
+    },
+});
 
+class SignUp extends Component {
     componentDidMount() {
         const { reset } = this.props;
         reset();
@@ -91,22 +88,22 @@ class SignUp extends Component {
                             <Field
                                 component={Input}
                                 name="name"
-                                label={<FormattedMessage id="form.sign.username.label" defaultMessage="User name" />}
+                                label={<FormattedMessage id="form.username.label" defaultMessage="User name" />}
                                 required
-                                placeholder={intl.formatMessage(this.translations.usernamePlaceholder)}
+                                placeholder={intl.formatMessage(translations.usernamePlaceholder)}
                                 icon={<UserIcon />} />
                             <Field
                                 component={Input}
                                 name="email"
-                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
+                                label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
-                                placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
+                                placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="password"
-                                label={<FormattedMessage id="form.sign.password.label" defaultMessage="Password" />}
-                                placeholder={intl.formatMessage(this.translations.passwordPlaceholder)}
+                                label={<FormattedMessage id="form.password.label" defaultMessage="Password" />}
+                                placeholder={intl.formatMessage(translations.passwordPlaceholder)}
                                 type="password"
                                 required
                                 icon={<LockIcon />} />

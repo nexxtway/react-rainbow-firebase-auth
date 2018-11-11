@@ -21,17 +21,14 @@ import { resetForm, sendEmailResetPassword } from '../../../../redux/actions/for
 import EmailIcon from '../../../icons/email';
 import validate from './validate';
 
-class ForgotPassword extends Component {
-    constructor(props) {
-        super(props);
-        this.translations = defineMessages({
-            emailPlaceholder: {
-                id: 'form.sign.email.placeholder',
-                defaultValue: 'Enter your email address',
-            },
-        });
-    }
+const translations = defineMessages({
+    emailPlaceholder: {
+        id: 'form.sign.email.placeholder',
+        defaultValue: 'Enter your email address',
+    },
+});
 
+class ForgotPassword extends Component {
     componentDidMount() {
         const { resetForm } = this.props;
         resetForm();
@@ -75,7 +72,7 @@ class ForgotPassword extends Component {
                                 name="email"
                                 label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
                                 required
-                                placeholder={intl.formatMessage(this.translations.emailPlaceholder)}
+                                placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />
                             <Button
                                 variant="brand"

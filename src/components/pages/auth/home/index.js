@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FormattedMessage } from 'react-intl';
 import AvatarMenu from 'react-rainbow-components/components/AvatarMenu';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import MenuDivider from 'react-rainbow-components/components/MenuDivider';
 import MenuItem from 'react-rainbow-components/components/MenuItem';
+import { navigateTo } from '../../../../history';
 import { logoutUser } from '../../../../redux/actions/authentication';
 import LanguageSelector from '../../../experiences/language-selector';
 import PowerIcon from '../../../icons/power';
@@ -32,7 +33,7 @@ function Home(props) {
         <section className={getContainerClassNames()} style={style}>
             <div className="rainbow-auth-firebase-auth_top-bar">
                 <img
-                    src={user.photoURL}
+                    src="/assets/rainbow-logo.svg"
                     alt="rainbow logo"
                     className="rainbow-auth-firebase-signin_image" />
                 <div className="rainbow-auth-firebase_top-bar-content">
@@ -48,7 +49,7 @@ function Home(props) {
                         title={user.displayName}>
                         <li className="rainbow-auth-firebase_avatar-menu_user">
                             <Avatar
-                                src="/assets/user2.jpg"
+                                src={user.photoURL}
                                 assistiveText={user.displayName}
                                 title={user.displayName}
                                 size="medium" />
@@ -59,6 +60,7 @@ function Home(props) {
                         </li>
                         <MenuDivider variant="space" />
                         <MenuItem
+                            onClick={() => navigateTo('profile')}
                             label={<FormattedMessage id="authenticated.profile.edit" defaultMessage="Edit profile" />}
                             icon={<PencilIcon />}
                             iconPosition="left" />

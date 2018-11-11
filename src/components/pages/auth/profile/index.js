@@ -7,6 +7,7 @@ import {
     injectIntl,
     defineMessages,
 } from 'react-intl';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
@@ -14,7 +15,7 @@ import Button from 'react-rainbow-components/components/Button';
 import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
-import updateProfile from '../../../../redux/services/firebase/update-profile';
+import updateProfile from '../../../../redux/actions/profile/update-profile';
 import CloseIcon from '../../../icons/close';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
@@ -28,14 +29,16 @@ function Profile(props) {
         className,
         style,
         user,
-        intl,
+        isLoading,
+        updateProfile,
         handleSubmit,
+        intl,
     } = props;
 
     const translations = defineMessages({
-        usernamePlaceholder: {
-            id: 'form.username.placeholder',
-            defaultValue: 'Enter your user name',
+        displayNamePlaceholder: {
+            id: 'form.displayName.placeholder',
+            defaultValue: 'Enter your name',
         },
         emailPlaceholder: {
             id: 'form.email.placeholder',
@@ -63,17 +66,19 @@ function Profile(props) {
                 <span className="rainbow-auth-firebase-profile_top-bar-title">
                     <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
                 </span>
-                <ButtonIcon icon={<CloseIcon className="rainbow-auth-firebase-profile_top-bar-close-icon" />} />
+                <Link to="/app/home">
+                    <ButtonIcon icon={<CloseIcon className="rainbow-auth-firebase-profile_top-bar-close-icon" />} />
+                </Link>
             </div>
             <div className="rainbow-auth-firebase-profile_content">
                 <div>
                     <Field
                         component={Input}
-                        name="username"
+                        name="displayName"
                         className="rainbow-auth-firebase-profile_content-input"
-                        label={<FormattedMessage id="form.username.label" defaultMessage="User name" />}
+                        label={<FormattedMessage id="form.displayName.label" defaultMessage="Name" />}
                         required
-                        placeholder={intl.formatMessage(translations.usernamePlaceholder)}
+                        placeholder={intl.formatMessage(translations.displayNamePlaceholder)}
                         icon={<UserIcon />} />
                     <Field
                         component={Input}
@@ -85,10 +90,9 @@ function Profile(props) {
                         icon={<EmailIcon />} />
                     <Field
                         component={Input}
-                        name="phone"
+                        name="phoneNumber"
                         className="rainbow-auth-firebase-profile_content-input"
                         label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
-                        required
                         placeholder={intl.formatMessage(translations.phonePlaceholder)}
                         icon={<PhoneIcon />} />
                     <Field
@@ -98,7 +102,6 @@ function Profile(props) {
                         placeholder={intl.formatMessage(translations.passwordPlaceholder)}
                         type="password"
                         className="rainbow-auth-firebase-profile_content-input"
-                        required
                         icon={<LockIcon />} />
                 </div>
                 <div className="rainbow-auth-firebase-profile_content-user-photo-container">
@@ -120,6 +123,7 @@ function Profile(props) {
                     label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
                     variant="brand"
                     type="submit"
+                    isLoading={isLoading}
                     onClick={handleSubmit(handleProfileChange)} />
             </div>
         </section>
@@ -130,32 +134,37 @@ Profile.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     user: PropTypes.object,
-    intl: intlShape.isRequired,
+    isLoading: PropTypes.bool,
+    updateProfile: PropTypes.func,
     handleSubmit: PropTypes.func.isRequired,
+    intl: intlShape.isRequired,
 };
 
 Profile.defaultProps = {
     className: undefined,
     style: {},
     user: {},
+    isLoading: false,
+    updateProfile: () => {},
 };
 
 function stateToProps(state) {
-    const { authentication } = state;
+    const { authentication, profile } = state;
     const { user } = authentication.toJS();
+    const isLoading = profile.get('isLoading');
     return {
         user,
+        isLoading,
         initialValues: {
-            username: user.displayName,
+            displayName: user.displayName,
             email: user.email,
-            phone: user.phone,
-            password: user.password,
         },
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
+        updateProfile,
     }, dispatch);
 }
 

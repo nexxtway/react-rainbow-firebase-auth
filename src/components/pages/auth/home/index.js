@@ -95,7 +95,7 @@ Home.defaultProps = {
 function stateToProps(state) {
     const { authentication } = state;
     return {
-        user: authentication.get('user'),
+        user: authentication.toJS().user,
     };
 }
 

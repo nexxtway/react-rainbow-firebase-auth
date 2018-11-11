@@ -140,7 +140,7 @@
         "wrong.password": "The password is invalid",
         "invalid.email": "The email address is badly formatted",
         "weak.password": "Password should be at least 6 characters",
-        "welcome": "Wellcome {name}"
+        "welcome": "Welcome {name}"
     },
     "es": {
         "actions": "Acciones",

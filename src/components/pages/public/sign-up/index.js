@@ -40,8 +40,6 @@ const translations = defineMessages({
     },
 });
 
-
-
 class SignUp extends Component {
     componentDidMount() {
         const { reset } = this.props;

@@ -7,6 +7,8 @@ const COUNTRY_BLOCKED_CUBA = <FormattedMessage id="country.blocked.cuba" default
 const WRONG_PASSWORD = <FormattedMessage id="wrong.password" defaultMessage="The password is invalid" />;
 const INVALID_EMAIL = <FormattedMessage id="invalid.email" defaultMessage="The email address is badly formatted" />;
 const WEAK_PASSWORD = <FormattedMessage id="weak.password" defaultMessage="Password should be at least 6 characters" />;
+const EMAIL_ALREADY_IN_USE = <FormattedMessage id="form.error.email.already.in.use" defaultMessage="The email address is already in use by another account." />;
+const REQUIRE_RECENT_LOGIN = <FormattedMessage id="error.requires.recent.login" defaultMessage="This operation is sensitive and requires recent authentication. Log in again before retrying this request." />;
 
 const errorMap = {
     'auth/user-not-found': USER_NOT_FOUND,
@@ -15,6 +17,8 @@ const errorMap = {
     'auth/wrong-password': WRONG_PASSWORD,
     'auth/invalid-email': INVALID_EMAIL,
     'auth/weak-password': WEAK_PASSWORD,
+    'auth/email-already-in-use': EMAIL_ALREADY_IN_USE,
+    'auth/requires-recent-login': REQUIRE_RECENT_LOGIN,
 };
 
 export function isFirebaseError(error) {

@@ -24,3 +24,4 @@ firebase-debug.log
 yarn.lock
 yarn-error.log
 .firebase
+.editorconfig

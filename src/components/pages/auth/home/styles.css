@@ -1,0 +1,55 @@
+.rainbow-auth-firebase-auth_container {
+    background-color: #f4f6f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.rainbow-auth-firebase-auth_image {
+    height: 40px;
+    width: 40px;
+}
+
+.rainbow-auth-firebase-auth_top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 44px 12px 30px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+}
+
+.rainbow-auth-firebase_top-bar-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rainbow-auth-firebase_avatar-menu {
+    margin-left: 28px;
+}
+
+.rainbow-auth-firebase_avatar-menu_user {
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+.rainbow-auth-firebase_avatar-menu_user-detail {
+    margin-left: 8px;
+}
+
+.rainbow-auth-firebase_avatar-menu_user-name {
+    font-size: 14px;
+    color: #061c3f;
+}
+
+.rainbow-auth-firebase_avatar-menu_user-email {
+    font-size: 12px;
+    color: #a4a7b5;
+}
+
+.rainbow-auth-firebase-auth_title {
+    margin: 119px auto auto;
+    font-size: 30px;
+}

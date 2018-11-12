@@ -1,0 +1,67 @@
+.rainbow-auth-firebase_profile {
+    height: 100vh;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.rainbow-auth-firebase-profile_top-bar {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 22px 20px 30px;
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+}
+
+.rainbow-auth-firebase-profile_top-bar-title {
+    font-size: 24px;
+    color: #061c3f;
+}
+
+.rainbow-auth-firebase-profile_top-bar-close-icon {
+    fill: #a4a7b5;
+}
+
+.rainbow-auth-firebase-profile_content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    padding-top: 48px;
+}
+
+.rainbow-auth-firebase-profile_content-input {
+    width: 320px;
+    margin-bottom: 24px;
+}
+
+.rainbow-auth-firebase-profile_content-user-photo-container {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rainbow-auth-firebase-profile_content-user-photo {
+    width: 126px;
+    height: 126px;
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+    border: solid 1px #e3e5ed;
+    border-radius: 100px;
+    margin-top: 4px;
+}
+
+.rainbow-auth-firebase-profile_actions {
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.rainbow-auth-firebase-profile_actions-buttons {
+    margin-right: 24px;
+}

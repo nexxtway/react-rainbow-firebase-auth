@@ -25,6 +25,9 @@ export function resolveLocale() {
     if (userLocale) {
         return userLocale;
     }
-
+    const browserLang = navigator.language || navigator.userLanguage;
+    if (browserLang) {
+        return browserLang.split('-')[0];
+    }
     return 'es';
 }

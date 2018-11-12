@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import SignIn from './sign-in';
 import SignUp from './sign-up';
 import ForgotPassword from './forgot-password';
-import ResetPasswordConfirmation from '../../experiences/reset-password-confirmation';
+import ResetPasswordConfirmation from './reset-password-confirmation';
 
 export default function PublicRoutes(props) {
     const {

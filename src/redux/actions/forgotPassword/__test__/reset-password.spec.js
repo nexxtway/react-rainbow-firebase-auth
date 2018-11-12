@@ -4,6 +4,7 @@ import showErrorMessage from '../../app/show-error-message';
 
 jest.mock('./../../../services/firebase/send-password-reset-email', () => jest.fn());
 jest.mock('../../app/show-error-message', () => jest.fn());
+jest.mock('../../../../history', () => jest.fn());
 
 const email = { email: 'doe@gmail.com' };
 
@@ -13,7 +14,10 @@ describe('sendEmailResetPassword action', () => {
         const dispatch = jest.fn();
         sendPasswordResetEmail.mockReturnValue(Promise.resolve());
         return sendEmailResetPassword(email)(dispatch)
-            .then(() => expect(dispatch.mock.calls[0][0]).toEqual({ type: 'SEND_PASS_RESET_EMAIL' }));
+            .then(() => expect(dispatch.mock.calls[0][0]).toEqual({
+                email: 'doe@gmail.com',
+                type: 'SEND_PASS_RESET_EMAIL',
+            }));
     });
     it('should call sendPasswordResetEmail with the email passed', () => {
         expect.assertions(1);

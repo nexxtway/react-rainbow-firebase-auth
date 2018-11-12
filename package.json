@@ -12,6 +12,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-intl": "^2.7.2",
+    "react-prismic-cms": "^0.2.0",
     "react-rainbow-components": "^0.7.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

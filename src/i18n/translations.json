@@ -121,7 +121,7 @@
         "send": "Send",
         "sending": "Sending",
         "sign.in": "Sign in?",
-        "sign.up": "Sign up?",
+        "sign.up": "Create Account here",
         "sign.up.creating.account.agree": "By creating an account you agree to our",
         "sign.up.terms": "Terms and Conditions",
         "sign.up.terms.and": "and our",
@@ -141,6 +141,8 @@
         "wrong.password": "The password is invalid",
         "invalid.email": "The email address is badly formatted",
         "weak.password": "Password should be at least 6 characters",
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy",
         "welcome": "Welcome {name}"
     },
     "es": {
@@ -272,7 +274,7 @@
         "send": "Enviar",
         "sending": "Enviando",
         "sign.in": "Entrar?",
-        "sign.up": "Registrarte?",
+        "sign.up": "Regístrate aqui",
         "sign.up.creating.account.agree": "Al crear una cuenta usted acepta nuestros",
         "sign.up.terms": "Terminos y condiciones",
         "sign.up.terms.and": "y nuestra",
@@ -292,6 +294,8 @@
         "wrong.password": "La contraseña es inválida",
         "invalid.email": "La dirección de correo electrónico está mal formateada",
         "weak.password": "La contraseña debe tener al menos 6 caracteres",
+        "terms": "Términos y condiciones",
+        "privacy": "Política de Privacidad",
         "welcome": "Bienvenido {name}"
     }
 }

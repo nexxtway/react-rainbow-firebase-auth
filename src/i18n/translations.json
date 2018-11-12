@@ -120,7 +120,7 @@
         "send": "Send",
         "sending": "Sending",
         "sign.in": "Sign in?",
-        "sign.up": "Sign up?",
+        "sign.up": "Create Account here",
         "sign.up.creating.account.agree": "By creating an account you agree to our",
         "sign.up.terms": "Terms and Conditions",
         "sign.up.terms.and": "and our",
@@ -145,6 +145,9 @@
         "reset.password.confirmation.title": "Password Reset Email Sent",
         "reset.password.confirmation.first.text": "An email has been sent to your email address,",
         "reset.password.confirmation.second.text": "Follow the directions in the email to reset your password."
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy",
+        "welcome": "Welcome {name}"
     },
     "es": {
         "actions": "Acciones",
@@ -274,7 +277,7 @@
         "send": "Enviar",
         "sending": "Enviando",
         "sign.in": "Entrar?",
-        "sign.up": "Registrarte?",
+        "sign.up": "Regístrate aqui",
         "sign.up.creating.account.agree": "Al crear una cuenta usted acepta nuestros",
         "sign.up.terms": "Terminos y condiciones",
         "sign.up.terms.and": "y nuestra",
@@ -299,5 +302,8 @@
         "reset.password.confirmation.title": "Correo de restauración de contraseña enviado",
         "reset.password.confirmation.first.text": "Un mensaje ha sido enviado a su dirección de correo electrónico,",
         "reset.password.confirmation.second.text": "Sigua las instrucciones en el mensaje para restaurar su contraseña."
+        "terms": "Términos y condiciones",
+        "privacy": "Política de Privacidad",
+        "welcome": "Bienvenido {name}"
     }
 }

@@ -4,7 +4,7 @@ import Button from 'react-rainbow-components/components/Button';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Prismic, QueryAt } from 'react-prismic-cms';
-import Content from './content';
+import Content from '../../../experiences/prismic-content';
 import Back from '../../../icons/back';
 import './styles.css';
 
@@ -28,7 +28,12 @@ function TermsAndConditions(props) {
                     defaultMessage="Terms and Conditions" />
             </div>
             <Prismic repo="rainbow-doc">
-                <QueryAt path="document.type" value="terms-and-conditions" component={Content} />
+                <QueryAt
+                    className="rainbow-auth-firebase-terms-condition_content"
+                    path="document.type"
+                    value="terms-and-conditions"
+                    content="terms-and-conditions"
+                    component={Content} />
             </Prismic>
         </div>
     );

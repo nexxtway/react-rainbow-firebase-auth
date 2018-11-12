@@ -3,7 +3,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    font-family: Lato;
+    font-family: 'Lato-Light';
     font-size: 24px;
     font-weight: 300;
     color: #061c3f;
@@ -14,7 +14,7 @@
 }
 
 .rainbow-auth-firebase-privacy-policy_content {
-    font-family: Lato;
+    font-family: 'Lato-Light';
     font-size: 16px;
     font-weight: 300;
     color: #061c3f;

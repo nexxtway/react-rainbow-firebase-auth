@@ -21,6 +21,7 @@ import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
 import PhoneIcon from '../../../icons/phone';
 import LockIcon from '../../../icons/lock';
+import PersonIcon from '../../../icons/person';
 import validate from './validate';
 import './styles.css';
 
@@ -109,6 +110,7 @@ function Profile(props) {
                         <FormattedMessage id="profile.photo" defaultMessage="Profile Photo" />
                         <Avatar
                             src={user.photoURL}
+                            icon={<PersonIcon />}
                             assistiveText="user profile"
                             className="rainbow-auth-firebase-profile_content-user-photo" />
                     </div>

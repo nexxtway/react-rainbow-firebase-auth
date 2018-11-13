@@ -118,7 +118,8 @@ function Profile(props) {
                 <div className="rainbow-auth-firebase-profile_actions">
                     <Button
                         className="rainbow-auth-firebase-profile_actions-buttons"
-                        label=<FormattedMessage id="cancel" defaultMessage="Cancel" /> />
+                        label={<FormattedMessage id="cancel" defaultMessage="Cancel" />}
+                    />
                     <Button
                         className="rainbow-auth-firebase-profile_actions-buttons"
                         label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}

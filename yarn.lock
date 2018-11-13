@@ -8633,9 +8633,9 @@ react-rainbow-components@^0.5.0:
     react-dom "^16.4.2"
     react-ga "^2.5.3"
 
-react-rainbow-components@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/react-rainbow-components/-/react-rainbow-components-0.6.1.tgz#af54a5534996659ecc96be5b270ebdeed2a4e4f4"
+react-rainbow-components@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-rainbow-components/-/react-rainbow-components-0.7.0.tgz#3ec9bc880ede4284f0ba6501ba88ecd501ca31c9"
   dependencies:
     autosize "^4.0.2"
     chart.js "^2.7.3"
@@ -8644,8 +8644,6 @@ react-rainbow-components@^0.6.1:
     react "^16.4.2"
     react-async-script-loader "^0.3.0"
     react-dom "^16.4.2"
-    react-ga "^2.5.3"
-    react-prismic-cms "^0.2.0"
 
 react-redux@^5.0.7:
   version "5.1.0"

@@ -7,23 +7,22 @@ import {
     injectIntl,
     defineMessages,
 } from 'react-intl';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import Button from 'react-rainbow-components/components/Button';
-import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
-import CloseIcon from '../../../icons/close';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
 import PhoneIcon from '../../../icons/phone';
 import LockIcon from '../../../icons/lock';
 import PersonIcon from '../../../icons/person';
+import TopBar from '../top-bar/index.js';
 import validate from './validate';
 import './styles.css';
+import './media-queries.css';
 
 const translations = defineMessages({
     displayNamePlaceholder: {
@@ -64,16 +63,12 @@ function Profile(props) {
     return (
         <form noValidate onSubmit={handleSubmit(handleProfileChange)}>
             <section className={getContainerClassNames()} style={style}>
-                <div className="rainbow-auth-firebase-profile_top-bar">
-                    <span className="rainbow-auth-firebase-profile_top-bar-title">
-                        <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
-                    </span>
-                    <Link to="/app/home">
-                        <ButtonIcon icon={<CloseIcon className="rainbow-auth-firebase-profile_top-bar-close-icon" />} />
-                    </Link>
-                </div>
+                <TopBar />
+                <h1 className="rainbow-auth-firebase-profile_title">
+                    <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
+                </h1>
                 <div className="rainbow-auth-firebase-profile_content">
-                    <div>
+                    <div className="rainbow-auth-firebase-profile_content-input-container">
                         <Field
                             component={Input}
                             name="displayName"
@@ -116,10 +111,6 @@ function Profile(props) {
                     </div>
                 </div>
                 <div className="rainbow-auth-firebase-profile_actions">
-                    <Button
-                        className="rainbow-auth-firebase-profile_actions-buttons"
-                        label={<FormattedMessage id="cancel" defaultMessage="Cancel" />}
-                    />
                     <Button
                         className="rainbow-auth-firebase-profile_actions-buttons"
                         label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}

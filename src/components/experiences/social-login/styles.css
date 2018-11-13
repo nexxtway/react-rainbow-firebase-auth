@@ -44,7 +44,12 @@
 
 @media (max-width: 620px) {
     .rainbow-auth-firebase-social-login_buttons-container {
-        padding: 0 0 24px 0;
+        padding: 0;
         width: 100%;
+    }
+    .rainbow-auth-firebase-social-language {
+        position: absolute;
+        top: 0;
+        margin-top: 20px;
     }
 }

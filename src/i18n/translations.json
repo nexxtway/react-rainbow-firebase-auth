@@ -144,10 +144,9 @@
         "mail.send.button.done": "Done",
         "reset.password.confirmation.title": "Password Reset Email Sent",
         "reset.password.confirmation.first.text": "An email has been sent to your email address,",
-        "reset.password.confirmation.second.text": "Follow the directions in the email to reset your password."
+        "reset.password.confirmation.second.text": "Follow the directions in the email to reset your password.",
         "terms": "Terms and Conditions",
-        "privacy": "Privacy Policy",
-        "welcome": "Welcome {name}"
+        "privacy": "Privacy Policy"
     },
     "es": {
         "actions": "Acciones",
@@ -301,9 +300,8 @@
         "mail.send.button.done": "Aceptar",
         "reset.password.confirmation.title": "Correo de restauración de contraseña enviado",
         "reset.password.confirmation.first.text": "Un mensaje ha sido enviado a su dirección de correo electrónico,",
-        "reset.password.confirmation.second.text": "Sigua las instrucciones en el mensaje para restaurar su contraseña."
+        "reset.password.confirmation.second.text": "Sigua las instrucciones en el mensaje para restaurar su contraseña.",
         "terms": "Términos y condiciones",
-        "privacy": "Política de Privacidad",
-        "welcome": "Bienvenido {name}"
+        "privacy": "Política de Privacidad"
     }
 }

@@ -7,11 +7,7 @@ import MailSendIcon from './icons/mailSendIcon';
 import { navigateTo } from '../../../../history';
 import './styles.css';
 
-function ResetPasswordConfirmation(props) {
-    const {
-        email,
-    } = props;
-
+function ResetPasswordConfirmation({ email }) {
     return (
         <article className="rainbow-auth-firebase-reset-password-confirmation_container">
             <MailSendIcon />

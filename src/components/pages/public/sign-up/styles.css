@@ -52,10 +52,6 @@
     margin-top: 24px;
 }
 
-.rainbow-auth-firebase-signup_inputs-container > :last-child {
-    margin-top: 16px;
-}
-
 .rainbow-auth-firebase-signup_link {
     color: #01b6f5;
 }

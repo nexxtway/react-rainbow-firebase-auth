@@ -61,6 +61,8 @@ export default function (state = initialState, action) {
             return authStart(state);
 
         case SHOW_ERROR_MESSAGE:
+            state = state.set('isLoadingFacebook', false);
+            state = state.set('isLoadingGoogle', false);
             return state.set('isLoading', false);
 
         case AUTH_SUCCESS:

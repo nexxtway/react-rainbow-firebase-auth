@@ -23,7 +23,7 @@ import validate from './validate';
 
 const translations = defineMessages({
     emailPlaceholder: {
-        id: 'form.sign.email.placeholder',
+        id: 'form.email.placeholder',
         defaultValue: 'Enter your email address',
     },
 });
@@ -70,7 +70,7 @@ class ForgotPassword extends Component {
                             <Field
                                 component={Input}
                                 name="email"
-                                label={<FormattedMessage id="form.sign.email.label" defaultMessage="Email address" />}
+                                label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 icon={<EmailIcon />} />

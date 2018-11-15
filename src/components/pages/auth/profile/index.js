@@ -9,8 +9,8 @@ import {
 } from 'react-intl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Field, reduxForm } from 'redux-form';
-import Button from 'react-rainbow-components/components/Button';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import RenderIf from 'react-rainbow-components/components/RenderIf';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
@@ -21,6 +21,7 @@ import LockIcon from '../../../icons/lock';
 import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
 import validate from './validate';
+import ProfileActions from './profileActions';
 import './styles.css';
 import './media-queries.css';
 
@@ -52,6 +53,10 @@ function Profile(props) {
         updateProfile,
         handleSubmit,
         intl,
+        userName,
+        email,
+        phoneNumber,
+        password,
     } = props;
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
@@ -59,6 +64,19 @@ function Profile(props) {
     const handleProfileChange = (profile) => {
         updateProfile(profile);
     };
+
+    function isChangedData() {
+        if (userName !== user.displayName) {
+            return true;
+        } if (email !== user.email) {
+            return true;
+        } if (phoneNumber !== undefined) {
+            return true;
+        } if (password !== undefined) {
+            return true;
+        }
+        return null;
+    }
 
     return (
         <form noValidate onSubmit={handleSubmit(handleProfileChange)}>
@@ -88,6 +106,7 @@ function Profile(props) {
                         <Field
                             component={Input}
                             name="phoneNumber"
+                            type="number"
                             className="rainbow-auth-firebase-profile_content-input"
                             label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
                             placeholder={intl.formatMessage(translations.phonePlaceholder)}
@@ -110,14 +129,9 @@ function Profile(props) {
                             className="rainbow-auth-firebase-profile_content-user-photo" />
                     </div>
                 </div>
-                <div className="rainbow-auth-firebase-profile_actions">
-                    <Button
-                        className="rainbow-auth-firebase-profile_actions-buttons"
-                        label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
-                        variant="brand"
-                        type="submit"
-                        isLoading={isLoading} />
-                </div>
+                <RenderIf isTrue={isChangedData()}>
+                    <ProfileActions isLoading={isLoading} />
+                </RenderIf>
             </section>
         </form>
     );
@@ -131,6 +145,10 @@ Profile.propTypes = {
     updateProfile: PropTypes.func,
     handleSubmit: PropTypes.func.isRequired,
     intl: intlShape.isRequired,
+    userName: PropTypes.string,
+    email: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    password: PropTypes.string,
 };
 
 Profile.defaultProps = {
@@ -139,13 +157,26 @@ Profile.defaultProps = {
     user: {},
     isLoading: false,
     updateProfile: () => {},
+    userName: undefined,
+    email: undefined,
+    phoneNumber: undefined,
+    password: undefined,
 };
 
 function stateToProps(state) {
     const { authentication, profile } = state;
     const { user } = authentication.toJS();
     const isLoading = profile.get('isLoading');
+    const selector = formValueSelector('profile');
+    const userName = selector(state, 'displayName');
+    const email = selector(state, 'email');
+    const phoneNumber = selector(state, 'phoneNumber');
+    const password = selector(state, 'password');
     return {
+        userName,
+        email,
+        phoneNumber,
+        password,
         user,
         isLoading,
         initialValues: {

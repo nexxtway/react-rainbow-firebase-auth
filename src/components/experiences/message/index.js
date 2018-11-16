@@ -14,20 +14,14 @@ function Message(props) {
         className,
         style,
         message,
-        messageVariant,
+        variant,
         hideMessage,
     } = props;
-
-    const isErrorMessage = messageVariant === 'ERROR';
-    const isSuccessMessage = messageVariant === 'SUCCESS';
 
     function getClassName() {
         return classnames(
             'rainbow-auth-firebase-message_container',
-            {
-                'rainbow-auth-firebase-message_container-error': isErrorMessage,
-                'rainbow-auth-firebase-message_container-success': isSuccessMessage,
-            },
+            `rainbow-auth-firebase-message_container-${variant}`,
             className,
         );
     }
@@ -36,7 +30,7 @@ function Message(props) {
         return (
             <article className={getClassName()} style={style}>
                 <div className="rainbow-auth-firebase-message_content">
-                    <MessageIcon variant={messageVariant} />
+                    <MessageIcon variant={variant} />
                     <p className="rainbow-auth-firebase-message_text">
                         {message}
                     </p>
@@ -56,7 +50,7 @@ Message.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     message: PropTypes.node,
-    messageVariant: PropTypes.string,
+    variant: PropTypes.string,
     hideMessage: PropTypes.func.isRequired,
 };
 
@@ -64,13 +58,13 @@ Message.defaultProps = {
     className: undefined,
     style: {},
     message: undefined,
-    messageVariant: undefined,
+    variant: undefined,
 };
 
 function stateToProps(state) {
     return {
         message: state.app.get('message'),
-        messageVariant: state.app.get('messageVariant'),
+        variant: state.app.get('messageVariant'),
     };
 }
 

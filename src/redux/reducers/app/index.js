@@ -1,9 +1,13 @@
 /* eslint-disable no-param-reassign */
 import { fromJS } from 'immutable';
-import { DONE_APP_INITIALIZATION, SHOW_ERROR_MESSAGE, START_APP_INITIALIZATION } from '../../actions/app';
+import {
+    DONE_APP_INITIALIZATION,
+    START_APP_INITIALIZATION,
+    SHOW_ERROR_MESSAGE,
+    SHOW_SUCCESS_MESSAGE,
+    HIDE_MESSAGE,
+} from '../../actions/app';
 import { USER_LOGOUT_DONE } from '../../actions/authentication';
-import { SHOW_SUCCESS_MESSAGE } from '../../actions/app/show-success-message';
-import { HIDE_MESSAGE } from '../../actions/app/hide-message';
 
 const initialState = fromJS({
     isInitializing: true,
@@ -11,6 +15,21 @@ const initialState = fromJS({
     message: undefined,
     messageVariant: undefined,
 });
+
+function showErrorMessage(state, message) {
+    state = state.set('message', message);
+    return state.set('messageVariant', 'error');
+}
+
+function showSuccessMessage(state, message) {
+    state = state.set('message', message);
+    return state.set('messageVariant', 'success');
+}
+
+function hideMessage(state) {
+    state = state.set('messageVariant', undefined);
+    return state.set('message', undefined);
+}
 
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -21,16 +40,13 @@ export default function (state = initialState, action) {
             return state.set('isInitializing', false);
 
         case SHOW_ERROR_MESSAGE:
-            state = state.set('message', action.message);
-            return state.set('messageVariant', 'ERROR');
+            return showErrorMessage(state, action.message);
 
         case SHOW_SUCCESS_MESSAGE:
-            state = state.set('message', action.message);
-            return state.set('messageVariant', 'SUCCESS');
+            return showSuccessMessage(state, action.message);
 
         case HIDE_MESSAGE:
-            state = state.set('messageVariant', undefined);
-            return state.set('message', undefined);
+            return hideMessage(state);
 
         case USER_LOGOUT_DONE:
             return initialState;

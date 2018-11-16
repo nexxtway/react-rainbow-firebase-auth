@@ -41,7 +41,7 @@ const translations = defineMessages({
     },
     passwordPlaceholder: {
         id: 'form.password.placeholder',
-        defaultValue: 'Enter your password',
+        defaultValue: 'Enter new password',
     },
 });
 
@@ -104,7 +104,7 @@ function Profile(props) {
                             <Field
                                 component={Input}
                                 name="password"
-                                label={<FormattedMessage id="form.password.label" defaultMessage="Password" />}
+                                label={<FormattedMessage id="form.password.label" defaultMessage="Change password" />}
                                 placeholder={intl.formatMessage(translations.passwordPlaceholder)}
                                 type="password"
                                 className="rainbow-auth-firebase-profile_content-input"

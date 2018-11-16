@@ -146,8 +146,8 @@ SignIn.defaultProps = {
 function stateToProps(state) {
     const { i18n } = state;
     return {
-        locale: i18n.locale,
         ...state.authentication.toJS(),
+        locale: i18n.locale,
     };
 }
 

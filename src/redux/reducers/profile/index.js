@@ -8,12 +8,7 @@ import { USER_LOGOUT_DONE } from '../../actions/authentication';
 
 const initialState = fromJS({
     isLoading: false,
-    user: null,
 });
-
-function logoutUser(state) {
-    return state.set('user', null);
-}
 
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -24,7 +19,7 @@ export default function (state = initialState, action) {
             return state.set('isLoading', false);
 
         case USER_LOGOUT_DONE:
-            return logoutUser(state);
+            return initialState;
 
         default:
             return state;

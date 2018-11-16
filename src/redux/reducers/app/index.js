@@ -15,10 +15,6 @@ const initialState = fromJS({
     user: null,
 });
 
-function logoutUser(state) {
-    return state.set('user', null);
-}
-
 export default function (state = initialState, action) {
     switch (action.type) {
         case START_APP_INITIALIZATION:
@@ -34,7 +30,7 @@ export default function (state = initialState, action) {
             return state.set('errorMessage', undefined);
 
         case USER_LOGOUT_DONE:
-            return logoutUser(state);
+            return initialState;
 
         default:
             return state;

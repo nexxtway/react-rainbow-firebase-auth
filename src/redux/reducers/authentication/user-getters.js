@@ -16,10 +16,7 @@ export function getEmail() {
     if (this.email) {
         return this.email;
     }
-    if (this.isFacebookUser()) {
-        return this.providerData[0].email;
-    }
-    if (this.isGoogleUser()) {
+    if (this.isFacebookUser() || this.isGoogleUser()) {
         return this.providerData[0].email;
     }
     return undefined;

@@ -20,7 +20,7 @@ import EmailIcon from '../../../icons/email/index.js';
 import LockIcon from '../../../icons/lock/index.js';
 import UserIcon from '../../../icons/user/index.js';
 import { loginWithFacebook } from '../../../../redux/actions/authentication';
-import { createAccount, reset } from '../../../../redux/actions/registration';
+import { createAccount } from '../../../../redux/actions/registration';
 import './styles.css';
 import './media-queries.css';
 import validate from './validate';
@@ -41,11 +41,6 @@ const translations = defineMessages({
 });
 
 class SignUp extends Component {
-    componentDidMount() {
-        const { reset } = this.props;
-        reset();
-    }
-
     getClassName() {
         const { className } = this.props;
         return classnames('rainbow-auth-firebase-signup_container', className);
@@ -131,7 +126,6 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-    reset: PropTypes.func.isRequired,
     createAccount: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     handleSubmit: PropTypes.func.isRequired,
@@ -159,7 +153,6 @@ function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithFacebook,
         createAccount,
-        reset,
     }, dispatch);
 }
 

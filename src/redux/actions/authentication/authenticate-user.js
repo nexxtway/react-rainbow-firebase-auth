@@ -8,7 +8,7 @@ export default function authenticateUser(user) {
             type: USER_AUTHENTICATED,
             user: {
                 ...user,
-                photoURL: `https://graph.facebook.com/v2.12/${facebookUserId}/picture?type=normal`,
+                photoURL: `https://graph.facebook.com/v2.12/${facebookUserId}/picture?type=large`,
             },
         };
     }

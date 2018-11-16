@@ -15,13 +15,16 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
+import Select from 'react-rainbow-components/components/Select';
+import { changeLocale } from '../../../../i18n';
 import { loginWithEmailAndPassword, resetAuthForm } from '../../../../redux/actions/authentication';
 import LockIcon from '../../../icons/lock/index.js';
 import SocialLogin from '../../../experiences/social-login';
-import './styles.css';
-import './media-queries.css';
 import EmailIcon from '../../../icons/email';
 import validate from './validate';
+import TermsConditionsAndPrivacyPolicy from '../../../experiences/termsConditions-and-privacyPolicy/idnex';
+import './styles.css';
+import './media-queries.css';
 
 const translations = defineMessages({
     emailPlaceholder: {
@@ -33,6 +36,11 @@ const translations = defineMessages({
         defaultValue: 'Enter your password',
     },
 });
+
+const languages = [
+    { value: 'en', label: 'English' },
+    { value: 'es', label: 'Spanish' },
+];
 
 class SignIn extends Component {
     componentDidMount() {
@@ -52,6 +60,8 @@ class SignIn extends Component {
             isLoading,
             style,
             intl,
+            changeLocale,
+            locale,
         } = this.props;
 
         return (
@@ -103,19 +113,12 @@ class SignIn extends Component {
                             </Link>
                         </article>
                     </Card>
-                    <p className="rainbow-auth-firebase-signup_terms-conditions">
-                        <FormattedMessage id="sign.up.creating.account.agree" defaultMessage="By creating an account you agree to our" />
-                        <br />
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/terms">
-                            <FormattedMessage id="sign.up.terms" defaultMessage="Terms and Conditions" />
-                        </Link>
-                        <span>{' '}</span>
-                        <FormattedMessage id="sign.up.terms.and" defaultMessage="and our" />
-                        <span>{' '}</span>
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/privacy">
-                            <FormattedMessage id="sign.up.privacy" defaultMessage="Privacy Policy" />
-                        </Link>
-                    </p>
+                    <TermsConditionsAndPrivacyPolicy />
+                    <Select
+                        className="rainbow-auth-firebase-signin-language"
+                        options={languages}
+                        value={locale}
+                        onChange={event => changeLocale(event.target.value)} />
                 </section>
             </form>
         );
@@ -130,6 +133,8 @@ SignIn.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     intl: intlShape.isRequired,
+    changeLocale: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 SignIn.defaultProps = {
@@ -138,13 +143,18 @@ SignIn.defaultProps = {
 };
 
 function stateToProps(state) {
-    return state.authentication.toJS();
+    const { i18n } = state;
+    return {
+        locale: i18n.locale,
+        ...state.authentication.toJS(),
+    };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithEmailAndPassword,
         resetAuthForm,
+        changeLocale,
     }, dispatch);
 }
 

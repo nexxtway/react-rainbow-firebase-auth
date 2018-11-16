@@ -56,9 +56,6 @@
     color: #01b6f5;
 }
 
-.rainbow-auth-firebase-signup_terms-conditions {
-    font-size: 12px;
-    text-align: center;
-    font-family: Lato;
-    color: #061c3f;
+.rainbow-auth-firebase-signup-language {
+    display: none;
 }

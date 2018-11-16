@@ -22,7 +22,7 @@
     background-color: #004ca9;
     border-color: #004ca9;
     color: #fff;
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .rainbow-auth-firebase-social-login_facebook-button:hover, .rainbow-auth-firebase-social-login_facebook-button:focus {
@@ -48,8 +48,6 @@
         width: 100%;
     }
     .rainbow-auth-firebase-social-language {
-        position: absolute;
-        top: 0;
-        margin-top: 20px;
+        display: none;
     }
 }

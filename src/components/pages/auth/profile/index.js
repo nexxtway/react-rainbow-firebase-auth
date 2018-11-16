@@ -91,14 +91,15 @@ function Profile(props) {
                                 label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
+                                type="email"
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}
                                 name="phoneNumber"
-                                type="number"
                                 className="rainbow-auth-firebase-profile_content-input"
                                 label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
                                 placeholder={intl.formatMessage(translations.phonePlaceholder)}
+                                type="number"
                                 icon={<PhoneIcon />} />
                             <Field
                                 component={Input}

@@ -81,6 +81,7 @@ class SignIn extends Component {
                                 label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
+                                type="email"
                                 icon={<EmailIcon />} />
                             <Field
                                 component={Input}

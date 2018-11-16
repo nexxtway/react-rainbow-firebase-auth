@@ -52,7 +52,7 @@ function TopBar(props) {
                             size="medium" />
                         <div className="rainbow-auth-firebase_avatar-menu_user-detail">
                             <p className="rainbow-auth-firebase_avatar-menu_user-name">{user.displayName}</p>
-                            <p className="rainbow-auth-firebase_avatar-menu_user-email">{user.email}</p>
+                            <p className="rainbow-auth-firebase_avatar-menu_user-email">{user.getEmail()}</p>
                         </div>
                     </li>
                     <MenuDivider variant="space" />

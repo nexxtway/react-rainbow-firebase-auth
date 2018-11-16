@@ -6,12 +6,18 @@ import {
     SHOW_ERROR_MESSAGE,
     HIDE_ERROR_MESSAGE,
 } from '../../actions/app';
+import { USER_LOGOUT_DONE } from '../../actions/authentication';
 
 const initialState = fromJS({
     isInitializing: true,
     isLoading: false,
     errorMessage: undefined,
+    user: null,
 });
+
+function logoutUser(state) {
+    return state.set('user', null);
+}
 
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -26,6 +32,9 @@ export default function (state = initialState, action) {
 
         case HIDE_ERROR_MESSAGE:
             return state.set('errorMessage', undefined);
+
+        case USER_LOGOUT_DONE:
+            return logoutUser(state);
 
         default:
             return state;

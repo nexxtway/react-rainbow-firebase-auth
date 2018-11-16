@@ -45,6 +45,15 @@
     margin-top: 4px;
 }
 
+.rainbow-auth-firebase-profile_content-user-icon {
+    width: 86px;
+    height: 86px;
+}
+
+.rainbow-auth-firebase-profile_content-user-photo-label {
+    color: #576574;
+}
+
 .rainbow-auth-firebase-profile_actions {
     box-shadow: 0 1px 2px 0 #e3e5ed;
     background-color: #fff;

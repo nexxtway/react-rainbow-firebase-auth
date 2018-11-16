@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function PersonIcon() {
+export default function PersonIcon(props) {
+    const { className } = props;
     return (
-        <svg width="33px" height="31px" viewBox="0 0 33 31" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg className={className} width="33px" height="31px" viewBox="0 0 33 31" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <title>person</title>
             <desc>Created with Sketch.</desc>
             <g id="google-registration" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -14,3 +16,10 @@ export default function PersonIcon() {
         </svg>
     );
 }
+
+PersonIcon.propTypes = {
+    className: PropTypes.string,
+};
+PersonIcon.defaultProps = {
+    className: undefined,
+};

@@ -111,10 +111,12 @@ function Profile(props) {
                                 icon={<LockIcon />} />
                         </div>
                         <div className="rainbow-auth-firebase-profile_content-user-photo-container">
-                            <FormattedMessage id="profile.photo" defaultMessage="Profile Photo" />
+                            <span className="rainbow-auth-firebase-profile_content-user-photo-label">
+                                <FormattedMessage id="profile.photo" defaultMessage="Profile Photo" />
+                            </span>
                             <Avatar
                                 src={user.photoURL}
-                                icon={<PersonIcon />}
+                                icon={<PersonIcon className="rainbow-auth-firebase-profile_content-user-icon" />}
                                 assistiveText="user profile"
                                 className="rainbow-auth-firebase-profile_content-user-photo" />
                         </div>

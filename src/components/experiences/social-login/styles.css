@@ -1,12 +1,10 @@
 .rainbow-auth-firebase-social-login_buttons-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-right: 24px;
     width: 50%;
-}
-
-.rainbow-auth-firebase-social-login_buttons-container > :not(:last-child) {
-    margin-bottom: 34px;
+    height: 100%;
 }
 
 .rainbow-auth-firebase-social-login_social-icon {
@@ -16,13 +14,15 @@
 
 .rainbow-auth-firebase-social-login_button {
     height: 44px;
+    width: 100%;
 }
 
 .rainbow-auth-firebase-social-login_facebook-button {
     background-color: #004ca9;
     border-color: #004ca9;
     color: #fff;
-    margin-top: 60px;
+    margin-top: 38px;
+    margin-bottom: 32px;
 }
 
 .rainbow-auth-firebase-social-login_facebook-button:hover, .rainbow-auth-firebase-social-login_facebook-button:focus {
@@ -31,15 +31,10 @@
     color: #fff;
 }
 
-.rainbow-auth-firebase-social-login_amazon-button, .rainbow-auth-firebase-social-login_amazon-button:hover {
-    color: #061C3F;
-}
-
 .rainbow-auth-firebase-social-language {
     width: 140px;
     height: 40px;
     align-self: center;
-    margin-top: 40px;
 }
 
 @media (max-width: 620px) {
@@ -48,8 +43,15 @@
         width: 100%;
     }
     .rainbow-auth-firebase-social-language {
-        position: absolute;
-        top: 0;
+        display: none;
+    }
+    .rainbow-auth-firebase-social-language {
+        margin-top: 40px;
+    }
+    .rainbow-auth-firebase-social-login_facebook-button {
         margin-top: 20px;
+    }
+    .rainbow-auth-firebase-social-login_buttons-container > :not(:last-child) {
+        margin-bottom: 34px;
     }
 }

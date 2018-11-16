@@ -99,7 +99,7 @@ function Profile(props) {
                                 className="rainbow-auth-firebase-profile_content-input"
                                 label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
                                 placeholder={intl.formatMessage(translations.phonePlaceholder)}
-                                type="number"
+                                type="tel"
                                 icon={<PhoneIcon />} />
                             <Field
                                 component={Input}

@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 16px;
-    padding-top: 16px;
+    padding-bottom: 40px;
+    padding-top: 40px;
     height: 100vh;
 }
 
@@ -38,6 +38,7 @@
     padding: 32px;
     width: 720px;
     margin-bottom: 16px;
+    height: max-content;
 }
 
 .rainbow-auth-firebase-signup_inputs-container {
@@ -56,9 +57,6 @@
     color: #01b6f5;
 }
 
-.rainbow-auth-firebase-signup_terms-conditions {
-    font-size: 12px;
-    text-align: center;
-    font-family: Lato;
-    color: #061c3f;
+.rainbow-auth-firebase-signup-language {
+    display: none;
 }

@@ -6,6 +6,7 @@ import {
     SHOW_ERROR_MESSAGE,
     HIDE_ERROR_MESSAGE,
 } from '../../actions/app';
+import { USER_LOGOUT_DONE } from '../../actions/authentication';
 
 const initialState = fromJS({
     isInitializing: true,
@@ -26,6 +27,9 @@ export default function (state = initialState, action) {
 
         case HIDE_ERROR_MESSAGE:
             return state.set('errorMessage', undefined);
+
+        case USER_LOGOUT_DONE:
+            return initialState;
 
         default:
             return state;

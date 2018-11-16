@@ -163,7 +163,7 @@ function stateToProps(state) {
         isLoading,
         initialValues: {
             displayName: user.displayName,
-            email: user.email,
+            email: user.getEmail(),
             phoneNumber: undefined,
             password: undefined,
         },

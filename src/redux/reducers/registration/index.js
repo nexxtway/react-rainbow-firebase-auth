@@ -3,13 +3,11 @@ import { fromJS } from 'immutable';
 import {
     CREATE_ACCOUNT_LOADING,
     CREATE_ACCOUNT_SUCCESS,
-    CREATE_ACCOUNT_RESET_FORM,
 } from '../../actions/registration';
 import { SHOW_ERROR_MESSAGE } from '../../actions/app/show-error-message';
 
 const initialState = fromJS({
     isLoading: false,
-    errorMessage: '',
 });
 
 export default function (state = initialState, action) {
@@ -25,9 +23,6 @@ export default function (state = initialState, action) {
 
         case CREATE_ACCOUNT_SUCCESS:
             return state.set('isLoading', false);
-
-        case CREATE_ACCOUNT_RESET_FORM:
-            return state.set('errorMessage', '');
 
         default:
             return state;

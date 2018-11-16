@@ -18,13 +18,17 @@ export default function (state = initialState, action) {
         case SEND_PASS_RESET_EMAIL:
             state = state.set('email', action.email);
             return state.set('isLoading', true);
+
         case RESET_EMAIL_SENT:
             state = state.set('isEmailSent', true);
             return state.set('isLoading', false);
+
         case SHOW_ERROR_MESSAGE:
             return state.set('isLoading', false);
+
         case RESET_FORM:
             return initialState;
+
         default:
             return state;
     }

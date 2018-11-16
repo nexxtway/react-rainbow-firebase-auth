@@ -3,7 +3,7 @@ import getCurrentLocale from '../../../services/app/get-current-locale';
 import signInWithFacebook from '../../../services/firebase/facebook-sign-in';
 import showErrorMessage from '../../app/show-error-message';
 
-jest.mock('./../../../services/app/get-current-locale', () => jest.fn(() => 'es'));
+jest.mock('./../../../services/app/get-current-locale', () => jest.fn(() => 'en'));
 jest.mock('./../../../services/firebase/facebook-sign-in', () => jest.fn(() => Promise.resolve()));
 jest.mock('../../app/show-error-message', () => jest.fn());
 
@@ -36,7 +36,7 @@ describe('loginWithFacebook', () => {
         signInWithFacebook.mockReturnValue(Promise.resolve());
         return loginWithFacebook()(dispatch, getState)
             .then(() => {
-                expect(signInWithFacebook).toHaveBeenCalledWith('es', ['public_profile', 'email']);
+                expect(signInWithFacebook).toHaveBeenCalledWith('en', ['public_profile', 'email']);
             });
     });
 

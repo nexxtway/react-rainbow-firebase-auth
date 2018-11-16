@@ -40,10 +40,6 @@ function updateUserData(state, data) {
     return state.set('user', Object.assign(user, data));
 }
 
-function logoutUser(state) {
-    return state.set('user', null);
-}
-
 function authStartWithFacebook(state) {
     return state.set('isLoadingFacebook', true);
 }
@@ -69,7 +65,7 @@ export default function (state = initialState, action) {
             return state.set('isLoading', false);
 
         case USER_LOGOUT_DONE:
-            return logoutUser(state);
+            return initialState;
 
         case AUTH_RESET_FORM:
             return state.set('errorMessage', '');

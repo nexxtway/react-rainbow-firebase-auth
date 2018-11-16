@@ -39,6 +39,7 @@
     padding: 32px;
     width: 720px;
     margin-bottom: 16px;
+    height: max-content;
 }
 
 .rainbow-auth-firebase-signin_inputs-container {

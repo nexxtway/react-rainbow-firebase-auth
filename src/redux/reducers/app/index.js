@@ -12,7 +12,6 @@ const initialState = fromJS({
     isInitializing: true,
     isLoading: false,
     errorMessage: undefined,
-    user: null,
 });
 
 export default function (state = initialState, action) {

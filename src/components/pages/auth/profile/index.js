@@ -105,7 +105,7 @@ function Profile(props) {
                                 placeholder={intl.formatMessage(translations.phonePlaceholder)}
                                 type="tel"
                                 icon={<PhoneIcon />} />
-                            <RenderIf isTrue={isChangedValue(currentValues, initialValues)}>
+                            <RenderIf isTrue={isSocialMediaUser}>
                                 <Field
                                     component={Input}
                                     name="password"

@@ -13,6 +13,7 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import RenderIf from 'react-rainbow-components/components/RenderIf';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
+import Button from 'react-rainbow-components/components/Button';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
@@ -21,7 +22,6 @@ import LockIcon from '../../../icons/lock';
 import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
 import validate from './validate';
-import ProfileActions from './profileActions';
 import isChangedValue from './isChangedValue';
 import './styles.css';
 import './media-queries.css';
@@ -59,6 +59,10 @@ function Profile(props) {
     } = props;
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
+
+    const getBottomBarClassNames = () => classnames('rainbow-auth-firebase-profile_actions', {
+        'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
+    });
 
     const handleProfileChange = (profile) => {
         updateProfile(profile);
@@ -132,9 +136,14 @@ function Profile(props) {
                                 className="rainbow-auth-firebase-profile_content-user-photo" />
                         </div>
                     </div>
-                    <RenderIf isTrue={isChangedValue(currentValues, initialValues)}>
-                        <ProfileActions isLoading={isLoading} />
-                    </RenderIf>
+                    <div className={getBottomBarClassNames()}>
+                        <Button
+                            className="rainbow-auth-firebase-profile_actions-buttons"
+                            label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
+                            variant="brand"
+                            type="submit"
+                            isLoading={isLoading} />
+                    </div>
                 </section>
             </form>
         </section>

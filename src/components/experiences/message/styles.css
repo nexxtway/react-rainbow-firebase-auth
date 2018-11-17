@@ -1,5 +1,4 @@
 .rainbow-auth-firebase-message_container {
-    background-color: #fe4849;
     padding: 16px;
     width: 100vw;
     display: flex;
@@ -8,6 +7,14 @@
     position: fixed;
     top: 0;
     z-index: 999999;
+}
+
+.rainbow-auth-firebase-message_container-error {
+    background-color: #fe4849;
+}
+
+.rainbow-auth-firebase-message_container-success {
+    background-color: #1de9b6;
 }
 
 .rainbow-auth-firebase-message_content {

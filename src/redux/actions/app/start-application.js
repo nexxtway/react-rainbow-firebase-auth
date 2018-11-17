@@ -1,7 +1,7 @@
 import history from '../../../history';
 import handleAuthenticationChange from './handle-auth-change';
 import { onAuthStateChanged } from '../../services/firebase';
-import hideErrorMessage from './hide-error-message';
+import hideMessage from './hide-message';
 
 export default function startApplication() {
     return (dispatch) => {
@@ -9,7 +9,7 @@ export default function startApplication() {
             dispatch(handleAuthenticationChange(user));
         });
         history.listen(() => {
-            dispatch(hideErrorMessage());
+            dispatch(hideMessage());
         });
     };
 }

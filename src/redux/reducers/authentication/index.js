@@ -36,7 +36,7 @@ function authStart(state) {
 }
 
 function updateUserData(state, data) {
-    const user = state.get('user');
+    const { user } = state.toJS();
     return state.set('user', Object.assign(user, data));
 }
 

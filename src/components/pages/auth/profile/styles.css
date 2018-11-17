@@ -28,6 +28,11 @@
     flex-shrink: 0;
 }
 
+.rainbow-auth-firebase-profile_content-input :disabled {
+    color: #a4a7b5;
+    padding-left: 2.29rem;
+}
+
 .rainbow-auth-firebase-profile_content-user-photo-container {
     margin-left: 32px;
     display: flex;

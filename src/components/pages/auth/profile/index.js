@@ -64,6 +64,8 @@ function Profile(props) {
         updateProfile(profile);
     };
 
+    const isSocialMediaUser = user.isGoogleUser() || user.isFacebookUser();
+
     return (
         <section>
             <TopBar />
@@ -75,6 +77,7 @@ function Profile(props) {
                     <div className="rainbow-auth-firebase-profile_content">
                         <div className="rainbow-auth-firebase-profile_content-input-container">
                             <Field
+                                disabled={isSocialMediaUser}
                                 component={Input}
                                 name="displayName"
                                 className="rainbow-auth-firebase-profile_content-input"
@@ -85,6 +88,7 @@ function Profile(props) {
                                 }
                                 icon={<UserIcon />} />
                             <Field
+                                disabled={isSocialMediaUser}
                                 component={Input}
                                 name="email"
                                 className="rainbow-auth-firebase-profile_content-input"
@@ -101,14 +105,21 @@ function Profile(props) {
                                 placeholder={intl.formatMessage(translations.phonePlaceholder)}
                                 type="tel"
                                 icon={<PhoneIcon />} />
-                            <Field
-                                component={Input}
-                                name="password"
-                                label={<FormattedMessage id="form.password.label" defaultMessage="Change password" />}
-                                placeholder={intl.formatMessage(translations.passwordPlaceholder)}
-                                type="password"
-                                className="rainbow-auth-firebase-profile_content-input"
-                                icon={<LockIcon />} />
+                            <RenderIf isTrue={!isSocialMediaUser}>
+                                <Field
+                                    component={Input}
+                                    name="password"
+                                    label={
+                                        <FormattedMessage id="form.password.label" defaultMessage="Change password" />
+                                    }
+                                    placeholder={
+                                        intl.formatMessage(translations.passwordPlaceholder)
+                                    }
+                                    type="password"
+                                    className="rainbow-auth-firebase-profile_content-input"
+                                    icon={<LockIcon />} />
+                            </RenderIf>
+
                         </div>
                         <div className="rainbow-auth-firebase-profile_content-user-photo-container">
                             <span className="rainbow-auth-firebase-profile_content-user-photo-label">

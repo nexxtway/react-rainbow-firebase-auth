@@ -74,19 +74,13 @@
     opacity: 0;
     transform: translateY(100%);
     transition: transform 250ms linear, opacity 250ms linear;
-
 }
 
 .rainbow-auth-firebase-profile_actions-buttons {
     margin-right: 24px;
-    opacity: 0;
 }
 
 .rainbow-auth-firebase-profile_actions--shown {
     opacity: 1;
     transform: translateY(0%);
-}
-
-.rainbow-auth-firebase-profile_actions-buttons--shown {
-    opacity: 1;
 }

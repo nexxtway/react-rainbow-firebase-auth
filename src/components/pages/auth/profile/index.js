@@ -60,14 +60,8 @@ function Profile(props) {
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
 
-    const showBar = isChangedValue(currentValues, initialValues);
-
     const getBottomBarClassNames = () => classnames('rainbow-auth-firebase-profile_actions', {
-        'rainbow-auth-firebase-profile_actions--shown': showBar,
-    });
-
-    const getButtonClassNames = () => classnames('rainbow-auth-firebase-profile_actions-buttons', {
-        'rainbow-auth-firebase-profile_actions-buttons--shown': showBar,
+        'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
     });
 
     const handleProfileChange = (profile) => {
@@ -144,7 +138,7 @@ function Profile(props) {
                     </div>
                     <div className={getBottomBarClassNames()}>
                         <Button
-                            className={getButtonClassNames()}
+                            className="rainbow-auth-firebase-profile_actions-buttons"
                             label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
                             variant="brand"
                             type="submit"

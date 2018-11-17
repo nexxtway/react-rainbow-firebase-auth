@@ -19,31 +19,26 @@ function Message(props) {
     } = props;
 
     function getClassName() {
-        return classnames(
-            'rainbow-auth-firebase-message_container',
-            `rainbow-auth-firebase-message_container-${variant}`,
-            className,
-        );
+        return classnames('rainbow-auth-firebase-message_container', {
+            'rainbow-auth-firebase-message_container--shown': message,
+        }, `rainbow-auth-firebase-message_container-${variant}`, className);
     }
 
-    if (message) {
-        return (
-            <article className={getClassName()} style={style}>
-                <div className="rainbow-auth-firebase-message_content">
-                    <MessageIcon variant={variant} />
-                    <p className="rainbow-auth-firebase-message_text">
-                        {message}
-                    </p>
-                    <ButtonIcon
-                        size="medium"
-                        icon={<CloseIcon />}
-                        onClick={hideMessage}
-                        className="rainbow-auth-firebase-message_close-button" />
-                </div>
-            </article>
-        );
-    }
-    return null;
+    return (
+        <article className={getClassName()} style={style}>
+            <div className="rainbow-auth-firebase-message_content">
+                <MessageIcon variant={variant} />
+                <p className="rainbow-auth-firebase-message_text">
+                    {message}
+                </p>
+                <ButtonIcon
+                    size="medium"
+                    icon={<CloseIcon />}
+                    onClick={hideMessage}
+                    className="rainbow-auth-firebase-message_close-button" />
+            </div>
+        </article>
+    );
 }
 
 Message.propTypes = {
@@ -58,7 +53,7 @@ Message.defaultProps = {
     className: undefined,
     style: {},
     message: undefined,
-    variant: undefined,
+    variant: 'error',
 };
 
 function stateToProps(state) {

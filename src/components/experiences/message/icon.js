@@ -4,7 +4,7 @@ import ErrorIcon from '../../icons/error';
 import DoneIcon from '../../icons/done';
 
 export default function MessageIcon({ variant }) {
-    if (variant === 'ERROR') {
+    if (variant === 'error') {
         return <ErrorIcon className="rainbow-auth-firebase-message_icon" />;
     }
     return <DoneIcon className="rainbow-auth-firebase-message_icon" />;

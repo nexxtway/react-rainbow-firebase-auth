@@ -13,7 +13,7 @@ import './styles.css';
 
 const languages = [
     { value: 'en', label: 'English' },
-    { value: 'es', label: 'Spanish' },
+    { value: 'es', label: 'Español' },
 ];
 
 function SocialLogin(props) {
@@ -27,21 +27,23 @@ function SocialLogin(props) {
     } = props;
     return (
         <article className="rainbow-auth-firebase-social-login_buttons-container">
-            <Button
-                className="rainbow-auth-firebase-social-login_button rainbow-auth-firebase-social-login_facebook-button"
-                onClick={loginWithFacebook}
-                isLoading={isLoadingFacebook}>
-                <FacebookIcon className="rainbow-auth-firebase-social-login_social-icon" />
-                <FormattedMessage id="facebook.button.login" defaultMessage="Login with Facebook" />
-            </Button>
-            <Button
-                variant="neutral"
-                className="rainbow-auth-firebase-social-login_button"
-                onClick={loginWithGoogle}
-                isLoading={isLoadingGoogle}>
-                <GoogleIcon className="rainbow-auth-firebase-social-login_social-icon" />
-                <FormattedMessage id="google.button.login" defaultMessage="Login with Google" />
-            </Button>
+            <div>
+                <Button
+                    className="rainbow-auth-firebase-social-login_button rainbow-auth-firebase-social-login_facebook-button"
+                    onClick={loginWithFacebook}
+                    isLoading={isLoadingFacebook}>
+                    <FacebookIcon className="rainbow-auth-firebase-social-login_social-icon" />
+                    <FormattedMessage id="facebook.button.login" defaultMessage="Login with Facebook" />
+                </Button>
+                <Button
+                    variant="neutral"
+                    className="rainbow-auth-firebase-social-login_button"
+                    onClick={loginWithGoogle}
+                    isLoading={isLoadingGoogle}>
+                    <GoogleIcon className="rainbow-auth-firebase-social-login_social-icon" />
+                    <FormattedMessage id="google.button.login" defaultMessage="Login with Google" />
+                </Button>
+            </div>
             <Select
                 className="rainbow-auth-firebase-social-language"
                 options={languages}

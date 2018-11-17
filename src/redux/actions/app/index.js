@@ -3,7 +3,8 @@ import {
     DONE_APP_INITIALIZATION,
 } from './handle-auth-change';
 import showErrorMessage, { SHOW_ERROR_MESSAGE } from './show-error-message';
-import hideErrorMessage, { HIDE_ERROR_MESSAGE } from './hide-error-message';
+import showSuccessMessage, { SHOW_SUCCESS_MESSAGE } from './show-success-message';
+import hideMessage, { HIDE_MESSAGE } from './hide-message';
 import startApplication from './start-application';
 
 export {
@@ -12,6 +13,8 @@ export {
     startApplication,
     SHOW_ERROR_MESSAGE,
     showErrorMessage,
-    HIDE_ERROR_MESSAGE,
-    hideErrorMessage,
+    HIDE_MESSAGE,
+    hideMessage,
+    SHOW_SUCCESS_MESSAGE,
+    showSuccessMessage,
 };

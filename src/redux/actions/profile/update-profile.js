@@ -1,8 +1,11 @@
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import updateUserProfile from '../../services/firebase/update-profile';
 import changeCurrentUserEmail from '../../services/firebase/change-current-user-email';
 import changeCurrentUserPassword from '../../services/firebase/change-current-user-password';
 import getCurrentUser from '../../services/firebase/get-current-user';
 import showErrorMessage from '../app/show-error-message';
+import showSuccessMessage from '../app/show-success-message';
 import updateUserData from '../authentication/update-user-data';
 
 export const UPDATE_PROFILE_START = 'UPDATE_PROFILE_START';
@@ -33,6 +36,11 @@ export default function updateProfile(profile) {
                 };
                 dispatch(updateUserData(userData));
                 dispatch({ type: UPDATE_PROFILE_END });
+                dispatch(showSuccessMessage(
+                    <FormattedMessage
+                        id="profile.success.message"
+                        defaultMesssage="Your profile information has been changed successfully." />,
+                ));
             }).catch((error) => {
                 dispatch({ type: UPDATE_PROFILE_END });
                 dispatch(showErrorMessage(error));

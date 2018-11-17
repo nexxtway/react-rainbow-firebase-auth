@@ -5,34 +5,39 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
 import CloseIcon from '../../icons/close/index.js';
-import ErrorIcon from '../../icons/error/index.js';
-import hideErrorMessage from '../../../redux/actions/app/hide-error-message';
+import MessageIcon from './icon';
+import hideMessage from '../../../redux/actions/app/hide-message';
 import './styles.css';
 
 function Message(props) {
     const {
         className,
         style,
-        errorMessage,
-        hideErrorMessage,
+        message,
+        variant,
+        hideMessage,
     } = props;
 
     function getClassName() {
-        return classnames('rainbow-auth-firebase-message_container', className);
+        return classnames(
+            'rainbow-auth-firebase-message_container',
+            `rainbow-auth-firebase-message_container-${variant}`,
+            className,
+        );
     }
 
-    if (errorMessage) {
+    if (message) {
         return (
             <article className={getClassName()} style={style}>
                 <div className="rainbow-auth-firebase-message_content">
-                    <ErrorIcon className="rainbow-auth-firebase-message_icon" />
+                    <MessageIcon variant={variant} />
                     <p className="rainbow-auth-firebase-message_text">
-                        {errorMessage}
+                        {message}
                     </p>
                     <ButtonIcon
                         size="medium"
                         icon={<CloseIcon />}
-                        onClick={hideErrorMessage}
+                        onClick={hideMessage}
                         className="rainbow-auth-firebase-message_close-button" />
                 </div>
             </article>
@@ -44,25 +49,28 @@ function Message(props) {
 Message.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    errorMessage: PropTypes.node,
-    hideErrorMessage: PropTypes.func.isRequired,
+    message: PropTypes.node,
+    variant: PropTypes.string,
+    hideMessage: PropTypes.func.isRequired,
 };
 
 Message.defaultProps = {
     className: undefined,
     style: {},
-    errorMessage: undefined,
+    message: undefined,
+    variant: undefined,
 };
 
 function stateToProps(state) {
     return {
-        errorMessage: state.app.get('errorMessage'),
+        message: state.app.get('message'),
+        variant: state.app.get('messageVariant'),
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        hideErrorMessage,
+        hideMessage,
     }, dispatch);
 }
 

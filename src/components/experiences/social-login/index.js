@@ -13,7 +13,7 @@ import './styles.css';
 
 const languages = [
     { value: 'en', label: 'English' },
-    { value: 'es', label: 'Spanish' },
+    { value: 'es', label: 'Español' },
 ];
 
 function SocialLogin(props) {

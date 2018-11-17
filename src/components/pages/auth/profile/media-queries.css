@@ -1,11 +1,11 @@
 @media (max-width: 620px) {
     .rainbow-auth-firebase_profile {
-        height: 100vh;
+        overflow: auto;
     }
     .rainbow-auth-firebase-profile_content {
         flex-direction: column-reverse;
         align-items: center;
-        margin-bottom: 64px;
+        padding-bottom: 64px;
     }
     .rainbow-auth-firebase-profile_content-user-photo-container {
         margin: 0 0 24px 0;

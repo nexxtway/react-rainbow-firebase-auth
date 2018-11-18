@@ -29,3 +29,17 @@
 .rainbow-auth-firebase-terms-condition_back-icon {
     margin-right: 8px;
 }
+
+@media (max-width: 620px) {
+    .rainbow-auth-firebase-terms-condition_back {
+        position: absolute;
+        left: 12px;
+    }
+    .rainbow-auth-firebase-terms-condition_header {
+        font-size: 18px;
+    }
+    .rainbow-auth-firebase-terms-condition_content {
+        font-size: 14px;
+        padding: 24px 16px;
+    }
+}

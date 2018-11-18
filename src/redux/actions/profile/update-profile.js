@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { change } from 'redux-form';
 import updateUserProfile from '../../services/firebase/update-profile';
 import changeCurrentUserEmail from '../../services/firebase/change-current-user-email';
 import changeCurrentUserPassword from '../../services/firebase/change-current-user-password';
@@ -37,6 +38,7 @@ export default function updateProfile(profile) {
                         displayName,
                         email,
                     };
+                    dispatch(change('profile', 'password', ''));
                     dispatch(updateUserData(userData));
                 }
                 dispatch({ type: UPDATE_PROFILE_END });

@@ -27,7 +27,6 @@ function showSuccessMessage(state, message) {
 }
 
 function hideMessage(state) {
-    state = state.set('messageVariant', undefined);
     return state.set('message', undefined);
 }
 

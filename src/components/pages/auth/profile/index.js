@@ -13,15 +13,14 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import RenderIf from 'react-rainbow-components/components/RenderIf';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
+import Button from 'react-rainbow-components/components/Button';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
-import PhoneIcon from '../../../icons/phone';
 import LockIcon from '../../../icons/lock';
 import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
 import validate from './validate';
-import ProfileActions from './profileActions';
 import isChangedValue from './isChangedValue';
 import './styles.css';
 import './media-queries.css';
@@ -56,18 +55,19 @@ function Profile(props) {
         intl,
         currentValues,
         initialValues,
+        isSocialMediaUser,
     } = props;
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
 
-    const handleProfileChange = (profile) => {
-        updateProfile(profile);
-    };
+    const getBottomBarClassNames = () => classnames('rainbow-auth-firebase-profile_actions', {
+        'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
+    });
 
     return (
         <section>
             <TopBar />
-            <form noValidate onSubmit={handleSubmit(handleProfileChange)}>
+            <form noValidate onSubmit={handleSubmit(updateProfile)}>
                 <section className={getContainerClassNames()} style={style}>
                     <h1 className="rainbow-auth-firebase-profile_title">
                         <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
@@ -75,6 +75,7 @@ function Profile(props) {
                     <div className="rainbow-auth-firebase-profile_content">
                         <div className="rainbow-auth-firebase-profile_content-input-container">
                             <Field
+                                disabled={isSocialMediaUser}
                                 component={Input}
                                 name="displayName"
                                 className="rainbow-auth-firebase-profile_content-input"
@@ -85,6 +86,7 @@ function Profile(props) {
                                 }
                                 icon={<UserIcon />} />
                             <Field
+                                disabled={isSocialMediaUser}
                                 component={Input}
                                 name="email"
                                 className="rainbow-auth-firebase-profile_content-input"
@@ -93,22 +95,21 @@ function Profile(props) {
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 type="email"
                                 icon={<EmailIcon />} />
-                            <Field
-                                component={Input}
-                                name="phoneNumber"
-                                className="rainbow-auth-firebase-profile_content-input"
-                                label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
-                                placeholder={intl.formatMessage(translations.phonePlaceholder)}
-                                type="tel"
-                                icon={<PhoneIcon />} />
-                            <Field
-                                component={Input}
-                                name="password"
-                                label={<FormattedMessage id="form.password.label" defaultMessage="Change password" />}
-                                placeholder={intl.formatMessage(translations.passwordPlaceholder)}
-                                type="password"
-                                className="rainbow-auth-firebase-profile_content-input"
-                                icon={<LockIcon />} />
+                            <RenderIf isTrue={!isSocialMediaUser}>
+                                <Field
+                                    component={Input}
+                                    name="password"
+                                    label={
+                                        <FormattedMessage id="form.password.label" defaultMessage="Change password" />
+                                    }
+                                    placeholder={
+                                        intl.formatMessage(translations.passwordPlaceholder)
+                                    }
+                                    type="password"
+                                    className="rainbow-auth-firebase-profile_content-input"
+                                    icon={<LockIcon />} />
+                            </RenderIf>
+
                         </div>
                         <div className="rainbow-auth-firebase-profile_content-user-photo-container">
                             <span className="rainbow-auth-firebase-profile_content-user-photo-label">
@@ -121,9 +122,14 @@ function Profile(props) {
                                 className="rainbow-auth-firebase-profile_content-user-photo" />
                         </div>
                     </div>
-                    <RenderIf isTrue={isChangedValue(currentValues, initialValues)}>
-                        <ProfileActions isLoading={isLoading} />
-                    </RenderIf>
+                    <div className={getBottomBarClassNames()}>
+                        <Button
+                            className="rainbow-auth-firebase-profile_actions-buttons"
+                            label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
+                            variant="brand"
+                            type="submit"
+                            isLoading={isLoading} />
+                    </div>
                 </section>
             </form>
         </section>
@@ -140,6 +146,7 @@ Profile.propTypes = {
     intl: intlShape.isRequired,
     currentValues: PropTypes.object,
     initialValues: PropTypes.object,
+    isSocialMediaUser: PropTypes.bool,
 };
 
 Profile.defaultProps = {
@@ -150,31 +157,26 @@ Profile.defaultProps = {
     updateProfile: () => {},
     currentValues: {},
     initialValues: {},
+    isSocialMediaUser: false,
 };
 
 const selector = formValueSelector('profile');
 function stateToProps(state) {
     const { authentication, profile } = state;
     const { user } = authentication.toJS();
-    const isLoading = profile.get('isLoading');
-    const displayName = selector(state, 'displayName');
-    const email = selector(state, 'email');
-    const phoneNumber = selector(state, 'phoneNumber');
-    const password = selector(state, 'password');
     return {
         user,
-        isLoading,
+        isLoading: profile.get('isLoading'),
+        isSocialMediaUser: user.isGoogleUser() || user.isFacebookUser(),
         initialValues: {
             displayName: user.displayName,
             email: user.getEmail(),
-            phoneNumber: undefined,
-            password: undefined,
+            password: '',
         },
         currentValues: {
-            displayName,
-            email,
-            phoneNumber,
-            password,
+            displayName: selector(state, 'displayName'),
+            email: selector(state, 'email'),
+            password: selector(state, 'password'),
         },
     };
 }

@@ -38,9 +38,9 @@ export default function updateProfile(profile) {
                         displayName,
                         email,
                     };
-                    dispatch(change('profile', 'password', ''));
                     dispatch(updateUserData(userData));
                 }
+                dispatch(change('profile', 'password', ''));
                 dispatch({ type: UPDATE_PROFILE_END });
                 dispatch(showSuccessMessage(
                     <FormattedMessage

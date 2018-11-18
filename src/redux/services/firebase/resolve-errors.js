@@ -9,6 +9,8 @@ const INVALID_EMAIL = <FormattedMessage id="invalid.email" defaultMessage="The e
 const WEAK_PASSWORD = <FormattedMessage id="weak.password" defaultMessage="Password should be at least 6 characters" />;
 const EMAIL_ALREADY_IN_USE = <FormattedMessage id="form.error.email.already.in.use" defaultMessage="The email address is already in use by another account." />;
 const REQUIRE_RECENT_LOGIN = <FormattedMessage id="error.requires.recent.login" defaultMessage="This operation is sensitive and requires recent authentication. Log in again before retrying this request." />;
+const POPUP_CLOSED_BY_USER = <FormattedMessage id="popup.closed.by.user" defaultMessage="The popup has been closed by the user before finalizing the operation." />;
+const USER_TOKEN_EXPIRED = <FormattedMessage id="user.token.expired" defaultMessage="The user's credential is no longer valid. The user must sign in again." />;
 
 const errorMap = {
     'auth/user-not-found': USER_NOT_FOUND,
@@ -19,6 +21,8 @@ const errorMap = {
     'auth/weak-password': WEAK_PASSWORD,
     'auth/email-already-in-use': EMAIL_ALREADY_IN_USE,
     'auth/requires-recent-login': REQUIRE_RECENT_LOGIN,
+    'auth/popup-closed-by-user': POPUP_CLOSED_BY_USER,
+    'auth/user-token-expired': USER_TOKEN_EXPIRED,
 };
 
 export function isFirebaseError(error) {

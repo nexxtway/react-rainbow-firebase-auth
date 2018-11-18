@@ -1,14 +1,10 @@
 @media (max-width: 620px) {
-    .rainbow-auth-firebase-auth_top-bar {
-        padding: 12px 16px;
-    }
     .rainbow-auth-firebase_avatar-menu {
-        margin-left: 14px;
+        margin-left: 12px;
     }
     .rainbow-auth-firebase-auth_title {
-        margin-top: 46px;
-        font-family: Lato;
+        margin: 32px auto auto;
         font-size: 24px;
-        color: #061c3f;
+        padding: 0 16px;
     }
 }

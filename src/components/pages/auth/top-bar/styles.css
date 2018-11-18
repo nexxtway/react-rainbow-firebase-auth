@@ -51,3 +51,12 @@
     font-size: 24px;
     color: #061c3f;
 }
+
+@media (max-width: 620px) {
+    .rainbow-auth-firebase-auth_top-bar {
+        padding: 12px 16px;
+    }
+    .rainbow-auth-firebase_avatar-menu {
+        margin-left: 12px;
+    }
+}

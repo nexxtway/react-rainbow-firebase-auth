@@ -17,7 +17,6 @@ import Button from 'react-rainbow-components/components/Button';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
-import PhoneIcon from '../../../icons/phone';
 import LockIcon from '../../../icons/lock';
 import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
@@ -56,6 +55,7 @@ function Profile(props) {
         intl,
         currentValues,
         initialValues,
+        isSocialMediaUser,
     } = props;
 
     const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
@@ -64,16 +64,10 @@ function Profile(props) {
         'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
     });
 
-    const handleProfileChange = (profile) => {
-        updateProfile(profile);
-    };
-
-    const isSocialMediaUser = user.isGoogleUser() || user.isFacebookUser();
-
     return (
         <section>
             <TopBar />
-            <form noValidate onSubmit={handleSubmit(handleProfileChange)}>
+            <form noValidate onSubmit={handleSubmit(updateProfile)}>
                 <section className={getContainerClassNames()} style={style}>
                     <h1 className="rainbow-auth-firebase-profile_title">
                         <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
@@ -101,14 +95,6 @@ function Profile(props) {
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 type="email"
                                 icon={<EmailIcon />} />
-                            <Field
-                                component={Input}
-                                name="phoneNumber"
-                                className="rainbow-auth-firebase-profile_content-input"
-                                label={<FormattedMessage id="form.phone.label" defaultMessage="Phone number" />}
-                                placeholder={intl.formatMessage(translations.phonePlaceholder)}
-                                type="tel"
-                                icon={<PhoneIcon />} />
                             <RenderIf isTrue={!isSocialMediaUser}>
                                 <Field
                                     component={Input}
@@ -160,6 +146,7 @@ Profile.propTypes = {
     intl: intlShape.isRequired,
     currentValues: PropTypes.object,
     initialValues: PropTypes.object,
+    isSocialMediaUser: PropTypes.bool,
 };
 
 Profile.defaultProps = {
@@ -170,31 +157,26 @@ Profile.defaultProps = {
     updateProfile: () => {},
     currentValues: {},
     initialValues: {},
+    isSocialMediaUser: false,
 };
 
 const selector = formValueSelector('profile');
 function stateToProps(state) {
     const { authentication, profile } = state;
     const { user } = authentication.toJS();
-    const isLoading = profile.get('isLoading');
-    const displayName = selector(state, 'displayName');
-    const email = selector(state, 'email');
-    const phoneNumber = selector(state, 'phoneNumber');
-    const password = selector(state, 'password');
     return {
         user,
-        isLoading,
+        isLoading: profile.get('isLoading'),
+        isSocialMediaUser: user.isGoogleUser() || user.isFacebookUser(),
         initialValues: {
             displayName: user.displayName,
             email: user.getEmail(),
-            phoneNumber: undefined,
             password: undefined,
         },
         currentValues: {
-            displayName,
-            email,
-            phoneNumber,
-            password,
+            displayName: selector(state, 'displayName'),
+            email: selector(state, 'email'),
+            password: selector(state, 'password'),
         },
     };
 }

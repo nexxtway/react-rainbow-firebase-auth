@@ -5,7 +5,6 @@ const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 const USER_LOGOUT_DONE = 'USER_LOGOUT_DONE';
 const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const AUTH_START = 'AUTH_START';
-const AUTH_RESET_FORM = 'AUTH_RESET_FORM';
 const UPDATE_USER_DATA = 'UPDATE_USER_DATA';
 const AUTH_START_WITH_FACEBOOK = 'AUTH_START_WITH_FACEBOOK';
 const AUTH_SUCCESS_WITH_FACEBOOK = 'AUTH_SUCCESS_WITH_FACEBOOK';
@@ -48,7 +47,7 @@ describe('authentication reducer', () => {
                 isLoading: true,
             });
             const state = reducer(initialState, { type: AUTH_SUCCESS });
-            expect(state.toJS().isLoading).toEqual(false);
+            expect(state.toJS().isLoading).toBe(false);
         });
     });
 
@@ -62,23 +61,13 @@ describe('authentication reducer', () => {
         });
     });
 
-    describe(`when ${AUTH_RESET_FORM} action`, () => {
-        it('should empty the errorMessage', () => {
-            const initialState = fromJS({
-                message: 'Error message',
-            });
-            const state = reducer(initialState, { type: AUTH_RESET_FORM });
-            expect(state.toJS().errorMessage).toEqual('');
-        });
-    });
-
     describe(`when ${UPDATE_USER_DATA} action`, () => {
         it('should update the user data', () => {
             const user = { email: 'user@gmail.com' };
             const data = { displayName: 'user' };
             const initialState = fromJS({ user });
             const state = reducer(initialState, { type: UPDATE_USER_DATA, data });
-            expect(state.get('user')).toEqual({
+            expect(state.toJS().user).toEqual({
                 displayName: 'user',
                 email: 'user@gmail.com',
             });

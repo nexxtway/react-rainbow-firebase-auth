@@ -17,7 +17,7 @@ import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
 import Select from 'react-rainbow-components/components/Select';
 import { changeLocale } from '../../../../i18n';
-import { loginWithEmailAndPassword, resetAuthForm } from '../../../../redux/actions/authentication';
+import { loginWithEmailAndPassword } from '../../../../redux/actions/authentication';
 import LockIcon from '../../../icons/lock/index.js';
 import SocialLogin from '../../../experiences/social-login';
 import EmailIcon from '../../../icons/email';
@@ -43,11 +43,6 @@ const languages = [
 ];
 
 class SignIn extends Component {
-    componentDidMount() {
-        const { resetAuthForm } = this.props;
-        resetAuthForm();
-    }
-
     getClassName() {
         const { className } = this.props;
         return classnames('rainbow-auth-firebase-signin_container', className);
@@ -129,7 +124,6 @@ class SignIn extends Component {
 SignIn.propTypes = {
     loginWithEmailAndPassword: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
-    resetAuthForm: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     className: PropTypes.string,
     style: PropTypes.object,
@@ -154,7 +148,6 @@ function stateToProps(state) {
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithEmailAndPassword,
-        resetAuthForm,
         changeLocale,
     }, dispatch);
 }

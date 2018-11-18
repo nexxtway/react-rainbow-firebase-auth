@@ -3,12 +3,12 @@ import reducer from '..';
 
 const RESET_EMAIL_SENT = 'RESET_EMAIL_SENT';
 const SEND_PASS_RESET_EMAIL = 'SEND_PASS_RESET_EMAIL';
-const RESET_FORM = 'RESET_FORM';
+const RESET_FORGOT_PASSWORD = 'RESET_FORGOT_PASSWORD';
 const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 describe('forgotPassword reducer', () => {
     describe(`when ${RESET_EMAIL_SENT} action`, () => {
-        it('should set isLoading and isEmailSent to false', () => {
+        it('should set isLoading to false and isEmailSent to true', () => {
             const initialState = fromJS({
                 isLoading: true,
                 isEmailSent: false,
@@ -22,7 +22,7 @@ describe('forgotPassword reducer', () => {
     });
 
     describe(`when ${SEND_PASS_RESET_EMAIL} action`, () => {
-        it('should set isLoading to true and the email passed', () => {
+        it('should set isLoading to true and store the email passed', () => {
             const initialState = fromJS({
                 isLoading: false,
             });
@@ -34,12 +34,11 @@ describe('forgotPassword reducer', () => {
         });
     });
 
-    describe(`when ${RESET_FORM} action`, () => {
+    describe(`when ${RESET_FORGOT_PASSWORD} action`, () => {
         it('should return the initialState', () => {
-            const state = reducer(undefined, { type: RESET_FORM });
+            const state = reducer(undefined, { type: RESET_FORGOT_PASSWORD });
             expect(state.toJS()).toEqual({
                 isLoading: false,
-                error: null,
                 isEmailSent: false,
             });
         });

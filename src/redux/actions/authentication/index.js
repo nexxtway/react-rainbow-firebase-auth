@@ -10,7 +10,6 @@ import loginWithGoogle, {
 } from './google-login';
 import loginWithEmailAndPassword, { AUTH_START } from './email-password-login';
 import { AUTH_SUCCESS } from './handle-email-password-sign-in';
-import resetAuthForm, { AUTH_RESET_FORM } from './reset-auth-form';
 import updateUserData, { UPDATE_USER_DATA } from './update-user-data';
 
 export {
@@ -27,8 +26,6 @@ export {
     AUTH_START,
     AUTH_SUCCESS,
     loginWithEmailAndPassword,
-    AUTH_RESET_FORM,
-    resetAuthForm,
     UPDATE_USER_DATA,
     updateUserData,
 };

@@ -7,16 +7,12 @@ const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 describe('registration reducer', () => {
     describe(`when ${CREATE_ACCOUNT_LOADING} action`, () => {
-        it('should set isLoading to true and empty the errorMessage', () => {
+        it('should set isLoading to true', () => {
             const initialState = fromJS({
                 isLoading: false,
-                errorMessage: 'Error message',
             });
             const state = reducer(initialState, { type: CREATE_ACCOUNT_LOADING });
-            expect(state.toJS()).toEqual({
-                isLoading: true,
-                errorMessage: '',
-            });
+            expect(state.toJS()).toBe(true);
         });
     });
 

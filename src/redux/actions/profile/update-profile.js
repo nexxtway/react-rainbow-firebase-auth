@@ -18,11 +18,13 @@ export default function updateProfile(profile) {
         const { displayName, email, password } = profile;
         const { displayName: currentDisplayName, email: currentEmail } = getCurrentUser();
         const promises = [];
+        const shouldUpdateDisplayName = displayName !== currentDisplayName;
+        const shouldUpdateEmail = email !== currentEmail;
 
-        if (displayName !== currentDisplayName) {
+        if (shouldUpdateDisplayName) {
             promises.push(updateUserProfile({ displayName }));
         }
-        if (email !== currentEmail) {
+        if (shouldUpdateEmail) {
             promises.push(changeCurrentUserEmail(email));
         }
         if (password !== undefined) {
@@ -31,12 +33,14 @@ export default function updateProfile(profile) {
 
         if (promises.length > 0) {
             return Promise.all(promises).then(() => {
-                const userData = {
-                    displayName,
-                    email,
-                };
-                dispatch(change('profile', 'password', ''));
-                dispatch(updateUserData(userData));
+                if (shouldUpdateDisplayName || shouldUpdateEmail) {
+                    const userData = {
+                        displayName,
+                        email,
+                    };
+                    dispatch(change('profile', 'password', ''));
+                    dispatch(updateUserData(userData));
+                }
                 dispatch({ type: UPDATE_PROFILE_END });
                 dispatch(showSuccessMessage(
                     <FormattedMessage

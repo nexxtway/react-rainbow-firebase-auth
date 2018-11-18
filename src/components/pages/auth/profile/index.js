@@ -171,7 +171,7 @@ function stateToProps(state) {
         initialValues: {
             displayName: user.displayName,
             email: user.getEmail(),
-            password: '',
+            password: undefined,
         },
         currentValues: {
             displayName: selector(state, 'displayName'),

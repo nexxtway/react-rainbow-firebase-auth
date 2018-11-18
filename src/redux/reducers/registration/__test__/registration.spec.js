@@ -12,7 +12,7 @@ describe('registration reducer', () => {
                 isLoading: false,
             });
             const state = reducer(initialState, { type: CREATE_ACCOUNT_LOADING });
-            expect(state.toJS()).toBe(true);
+            expect(state.toJS().isLoading).toBe(true);
         });
     });
 
@@ -22,9 +22,7 @@ describe('registration reducer', () => {
                 isLoading: true,
             });
             const state = reducer(initialState, { type: CREATE_ACCOUNT_SUCCESS });
-            expect(state.toJS()).toEqual({
-                isLoading: false,
-            });
+            expect(state.toJS().isLoading).toBe(false);
         });
     });
 

@@ -5,7 +5,6 @@ import {
     USER_LOGOUT_DONE,
     AUTH_SUCCESS,
     AUTH_START,
-    AUTH_RESET_FORM,
     UPDATE_USER_DATA,
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
@@ -36,7 +35,7 @@ function authStart(state) {
 }
 
 function updateUserData(state, data) {
-    const user = state.get('user');
+    const { user } = state.toJS();
     return state.set('user', Object.assign(user, data));
 }
 
@@ -66,9 +65,6 @@ export default function (state = initialState, action) {
 
         case USER_LOGOUT_DONE:
             return initialState;
-
-        case AUTH_RESET_FORM:
-            return state.set('errorMessage', '');
 
         case UPDATE_USER_DATA:
             return updateUserData(state, action.data);

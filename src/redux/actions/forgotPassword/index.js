@@ -1,4 +1,4 @@
-import resetForm, { RESET_FORM } from './reset-form';
+import resetForm, { RESET_FORGOT_PASSWORD } from './reset-forgot-password';
 import sendEmailResetPassword, {
     SEND_PASS_RESET_EMAIL,
     RESET_EMAIL_SENT,
@@ -6,7 +6,7 @@ import sendEmailResetPassword, {
 
 export {
     resetForm,
-    RESET_FORM,
+    RESET_FORGOT_PASSWORD,
     sendEmailResetPassword,
     SEND_PASS_RESET_EMAIL,
     RESET_EMAIL_SENT,

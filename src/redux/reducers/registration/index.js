@@ -13,7 +13,6 @@ const initialState = fromJS({
 export default function (state = initialState, action) {
     switch (action.type) {
         case CREATE_ACCOUNT_LOADING:
-            state = state.set('errorMessage', '');
             return state.set('isLoading', true);
 
         case SHOW_ERROR_MESSAGE:

@@ -7,6 +7,8 @@
     position: fixed;
     top: 0;
     z-index: 999999;
+    transform: translateY(-101%);
+    transition: transform 250ms linear, opacity 250ms linear;
 }
 
 .rainbow-auth-firebase-message_container-error {
@@ -34,4 +36,8 @@
 
 .rainbow-auth-firebase-message_icon, .rainbow-auth-firebase-message_close-button {
     flex-shrink: 0;
+}
+
+.rainbow-auth-firebase-message_container--shown {
+    transform: translateY(0%);
 }

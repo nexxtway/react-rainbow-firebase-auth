@@ -57,7 +57,7 @@ describe('authentication reducer', () => {
                 isLoading: false,
             });
             const state = reducer(initialState, { type: AUTH_START });
-            expect(state.toJS().isLoading).toEqual(true);
+            expect(state.toJS().isLoading).toBe(true);
         });
     });
 
@@ -80,7 +80,7 @@ describe('authentication reducer', () => {
                 isLoadingFacebook: false,
             });
             const state = reducer(initialState, { type: AUTH_START_WITH_FACEBOOK });
-            expect(state.toJS().isLoadingFacebook).toEqual(true);
+            expect(state.toJS().isLoadingFacebook).toBe(true);
         });
     });
 
@@ -90,7 +90,7 @@ describe('authentication reducer', () => {
                 isLoadingFacebook: true,
             });
             const state = reducer(initialState, { type: AUTH_SUCCESS_WITH_FACEBOOK });
-            expect(state.toJS().isLoadingFacebook).toEqual(false);
+            expect(state.toJS().isLoadingFacebook).toBe(false);
         });
     });
 
@@ -100,7 +100,7 @@ describe('authentication reducer', () => {
                 isLoadingGoogle: false,
             });
             const state = reducer(initialState, { type: AUTH_START_WITH_GOOGLE });
-            expect(state.toJS().isLoadingGoogle).toEqual(true);
+            expect(state.toJS().isLoadingGoogle).toBe(true);
         });
     });
 
@@ -110,7 +110,7 @@ describe('authentication reducer', () => {
                 isLoadingGoogle: true,
             });
             const state = reducer(initialState, { type: AUTH_SUCCESS_WITH_GOOGLE });
-            expect(state.toJS().isLoadingGoogle).toEqual(false);
+            expect(state.toJS().isLoadingGoogle).toBe(false);
         });
     });
 

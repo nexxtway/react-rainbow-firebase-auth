@@ -12,9 +12,7 @@ describe('profile reducer', () => {
                 isLoading: false,
             });
             const state = reducer(initialState, { type: UPDATE_PROFILE_START });
-            expect(state.toJS()).toEqual({
-                isLoading: true,
-            });
+            expect(state.toJS().isLoading).toBe(true);
         });
     });
 
@@ -24,18 +22,14 @@ describe('profile reducer', () => {
                 isLoading: true,
             });
             const state = reducer(initialState, { type: UPDATE_PROFILE_END });
-            expect(state.toJS()).toEqual({
-                isLoading: false,
-            });
+            expect(state.toJS().isLoading).toBe(false);
         });
     });
 
     describe(`when ${USER_LOGOUT_DONE} action`, () => {
         it('should return the initialState', () => {
             const state = reducer(undefined, { type: USER_LOGOUT_DONE });
-            expect(state.toJS()).toEqual({
-                isLoading: false,
-            });
+            expect(state.toJS().isLoading).toBe(false);
         });
     });
 });

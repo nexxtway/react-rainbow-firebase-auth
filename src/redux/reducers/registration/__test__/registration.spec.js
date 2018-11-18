@@ -32,9 +32,7 @@ describe('registration reducer', () => {
                 isLoading: true,
             });
             const state = reducer(initialState, { type: SHOW_ERROR_MESSAGE });
-            expect(state.toJS()).toEqual({
-                isLoading: false,
-            });
+            expect(state.toJS().isLoading).toBe(false);
         });
     });
 });

@@ -29,9 +29,7 @@ describe('authenticateUser', () => {
         const action = authenticateUser(user);
         expect(action).toEqual({
             type: 'USER_AUTHENTICATED',
-            user: {
-                ...user,
-            },
+            user,
         });
     });
 });

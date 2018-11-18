@@ -57,13 +57,9 @@ describe('app reducer', () => {
         it('should set the errorMessage to undefined', () => {
             const initialState = fromJS({
                 message: 'Error message',
-                messageVariant: 'error',
             });
             const state = reducer(initialState, { type: HIDE_MESSAGE });
-            expect(state.toJS()).toEqual({
-                message: undefined,
-                messageVariant: undefined,
-            });
+            expect(state.toJS().message).toBe(undefined);
         });
     });
 

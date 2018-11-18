@@ -13,12 +13,10 @@ const initialState = fromJS({
 export default function (state = initialState, action) {
     switch (action.type) {
         case CREATE_ACCOUNT_LOADING:
-            /* eslint-disable no-param-reassign */
             state = state.set('errorMessage', '');
             return state.set('isLoading', true);
 
         case SHOW_ERROR_MESSAGE:
-            /* eslint-disable no-param-reassign */
             return state.set('isLoading', false);
 
         case CREATE_ACCOUNT_SUCCESS:

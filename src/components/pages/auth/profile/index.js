@@ -14,7 +14,10 @@ import RenderIf from 'react-rainbow-components/components/RenderIf';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
 import Button from 'react-rainbow-components/components/Button';
+import Modal from 'react-rainbow-components/components/Modal';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
+import hideReauthenticateModal from '../../../../redux/actions/profile/hide-reauthenticate-modal';
+import reauthenticateUser from '../../../../redux/services/firebase/reauthenticate-user';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
 import LockIcon from '../../../icons/lock';
@@ -22,8 +25,10 @@ import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
 import validate from './validate';
 import isChangedValue from './isChangedValue';
+import ReauthenticateForm from './reauthenticateForm';
 import './styles.css';
 import './media-queries.css';
+import showErrorMessage from '../../../../redux/actions/app/show-error-message';
 
 const translations = defineMessages({
     displayNamePlaceholder: {
@@ -39,10 +44,18 @@ const translations = defineMessages({
         defaultValue: 'Enter your phone number',
     },
     passwordPlaceholder: {
-        id: 'form.password.placeholder',
+        id: 'form.password.change.placeholder',
         defaultValue: 'Enter new password',
     },
 });
+
+const modalTitle = (
+    <span className="rainbow-auth-firebase-profile_reauthenticate-form_title">
+        <FormattedMessage
+            id="profile.reauthenticate.title"
+            defaultMessage="This operation is sensitive and requires recent login, please, reauthenticate" />
+    </span>
+);
 
 function Profile(props) {
     const {
@@ -50,8 +63,11 @@ function Profile(props) {
         style,
         user,
         isLoading,
+        isModalOpen,
         updateProfile,
         handleSubmit,
+        hideModal,
+        showErrorMessage,
         intl,
         currentValues,
         initialValues,
@@ -63,6 +79,15 @@ function Profile(props) {
     const getBottomBarClassNames = () => classnames('rainbow-auth-firebase-profile_actions', {
         'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
     });
+
+    const handleReauthentication = (credentials) => {
+        reauthenticateUser(credentials).then(() => {
+            hideModal();
+            updateProfile(currentValues);
+        }).catch((error) => {
+            showErrorMessage(error);
+        });
+    };
 
     return (
         <section>
@@ -99,9 +124,11 @@ function Profile(props) {
                                 <Field
                                     component={Input}
                                     name="password"
-                                    label={
-                                        <FormattedMessage id="form.password.label" defaultMessage="Change password" />
-                                    }
+                                    label={(
+                                        <FormattedMessage
+                                            id="form.password.change.label"
+                                            defaultMessage="Change password" />
+                                    )}
                                     placeholder={
                                         intl.formatMessage(translations.passwordPlaceholder)
                                     }
@@ -132,6 +159,9 @@ function Profile(props) {
                     </div>
                 </section>
             </form>
+            <Modal title={modalTitle} isOpen={isModalOpen} onRequestClose={() => hideModal()}>
+                <ReauthenticateForm onSubmit={handleReauthentication} />
+            </Modal>
         </section>
     );
 }
@@ -141,8 +171,11 @@ Profile.propTypes = {
     style: PropTypes.object,
     user: PropTypes.object,
     isLoading: PropTypes.bool,
+    isModalOpen: PropTypes.bool.isRequired,
     updateProfile: PropTypes.func,
     handleSubmit: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    showErrorMessage: PropTypes.func.isRequired,
     intl: intlShape.isRequired,
     currentValues: PropTypes.object,
     initialValues: PropTypes.object,
@@ -167,6 +200,7 @@ function stateToProps(state) {
     return {
         user,
         isLoading: profile.get('isLoading'),
+        isModalOpen: profile.get('showModal'),
         isSocialMediaUser: user.isGoogleUser() || user.isFacebookUser(),
         initialValues: {
             displayName: user.displayName,
@@ -184,6 +218,8 @@ function stateToProps(state) {
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         updateProfile,
+        hideModal: () => dispatch(hideReauthenticateModal()),
+        showErrorMessage: error => dispatch(showErrorMessage(error)),
     }, dispatch);
 }
 

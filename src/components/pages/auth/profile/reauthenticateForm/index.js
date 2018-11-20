@@ -64,8 +64,6 @@ ReauthenticateForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 };
 
-ReauthenticateForm.defaultProps = {};
-
 export default reduxForm({
     form: 'reauthenticate',
     touchOnBlur: false,

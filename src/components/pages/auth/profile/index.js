@@ -17,7 +17,7 @@ import Button from 'react-rainbow-components/components/Button';
 import Modal from 'react-rainbow-components/components/Modal';
 import updateProfile from '../../../../redux/actions/profile/update-profile';
 import hideReauthenticateModal from '../../../../redux/actions/profile/hide-reauthenticate-modal';
-import reauthenticateUser from '../../../../redux/services/firebase/reauthenticate-user';
+import handleReauthentication from '../../../../redux/actions/profile/handle-reauthentication';
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
 import LockIcon from '../../../icons/lock';
@@ -28,7 +28,6 @@ import isChangedValue from './isChangedValue';
 import ReauthenticateForm from './reauthenticateForm';
 import './styles.css';
 import './media-queries.css';
-import showErrorMessage from '../../../../redux/actions/app/show-error-message';
 
 const translations = defineMessages({
     displayNamePlaceholder: {
@@ -66,8 +65,8 @@ function Profile(props) {
         isModalOpen,
         updateProfile,
         handleSubmit,
-        hideModal,
-        showErrorMessage,
+        hideReauthenticateModal,
+        handleReauthentication,
         intl,
         currentValues,
         initialValues,
@@ -80,13 +79,8 @@ function Profile(props) {
         'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
     });
 
-    const handleReauthentication = (credentials) => {
-        reauthenticateUser(credentials).then(() => {
-            hideModal();
-            updateProfile(currentValues);
-        }).catch((error) => {
-            showErrorMessage(error);
-        });
+    const onSubmit = (credentials) => {
+        handleReauthentication(credentials, currentValues);
     };
 
     return (
@@ -159,8 +153,8 @@ function Profile(props) {
                     </div>
                 </section>
             </form>
-            <Modal title={modalTitle} isOpen={isModalOpen} onRequestClose={() => hideModal()}>
-                <ReauthenticateForm onSubmit={handleReauthentication} />
+            <Modal title={modalTitle} isOpen={isModalOpen} onRequestClose={hideReauthenticateModal}>
+                <ReauthenticateForm onSubmit={onSubmit} />
             </Modal>
         </section>
     );
@@ -174,8 +168,8 @@ Profile.propTypes = {
     isModalOpen: PropTypes.bool.isRequired,
     updateProfile: PropTypes.func,
     handleSubmit: PropTypes.func.isRequired,
-    hideModal: PropTypes.func.isRequired,
-    showErrorMessage: PropTypes.func.isRequired,
+    hideReauthenticateModal: PropTypes.func.isRequired,
+    handleReauthentication: PropTypes.func.isRequired,
     intl: intlShape.isRequired,
     currentValues: PropTypes.object,
     initialValues: PropTypes.object,
@@ -218,8 +212,8 @@ function stateToProps(state) {
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         updateProfile,
-        hideModal: () => dispatch(hideReauthenticateModal()),
-        showErrorMessage: error => dispatch(showErrorMessage(error)),
+        hideReauthenticateModal,
+        handleReauthentication,
     }, dispatch);
 }
 

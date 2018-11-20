@@ -37,7 +37,7 @@ export default function updateProfile(profile) {
                         defaultMesssage="Your profile information has been changed successfully." />,
                 ));
             }).catch((error) => {
-                dispatch(handleUpdateProfileError(error));
+                handleUpdateProfileError(error)(dispatch);
                 dispatch({ type: UPDATE_PROFILE_END });
             });
         }

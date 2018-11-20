@@ -37,7 +37,7 @@ describe('firebase signInWithFacebook', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should call addScope with default values when the second argument passed is a custom array', () => {
+    it('should call addScope with the array values passed as second argument', () => {
         const newScopes = ['private_profile', 'phoneNumber'];
         const provider = getFacebookProvider();
         provider.addScope.mockReset();

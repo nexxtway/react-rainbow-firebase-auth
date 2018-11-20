@@ -37,7 +37,7 @@ describe('firebase signInWithGoogle', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should call addScope with default values when the second argument passed is a custom array', () => {
+    it('should call addScope with the array values passed as second argument', () => {
         const newScopes = ['profile', 'phoneNumber'];
         const provider = getGoogleProvider();
         provider.addScope.mockReset();

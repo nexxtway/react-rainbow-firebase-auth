@@ -21,7 +21,7 @@ jest.mock('firebase', () => {
 });
 
 describe('firebase signInWithGoogle', () => {
-    it('should return the right arguments in addScope when undefined is passed as second argument in signInWithGoogle', () => {
+    it('should call addScope with default values when the second argument passed is undefined', () => {
         const provider = getGoogleProvider();
         provider.addScope.mockReset();
         signInWithGoogle('en', undefined);
@@ -29,7 +29,7 @@ describe('firebase signInWithGoogle', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should return the right arguments in addScope when an object is passed as second argument in signInWithGoogle', () => {
+    it('should call addScope with default values when the second argument passed is not an array', () => {
         const provider = getGoogleProvider();
         provider.addScope.mockReset();
         signInWithGoogle('en', { test: 'testing' });
@@ -37,7 +37,7 @@ describe('firebase signInWithGoogle', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should return the right arguments in addScope when an array is passed as second argument in signInWithGoogle', () => {
+    it('should call addScope with default values when the second argument passed is a custom array', () => {
         const newScopes = ['profile', 'phoneNumber'];
         const provider = getGoogleProvider();
         provider.addScope.mockReset();
@@ -46,12 +46,12 @@ describe('firebase signInWithGoogle', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('phoneNumber');
     });
 
-    it('should set the correct languageCode when undefined is passed as locale in signInWithGoogle', () => {
+    it('should set the default languageCode when undefined is passed as locale', () => {
         signInWithGoogle(undefined, ['profile', 'email']);
         expect(firebase.auth().languageCode).toBe('en');
     });
 
-    it('should set the correct languageCode when "fr" is passed as locale in signInWithGoogle', () => {
+    it('should set the languageCode as locale passed', () => {
         signInWithGoogle('fr', ['profile', 'email']);
         expect(firebase.auth().languageCode).toBe('fr');
     });

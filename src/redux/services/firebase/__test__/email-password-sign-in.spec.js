@@ -8,7 +8,7 @@ jest.mock('../../../../firebase', () => {
 });
 
 describe('firebase signInWithEmailAndPassword', () => {
-    it('should resolve the user data', () => {
+    it('should call signInWithEmailAndPassword with the right arguments', () => {
         expect.assertions(1);
         return signInWithEmailAndPassword('john@gmail.com', '1234')
             .then(() => {

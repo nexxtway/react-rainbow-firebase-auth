@@ -21,7 +21,7 @@ jest.mock('firebase', () => {
 });
 
 describe('firebase signInWithFacebook', () => {
-    it('should return the right arguments in addScope when undefined is passed as second argument in signInWithFacebook', () => {
+    it('should call addScope with default values when the second argument passed is undefined', () => {
         const provider = getFacebookProvider();
         provider.addScope.mockReset();
         signInWithFacebook('en', undefined);
@@ -29,7 +29,7 @@ describe('firebase signInWithFacebook', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should return the right arguments in addScope when an object is passed as second argument in signInWithFacebook', () => {
+    it('should call addScope with default values when the second argument passed is not an array', () => {
         const provider = getFacebookProvider();
         provider.addScope.mockReset();
         signInWithFacebook('en', { test: 'testing' });
@@ -37,7 +37,7 @@ describe('firebase signInWithFacebook', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('email');
     });
 
-    it('should return the right arguments in addScope when an array is passed as second argument in signInWithFacebook', () => {
+    it('should call addScope with default values when the second argument passed is a custom array', () => {
         const newScopes = ['private_profile', 'phoneNumber'];
         const provider = getFacebookProvider();
         provider.addScope.mockReset();
@@ -46,12 +46,12 @@ describe('firebase signInWithFacebook', () => {
         expect(provider.addScope.mock.calls[1][0]).toBe('phoneNumber');
     });
 
-    it('should set the correct languageCode when undefined is passed as locale in signInWithFacebook', () => {
+    it('should set the default languageCode when undefined is passed as locale', () => {
         signInWithFacebook(undefined, ['public_profile', 'email']);
         expect(firebase.auth().languageCode).toBe('en');
     });
 
-    it('should set the correct languageCode when "fr" is passed as locale in signInWithFacebook', () => {
+    it('should set the languageCode as locale passed', () => {
         signInWithFacebook('fr', ['public_profile', 'email']);
         expect(firebase.auth().languageCode).toBe('fr');
     });

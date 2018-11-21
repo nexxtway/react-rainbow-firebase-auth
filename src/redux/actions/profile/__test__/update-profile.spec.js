@@ -56,10 +56,10 @@ describe('updateProfile', () => {
             displayName: 'User Test',
             email: 'user@mail.com',
         })(dispatch).then(() => {
-            expect(dispatch).toHaveBeenCalledTimes(2);
+            expect(dispatch).toHaveBeenCalledTimes(3);
             expect(dispatch.mock.calls[0][0]).toEqual({ type: 'UPDATE_PROFILE_START' });
             expect(handleUpdateProfileError).toHaveBeenCalledWith('error');
-            expect(dispatch.mock.calls[1][0]).toEqual({ type: UPDATE_PROFILE_END });
+            expect(dispatch.mock.calls[2][0]).toEqual({ type: UPDATE_PROFILE_END });
         });
     });
 });

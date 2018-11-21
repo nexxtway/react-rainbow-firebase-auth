@@ -27,7 +27,7 @@ const translations = defineMessages({
 function ReauthenticateForm(props) {
     const { intl, handleSubmit, onSubmit } = props;
     return (
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={handleSubmit(onSubmit)} className="rainbow-auth-firebase-profile_reauthenticate-form">
             <Field
                 component={Input}
                 name="email"

@@ -6,7 +6,7 @@ import hideReauthenticateModal from './hide-reauthenticate-modal';
 export default function handleReauthentication(credentials, currentValues) {
     return dispatch => reauthenticateUser(credentials).then(() => {
         dispatch(hideReauthenticateModal());
-        updateProfile(currentValues)(dispatch);
+        dispatch(updateProfile(currentValues));
     }).catch((error) => {
         dispatch(showErrorMessage(error));
     });

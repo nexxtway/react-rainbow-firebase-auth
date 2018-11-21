@@ -46,15 +46,11 @@ const translations = defineMessages({
         id: 'form.password.change.placeholder',
         defaultValue: 'Enter new password',
     },
+    reauthenticateTitle: {
+        id: 'profile.reauthenticate.title',
+        defaultValue: 'Renew your credentials',
+    },
 });
-
-const modalTitle = (
-    <span className="rainbow-auth-firebase-profile_reauthenticate-form_title">
-        <FormattedMessage
-            id="profile.reauthenticate.title"
-            defaultMessage="This operation is sensitive and requires recent login, please, reauthenticate" />
-    </span>
-);
 
 function Profile(props) {
     const {
@@ -153,7 +149,15 @@ function Profile(props) {
                     </div>
                 </section>
             </form>
-            <Modal title={modalTitle} isOpen={isModalOpen} onRequestClose={hideReauthenticateModal}>
+            <Modal
+                title={intl.formatMessage(translations.reauthenticateTitle)}
+                isOpen={isModalOpen}
+                onRequestClose={hideReauthenticateModal}>
+                <span className="rainbow-auth-firebase-profile_reauthenticate-form_title">
+                    <FormattedMessage
+                        id="profile.reauthenticate.message"
+                        defaultMessage="This operation is sensitive and requires recent login, please, reauthenticate" />
+                </span>
                 <ReauthenticateForm onSubmit={onSubmit} />
             </Modal>
         </section>

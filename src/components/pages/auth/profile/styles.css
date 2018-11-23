@@ -84,3 +84,19 @@
     opacity: 1;
     transform: translateY(0%);
 }
+
+.rainbow-auth-firebase-profile_reauthenticate-form_title {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.rainbow-auth-firebase-profile_reauthenticate-form {
+    margin-top: 16px;
+}
+
+.rainbow-auth-firebase-profile_reauthenticate-form_actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 14px;
+}

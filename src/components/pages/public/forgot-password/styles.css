@@ -1,7 +1,11 @@
 .rainbow-auth-firebase-forgot-password_container {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 16px;
     padding-top: 16px;
@@ -10,7 +14,9 @@
 }
 
 .rainbow-auth-firebase-forgot-password_back-link {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
     left: 24px;
@@ -46,7 +52,9 @@
 }
 
 .rainbow-auth-firebase-forgot-password_card {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 32px 40px;
     width: 420px;
@@ -62,7 +70,9 @@
 }
 
 .rainbow-auth-firebase-forgot-password_content {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     width: 100%;
 }

@@ -1,8 +1,11 @@
 .rainbow-auth-firebase_profile {
     height: calc(100vh - 76px);
     background-color: #f4f6f9;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: stretch;
     align-items: stretch;
     margin-top: 76px;
 }
@@ -15,8 +18,11 @@
 }
 
 .rainbow-auth-firebase-profile_content {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: start;
     align-items: flex-start;
     flex-shrink: 0;
     padding-top: 24px;
@@ -35,8 +41,11 @@
 
 .rainbow-auth-firebase-profile_content-user-photo-container {
     margin-left: 32px;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
     align-items: center;
     flex-shrink: 0;
 }
@@ -62,8 +71,11 @@
 .rainbow-auth-firebase-profile_actions {
     box-shadow: 0 1px 2px 0 #e3e5ed;
     background-color: #fff;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 12px 0;
     margin-top: -66px;
@@ -95,8 +107,11 @@
 }
 
 .rainbow-auth-firebase-profile_reauthenticate-form_actions {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: end;
     justify-content: flex-end;
+    -ms-flex-align: center;
     align-items: center;
     margin-top: 14px;
 }

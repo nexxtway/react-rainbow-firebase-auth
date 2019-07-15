@@ -12,6 +12,7 @@
         width: 100%;
         border-radius: 0;
         padding: 20px;
+        -webkit-flex-direction: column;
         flex-direction: column;
     }
     .rainbow-auth-firebase-signin_inputs-container {

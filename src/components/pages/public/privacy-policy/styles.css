@@ -1,7 +1,10 @@
 .rainbow-auth-firebase-privacy-policy_header {
+    display: -ms-flexbox;
     display: flex;
     position: relative;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: center;
     align-items: center;
     font-family: 'Lato-Light';
     font-size: 24px;

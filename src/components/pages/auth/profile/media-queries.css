@@ -3,7 +3,9 @@
         overflow: auto;
     }
     .rainbow-auth-firebase-profile_content {
+        -webkit-flex-direction: column-reverse;
         flex-direction: column-reverse;
+        -ms-flex-align: center;
         align-items: center;
         padding-bottom: 64px;
     }

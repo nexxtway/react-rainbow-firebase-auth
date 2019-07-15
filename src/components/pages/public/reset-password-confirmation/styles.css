@@ -1,9 +1,13 @@
 .rainbow-auth-firebase-reset-password-confirmation_container {
+    -ms-flex-align: center;
     align-items: center;
     background-color: #fff;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     height: 100vh;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
     padding: 0 16px;

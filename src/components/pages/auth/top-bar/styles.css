@@ -4,8 +4,11 @@
 }
 
 .rainbow-auth-firebase-auth_top-bar {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 12px 44px 12px 30px;
     background-color: #fff;
@@ -17,8 +20,11 @@
 }
 
 .rainbow-auth-firebase_top-bar-content {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: row;
     flex-direction: row;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -28,7 +34,9 @@
 
 .rainbow-auth-firebase_avatar-menu_user {
     padding: 0 12px;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
 }
 

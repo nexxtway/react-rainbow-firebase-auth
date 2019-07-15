@@ -1,7 +1,11 @@
 .rainbow-auth-firebase-signup_container {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 40px;
     padding-top: 40px;
@@ -33,16 +37,20 @@
 }
 
 .rainbow-auth-firebase-signup_card {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
     padding: 32px;
     width: 720px;
     margin-bottom: 16px;
-    height: max-content;
+    height: auto;
 }
 
 .rainbow-auth-firebase-signup_inputs-container {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     padding-left: 24px;
     border-left: solid 1px #e3e5ed;

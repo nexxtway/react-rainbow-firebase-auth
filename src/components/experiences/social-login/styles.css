@@ -1,6 +1,9 @@
 .rainbow-auth-firebase-social-login_buttons-container {
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-right: 24px;
     width: 50%;

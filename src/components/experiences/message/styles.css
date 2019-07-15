@@ -1,8 +1,11 @@
 .rainbow-auth-firebase-message_container {
     padding: 16px;
     width: 100vw;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: center;
     justify-content: center;
     position: fixed;
     top: 0;
@@ -20,8 +23,11 @@
 }
 
 .rainbow-auth-firebase-message_content {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 980px;
 }

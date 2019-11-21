@@ -12,16 +12,16 @@ jest.mock('firebase', () => ({
 }));
 
 describe('reauthenticateUser', () => {
-    it('should call reauthenticateAndRetrieveDataWithCredential with the user credentials', () => {
+    it('should call reauthenticateWithCredential with the user credentials', () => {
         getCurrentUser.mockReturnValue({
-            reauthenticateAndRetrieveDataWithCredential: jest.fn(),
+            reauthenticateWithCredential: jest.fn(),
         });
         reauthenticateUser({
             email: 'user@domain.com',
             password: 'pswd',
         });
         expect(firebase.auth.EmailAuthProvider.credential).toHaveBeenCalledWith('user@domain.com', 'pswd');
-        expect(getCurrentUser().reauthenticateAndRetrieveDataWithCredential).toHaveBeenCalledWith({
+        expect(getCurrentUser().reauthenticateWithCredential).toHaveBeenCalledWith({
             user: 'user',
             pswd: 'pswd',
         });

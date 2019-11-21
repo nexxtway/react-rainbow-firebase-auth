@@ -5,8 +5,8 @@
   "dependencies": {
     "aws-amplify": "^1.1.6",
     "aws-amplify-react": "^2.0.7",
-    "firebase": "^5.5.7",
-    "firebase-tools": "^6.0.1",
+    "firebase": "^7.4.0",
+    "firebase-tools": "^7.8.1",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.5.2",

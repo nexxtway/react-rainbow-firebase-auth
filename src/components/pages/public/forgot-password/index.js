@@ -8,6 +8,7 @@ import { Field, reduxForm } from 'redux-form';
 import {
     FormattedMessage,
     injectIntl,
+    intlShape,
     defineMessages,
 } from 'react-intl';
 import Card from 'react-rainbow-components/components/Card';
@@ -94,7 +95,7 @@ ForgotPassword.propTypes = {
     handleSubmit: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
-    intl: PropTypes.object.isRequired,
+    intl: intlShape.isRequired,
 };
 
 ForgotPassword.defaultProps = {

@@ -4,6 +4,7 @@ import {
     defineMessages,
     FormattedMessage,
     injectIntl,
+    intlShape,
 } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import Input from 'react-rainbow-components/components/Input';
@@ -58,7 +59,7 @@ function ReauthenticateForm(props) {
 }
 
 ReauthenticateForm.propTypes = {
-    intl: PropTypes.object.isRequired,
+    intl: intlShape.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };

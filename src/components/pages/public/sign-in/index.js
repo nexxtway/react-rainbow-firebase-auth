@@ -60,7 +60,7 @@ class SignIn extends Component {
         } = this.props;
 
         return (
-            <form noValidate onSubmit={handleSubmit(user => loginWithEmailAndPassword(user))}>
+            <form noValidate onSubmit={handleSubmit((user) => loginWithEmailAndPassword(user))}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signin_image" />
@@ -114,7 +114,7 @@ class SignIn extends Component {
                         className="rainbow-auth-firebase-signin-language"
                         options={languages}
                         value={locale}
-                        onChange={event => changeLocale(event.target.value)} />
+                        onChange={(event) => changeLocale(event.target.value)} />
                 </section>
             </form>
         );

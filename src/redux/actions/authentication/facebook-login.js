@@ -13,6 +13,6 @@ export default function loginWithFacebook() {
             .then(() => {
                 dispatch({ type: AUTH_SUCCESS_WITH_FACEBOOK });
             })
-            .catch(error => dispatch(showErrorMessage(error)));
+            .catch((error) => dispatch(showErrorMessage(error)));
     };
 }

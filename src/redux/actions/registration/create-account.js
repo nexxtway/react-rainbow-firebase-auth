@@ -19,6 +19,6 @@ export default function createAccount(user) {
                 dispatch(updateUserData({ displayName }));
                 dispatch({ type: CREATE_ACCOUNT_SUCCESS });
             })
-            .catch(error => dispatch(showErrorMessage(error)));
+            .catch((error) => dispatch(showErrorMessage(error)));
     };
 }

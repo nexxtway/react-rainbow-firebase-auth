@@ -48,7 +48,7 @@ class ForgotPassword extends Component {
             intl,
         } = this.props;
         return (
-            <form onSubmit={handleSubmit(email => sendEmailResetPassword(email))} noValidate>
+            <form onSubmit={handleSubmit((email) => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
                     <Link className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
                         <BackIcon className="rainbow-auth-firebase-forgot-password_back-icon" />

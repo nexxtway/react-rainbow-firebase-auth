@@ -4,7 +4,7 @@ import updateProfile from './update-profile';
 import hideReauthenticateModal from './hide-reauthenticate-modal';
 
 export default function handleReauthentication(credentials, currentValues) {
-    return dispatch => reauthenticateUser(credentials).then(() => {
+    return (dispatch) => reauthenticateUser(credentials).then(() => {
         dispatch(hideReauthenticateModal());
         dispatch(updateProfile(currentValues));
     }).catch((error) => {

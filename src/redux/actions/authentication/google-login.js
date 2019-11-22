@@ -13,6 +13,6 @@ export default function loginWithGoogle() {
             .then(() => {
                 dispatch({ type: AUTH_SUCCESS_WITH_GOOGLE });
             })
-            .catch(error => dispatch(showErrorMessage(error)));
+            .catch((error) => dispatch(showErrorMessage(error)));
     };
 }

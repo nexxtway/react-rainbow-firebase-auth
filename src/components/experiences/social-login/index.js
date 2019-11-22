@@ -48,7 +48,7 @@ function SocialLogin(props) {
                 className="rainbow-auth-firebase-social-language"
                 options={languages}
                 value={locale}
-                onChange={event => changeLocale(event.target.value)} />
+                onChange={(event) => changeLocale(event.target.value)} />
         </article>
     );
 }

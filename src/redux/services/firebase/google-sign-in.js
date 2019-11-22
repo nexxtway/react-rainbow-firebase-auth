@@ -13,7 +13,7 @@ export default function signInWithGoogle(locale = defaultLocale, scopes = defaul
         scopes = defaultScopes;
     }
 
-    scopes.forEach(scope => provider.addScope(scope));
+    scopes.forEach((scope) => provider.addScope(scope));
     firebase.auth().languageCode = locale;
 
     return firebaseInstance

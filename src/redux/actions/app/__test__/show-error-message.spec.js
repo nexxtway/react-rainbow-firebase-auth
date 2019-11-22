@@ -2,7 +2,7 @@ import showErrorMessage from '../show-error-message';
 import { resolveError } from '../../../services/firebase/resolve-errors';
 
 jest.mock('../../../services/firebase/resolve-errors', () => ({
-    resolveError: jest.fn(error => error),
+    resolveError: jest.fn((error) => error),
 }));
 
 describe('showErrorMessage', () => {

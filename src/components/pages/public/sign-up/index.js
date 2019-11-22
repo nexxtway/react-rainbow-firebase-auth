@@ -121,7 +121,7 @@ class SignUp extends Component {
                         className="rainbow-auth-firebase-signup-language"
                         options={languages}
                         value={locale}
-                        onChange={event => changeLocale(event.target.value)} />
+                        onChange={(event) => changeLocale(event.target.value)} />
                 </section>
             </form>
         );

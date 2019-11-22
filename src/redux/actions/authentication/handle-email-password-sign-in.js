@@ -8,6 +8,6 @@ export default function handleSignInWithEmailAndPassword(user) {
         const { email, password } = user;
         return signInWithEmailAndPassword(email, password)
             .then(() => dispatch({ type: AUTH_SUCCESS }))
-            .catch(error => dispatch(showErrorMessage(error)));
+            .catch((error) => dispatch(showErrorMessage(error)));
     };
 }

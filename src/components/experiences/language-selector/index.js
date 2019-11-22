@@ -55,7 +55,7 @@ function stateToProps(state) {
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        onChangeLanguage: locale => dispatch(changeLocale(locale)),
+        onChangeLanguage: (locale) => dispatch(changeLocale(locale)),
     }, dispatch);
 }
 

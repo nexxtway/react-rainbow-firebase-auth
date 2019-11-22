@@ -13,6 +13,6 @@ export default function sendEmailResetPassword({ email }) {
                 dispatch({ type: RESET_EMAIL_SENT });
                 navigateTo('/home/reset-password-confirmation');
             })
-            .catch(error => dispatch(showErrorMessage(error)));
+            .catch((error) => dispatch(showErrorMessage(error)));
     };
 }

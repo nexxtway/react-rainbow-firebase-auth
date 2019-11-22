@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:9.10.0-stretch-browsers
+      - image: circleci/node:11.8.0-stretch-browsers
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -40,7 +40,7 @@ jobs:
 
   deploy_firebase:
     docker:
-      - image: circleci/node:9.10.0-stretch-browsers
+      - image: circleci/node:11.8.0-stretch-browsers
 
     working_directory: ~/repo
 

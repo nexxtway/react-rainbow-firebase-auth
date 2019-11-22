@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-amplify": "^1.1.6",
-    "aws-amplify-react": "^2.0.7",
     "firebase": "^7.4.0",
     "firebase-tools": "^7.8.1",
     "history": "^4.7.2",

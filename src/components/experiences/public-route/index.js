@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
 export default function PublicRoute(props) {
@@ -21,3 +22,15 @@ export default function PublicRoute(props) {
 
     return <Route {...rest} render={render} />;
 }
+
+PublicRoute.propTypes = {
+    component: PropTypes.func,
+    isAuth: PropTypes.bool,
+    location: PropTypes.object,
+};
+
+PublicRoute.defaultProps = {
+    component: () => {},
+    isAuth: false,
+    location: undefined,
+};

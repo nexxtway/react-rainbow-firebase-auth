@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IntlProvider, addLocaleData } from 'react-intl';
-import en from 'react-intl/locale-data/en';
-import es from 'react-intl/locale-data/es';
+import { IntlProvider } from 'react-intl';
+import '@formatjs/intl-pluralrules/polyfill';
+import '@formatjs/intl-pluralrules/dist/locale-data/en';
+import '@formatjs/intl-pluralrules/dist/locale-data/es';
+import '@formatjs/intl-relativetimeformat/polyfill';
+import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
+import '@formatjs/intl-relativetimeformat/dist/locale-data/es';
 import { connect } from 'react-redux';
 import reducer from './reducer';
-
-addLocaleData([...en, ...es]);
 
 const I18n = ({ locale, messages, children }) => (
     <IntlProvider locale={locale} messages={messages} key={locale}>

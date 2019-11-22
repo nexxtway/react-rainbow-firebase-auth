@@ -9,7 +9,6 @@ import { Field, reduxForm } from 'redux-form';
 import {
     FormattedMessage,
     injectIntl,
-    intlShape,
     defineMessages,
 } from 'react-intl';
 import Card from 'react-rainbow-components/components/Card';
@@ -134,7 +133,7 @@ SignUp.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     className: PropTypes.string,
     style: PropTypes.object,
-    intl: intlShape.isRequired,
+    intl: PropTypes.object.isRequired,
     changeLocale: PropTypes.func.isRequired,
     locale: PropTypes.string.isRequired,
 };

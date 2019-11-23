@@ -1,4 +1,4 @@
-const { createBrowserHistory } = require('history');
+import { createBrowserHistory } from 'history';
 
 const instance = createBrowserHistory();
 

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
     FormattedMessage,
-    intlShape,
     injectIntl,
     defineMessages,
 } from 'react-intl';
@@ -174,7 +173,7 @@ Profile.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     hideReauthenticateModal: PropTypes.func.isRequired,
     handleReauthentication: PropTypes.func.isRequired,
-    intl: intlShape.isRequired,
+    intl: PropTypes.object.isRequired,
     currentValues: PropTypes.object,
     initialValues: PropTypes.object,
     isSocialMediaUser: PropTypes.bool,

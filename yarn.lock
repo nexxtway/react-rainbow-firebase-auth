@@ -9066,7 +9066,7 @@ react-rainbow-components@^0.5.0:
     react-dom "^16.4.2"
     react-ga "^2.5.3"
 
-react-rainbow-components@^1.1.1:
+react-rainbow-components@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/react-rainbow-components/-/react-rainbow-components-1.10.0.tgz#2c8f9d695732d6956ca6d26a8064dfaee066ab0f"
   dependencies:

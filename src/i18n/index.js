@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { connect } from 'react-redux';
 import reducer from './reducer';
-import '@formatjs/intl-pluralrules/polyfill';
-import '@formatjs/intl-pluralrules/dist/locale-data/en';
-import '@formatjs/intl-pluralrules/dist/locale-data/es';
-import '@formatjs/intl-relativetimeformat/polyfill';
-import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
-import '@formatjs/intl-relativetimeformat/dist/locale-data/es';
+import { getNavigatorLanguages } from './utils';
 
+if (!getNavigatorLanguages().es) {
+    import('@formatjs/intl-pluralrules/polyfill');
+    import('@formatjs/intl-relativetimeformat/polyfill');
+    import('@formatjs/intl-pluralrules/dist/locale-data/es');
+    import('@formatjs/intl-relativetimeformat/dist/locale-data/es');
+}
+if (!getNavigatorLanguages().en) {
+    import('@formatjs/intl-pluralrules/polyfill');
+    import('@formatjs/intl-relativetimeformat/polyfill');
+    import('@formatjs/intl-pluralrules/dist/locale-data/en');
+    import('@formatjs/intl-relativetimeformat/dist/locale-data/en');
+}
 
 const I18n = ({ locale, messages, children }) => (
     <IntlProvider locale={locale} messages={messages} key={locale}>

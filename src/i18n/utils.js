@@ -31,3 +31,13 @@ export function resolveLocale() {
     }
     return 'es';
 }
+
+export function getNavigatorLanguages() {
+    const navigatorLanguages = navigator.languages;
+    const isEnSupported = navigatorLanguages.includes('en');
+    const isEsSupported = navigatorLanguages.includes('es');
+    return {
+        en: isEnSupported,
+        es: isEsSupported,
+    };
+}

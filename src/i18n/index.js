@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 import reducer from './reducer';
 import { getNavigatorLanguages } from './utils';
 
-if (!getNavigatorLanguages().es) {
+const supportedLangunages = getNavigatorLanguages();
+
+if (!supportedLangunages.es) {
     import('@formatjs/intl-pluralrules/polyfill');
     import('@formatjs/intl-relativetimeformat/polyfill');
     import('@formatjs/intl-pluralrules/dist/locale-data/es');
     import('@formatjs/intl-relativetimeformat/dist/locale-data/es');
 }
-if (!getNavigatorLanguages().en) {
+if (!supportedLangunages.en) {
     import('@formatjs/intl-pluralrules/polyfill');
     import('@formatjs/intl-relativetimeformat/polyfill');
     import('@formatjs/intl-pluralrules/dist/locale-data/en');

@@ -29,7 +29,7 @@ function SocialLogin(props) {
         <article className="rainbow-auth-firebase-social-login_buttons-container">
             <div>
                 <Button
-                    className="rainbow-auth-firebase-social-login_button rainbow-auth-firebase-social-login_facebook-button"
+                    className="rainbow-auth-firebase-social-login_button rainbow-auth-firebase-social-login_facebook-button rainbow-background-color_purple"
                     onClick={loginWithFacebook}
                     isLoading={isLoadingFacebook}>
                     <FacebookIcon className="rainbow-auth-firebase-social-login_social-icon" />

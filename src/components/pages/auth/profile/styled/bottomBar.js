@@ -20,8 +20,8 @@ const StyledBottomBar = styled.div`
         margin-top: 0;
     }
 
-    ${(props) => props.isBottomBarVisible
-        && `
+    ${(props) => props.isBottomBarVisible &&
+        `
             opacity: 1;
             transform: translateY(0%);
         `};

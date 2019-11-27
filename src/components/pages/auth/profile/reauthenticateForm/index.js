@@ -11,6 +11,8 @@ import Button from 'react-rainbow-components/components/Button';
 import LockIcon from '../../../../icons/lock';
 import validate from './validate';
 import EmailIcon from '../../../../icons/email';
+import StyledForm from './styled/form';
+import StyledButtonContainer from './styled/buttonContainer';
 
 const translations = defineMessages({
     emailPlaceholder: {
@@ -26,7 +28,7 @@ const translations = defineMessages({
 function ReauthenticateForm(props) {
     const { intl, handleSubmit, onSubmit } = props;
     return (
-        <form noValidate onSubmit={handleSubmit(onSubmit)} className="rainbow-auth-firebase-profile_reauthenticate-form">
+        <StyledForm noValidate onSubmit={handleSubmit(onSubmit)}>
             <Field
                 component={Input}
                 name="email"
@@ -43,7 +45,7 @@ function ReauthenticateForm(props) {
                 type="password"
                 required
                 icon={<LockIcon />} />
-            <div className="rainbow-auth-firebase-profile_reauthenticate-form_actions">
+            <StyledButtonContainer>
                 <Button
                     type="submit"
                     variant="brand"
@@ -52,8 +54,8 @@ function ReauthenticateForm(props) {
                             id="profile.reauthenticate.action"
                             defaultMessage="Authenticate" />
                     )} />
-            </div>
-        </form>
+            </StyledButtonContainer>
+        </StyledForm>
     );
 }
 

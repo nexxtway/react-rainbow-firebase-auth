@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {
     FormattedMessage,
     injectIntl,
@@ -8,9 +7,8 @@ import {
 } from 'react-intl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { reduxForm, formValueSelector } from 'redux-form';
 import RenderIf from 'react-rainbow-components/components/RenderIf';
-import Avatar from 'react-rainbow-components/components/Avatar';
 import Input from 'react-rainbow-components/components/Input';
 import Button from 'react-rainbow-components/components/Button';
 import Modal from 'react-rainbow-components/components/Modal';
@@ -20,13 +18,21 @@ import handleReauthentication from '../../../../redux/actions/profile/handle-rea
 import UserIcon from '../../../icons/user';
 import EmailIcon from '../../../icons/email';
 import LockIcon from '../../../icons/lock';
-import PersonIcon from '../../../icons/person';
 import TopBar from '../top-bar/index.js';
 import validate from './validate';
 import isChangedValue from './isChangedValue';
 import ReauthenticateForm from './reauthenticateForm';
-import './styles.css';
-import './media-queries.css';
+import StyledSection from './styled/section';
+import StyledTitle from './styled/title';
+import StyledContent from './styled/content';
+import StyledInputContainer from './styled/inputContainer';
+import StyledInput from './styled/input';
+import StyledAvatarContainer from './styled/avatarContainer';
+import StyledAvatarLabel from './styled/avatarLabel';
+import StyledAvatar from './styled/avatar';
+import StyledPersonIcon from './styled/personIcon';
+import StyledBottomBar from './styled/bottomBar';
+import StyledReauthenticateFormTitle from './styled/reauthenticateFormTitle';
 
 const translations = defineMessages({
     displayNamePlaceholder: {
@@ -68,49 +74,43 @@ function Profile(props) {
         isSocialMediaUser,
     } = props;
 
-    const getContainerClassNames = () => classnames('rainbow-auth-firebase_profile', className);
-
-    const getBottomBarClassNames = () => classnames('rainbow-auth-firebase-profile_actions', {
-        'rainbow-auth-firebase-profile_actions--shown': isChangedValue(currentValues, initialValues),
-    });
-
     const onSubmit = (credentials) => {
         handleReauthentication(credentials, currentValues);
     };
+
+    const isBottomBarVisible = isChangedValue(currentValues, initialValues);
 
     return (
         <section>
             <TopBar />
             <form noValidate onSubmit={handleSubmit(updateProfile)}>
-                <section className={getContainerClassNames()} style={style}>
-                    <h1 className="rainbow-auth-firebase-profile_title">
+                <StyledSection className={className} style={style}>
+                    <StyledTitle>
                         <FormattedMessage id="profile.title" defaultMessage="Edit Profile" />
-                    </h1>
-                    <div className="rainbow-auth-firebase-profile_content">
-                        <div className="rainbow-auth-firebase-profile_content-input-container">
-                            <Field
+                    </StyledTitle>
+                    <StyledContent>
+                        <StyledInputContainer>
+                            <StyledInput
                                 disabled={isSocialMediaUser}
                                 component={Input}
                                 name="displayName"
-                                className="rainbow-auth-firebase-profile_content-input"
                                 label={<FormattedMessage id="form.displayName.label" defaultMessage="Name" />}
                                 required
                                 placeholder={
                                     intl.formatMessage(translations.displayNamePlaceholder)
                                 }
                                 icon={<UserIcon />} />
-                            <Field
+                            <StyledInput
                                 disabled={isSocialMediaUser}
                                 component={Input}
                                 name="email"
-                                className="rainbow-auth-firebase-profile_content-input"
                                 label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}
                                 required
                                 placeholder={intl.formatMessage(translations.emailPlaceholder)}
                                 type="email"
                                 icon={<EmailIcon />} />
                             <RenderIf isTrue={!isSocialMediaUser}>
-                                <Field
+                                <StyledInput
                                     component={Input}
                                     name="password"
                                     label={(
@@ -122,41 +122,38 @@ function Profile(props) {
                                         intl.formatMessage(translations.passwordPlaceholder)
                                     }
                                     type="password"
-                                    className="rainbow-auth-firebase-profile_content-input"
                                     icon={<LockIcon />} />
                             </RenderIf>
 
-                        </div>
-                        <div className="rainbow-auth-firebase-profile_content-user-photo-container">
-                            <span className="rainbow-auth-firebase-profile_content-user-photo-label">
+                        </StyledInputContainer>
+                        <StyledAvatarContainer>
+                            <StyledAvatarLabel>
                                 <FormattedMessage id="profile.photo" defaultMessage="Profile Photo" />
-                            </span>
-                            <Avatar
+                            </StyledAvatarLabel>
+                            <StyledAvatar
                                 src={user.photoURL}
-                                icon={<PersonIcon className="rainbow-auth-firebase-profile_content-user-icon" />}
-                                assistiveText="user profile"
-                                className="rainbow-auth-firebase-profile_content-user-photo" />
-                        </div>
-                    </div>
-                    <div className={getBottomBarClassNames()}>
+                                icon={<StyledPersonIcon />}
+                                assistiveText="user profile" />
+                        </StyledAvatarContainer>
+                    </StyledContent>
+                    <StyledBottomBar isBottomBarVisible={isBottomBarVisible}>
                         <Button
-                            className="rainbow-auth-firebase-profile_actions-buttons"
                             label={<FormattedMessage id="profile.save.changes" defaultMessage="Save changes" />}
                             variant="brand"
                             type="submit"
                             isLoading={isLoading} />
-                    </div>
-                </section>
+                    </StyledBottomBar>
+                </StyledSection>
             </form>
             <Modal
                 title={intl.formatMessage(translations.reauthenticateTitle)}
                 isOpen={isModalOpen}
                 onRequestClose={hideReauthenticateModal}>
-                <span className="rainbow-auth-firebase-profile_reauthenticate-form_title">
+                <StyledReauthenticateFormTitle>
                     <FormattedMessage
                         id="profile.reauthenticate.message"
                         defaultMessage="This operation is sensitive and requires recent login, please, reauthenticate" />
-                </span>
+                </StyledReauthenticateFormTitle>
                 <ReauthenticateForm onSubmit={onSubmit} />
             </Modal>
         </section>

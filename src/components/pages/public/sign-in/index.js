@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -14,14 +13,13 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import Select from 'react-rainbow-components/components/Select';
-import { changeLocale } from '../../../../i18n';
 import { loginWithEmailAndPassword } from '../../../../redux/actions/authentication';
 import LockIcon from '../../../icons/lock/index.js';
 import SocialLogin from '../../../experiences/social-login';
 import EmailIcon from '../../../icons/email';
 import validate from './validate';
 import TermsConditionsAndPrivacyPolicy from '../../../experiences/termsConditions-and-privacyPolicy/idnex';
+import LanguageSelector from '../../../experiences/language-selector';
 import './styles.css';
 import './media-queries.css';
 
@@ -36,11 +34,6 @@ const translations = defineMessages({
     },
 });
 
-const languages = [
-    { value: 'en', label: 'English' },
-    { value: 'es', label: 'Spanish' },
-];
-
 class SignIn extends Component {
     getClassName() {
         const { className } = this.props;
@@ -54,8 +47,6 @@ class SignIn extends Component {
             isLoading,
             style,
             intl,
-            changeLocale,
-            locale,
         } = this.props;
 
         return (
@@ -109,11 +100,7 @@ class SignIn extends Component {
                         </article>
                     </Card>
                     <TermsConditionsAndPrivacyPolicy />
-                    <Select
-                        className="rainbow-auth-firebase-signin-language"
-                        options={languages}
-                        value={locale}
-                        onChange={(event) => changeLocale(event.target.value)} />
+                    <LanguageSelector />
                 </section>
             </form>
         );
@@ -127,8 +114,6 @@ SignIn.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     intl: PropTypes.object.isRequired,
-    changeLocale: PropTypes.func.isRequired,
-    locale: PropTypes.string.isRequired,
 };
 
 SignIn.defaultProps = {
@@ -137,17 +122,14 @@ SignIn.defaultProps = {
 };
 
 function stateToProps(state) {
-    const { i18n } = state;
     return {
         ...state.authentication.toJS(),
-        locale: i18n.locale,
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithEmailAndPassword,
-        changeLocale,
     }, dispatch);
 }
 

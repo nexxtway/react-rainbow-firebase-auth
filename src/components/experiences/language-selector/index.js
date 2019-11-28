@@ -2,25 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Select from 'react-rainbow-components/components/Select';
 import { changeLocale } from '../../../i18n';
-import './styles.css';
+import StyledSelect from './styled/select';
 
-const languageOptions = [
-    {
-        value: 'en',
-        label: 'English',
-    },
-    {
-        value: 'es',
-        label: 'Español',
-    },
+const languages = [
+    { value: 'en', label: 'English' },
+    { value: 'es', label: 'Español' },
 ];
 
 function LanguageSelector(props) {
     const {
         locale,
         onChangeLanguage,
+        style,
+        className,
     } = props;
 
     const handleLanguageChange = (event) => {
@@ -28,22 +23,29 @@ function LanguageSelector(props) {
     };
 
     return (
-        <Select
-            options={languageOptions}
+        <StyledSelect
+            label="Language Selector"
+            hideLabel
+            style={style}
+            options={languages}
             value={locale}
             onChange={handleLanguageChange}
-            className="rainbow-auth-firebase_language-selector" />
+            className={className} />
     );
 }
 
 LanguageSelector.propTypes = {
     locale: PropTypes.string,
     onChangeLanguage: PropTypes.func,
+    style: PropTypes.object,
+    className: PropTypes.string,
 };
 
 LanguageSelector.defaultProps = {
     locale: 'en',
     onChangeLanguage: () => {},
+    style: {},
+    className: undefined,
 };
 
 function stateToProps(state) {

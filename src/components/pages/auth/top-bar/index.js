@@ -11,7 +11,7 @@ import MenuDivider from 'react-rainbow-components/components/MenuDivider';
 import MenuItem from 'react-rainbow-components/components/MenuItem';
 import { navigateTo } from '../../../../history';
 import { logoutUser } from '../../../../redux/actions/authentication';
-import LanguageSelector from '../../../experiences/language-selector';
+import StyledLanguageSelector from './styled/languageSelector';
 import PowerIcon from '../../../icons/power';
 import PencilIcon from '../../../icons/pencil';
 import PersonIcon from '../../../icons/person';
@@ -33,7 +33,7 @@ function TopBar(props) {
                 <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-auth_logo" />
             </Link>
             <div className="rainbow-auth-firebase_top-bar-content">
-                <LanguageSelector />
+                <StyledLanguageSelector />
                 <AvatarMenu
                     src={user.photoURL}
                     icon={<PersonIcon />}

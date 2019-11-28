@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -14,7 +13,6 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import Select from 'react-rainbow-components/components/Select';
 import SocialLogin from '../../../experiences/social-login';
 import EmailIcon from '../../../icons/email/index.js';
 import LockIcon from '../../../icons/lock/index.js';
@@ -23,7 +21,7 @@ import { loginWithFacebook } from '../../../../redux/actions/authentication';
 import { createAccount } from '../../../../redux/actions/registration';
 import validate from './validate';
 import TermsConditionsAndPrivacyPolicy from '../../../experiences/termsConditions-and-privacyPolicy/idnex';
-import { changeLocale } from '../../../../i18n';
+import LanguageSelector from '../../../experiences/language-selector';
 import './styles.css';
 import './media-queries.css';
 
@@ -42,11 +40,6 @@ const translations = defineMessages({
     },
 });
 
-const languages = [
-    { value: 'en', label: 'English' },
-    { value: 'es', label: 'Spanish' },
-];
-
 class SignUp extends Component {
     getClassName() {
         const { className } = this.props;
@@ -60,8 +53,6 @@ class SignUp extends Component {
             createAccount,
             style,
             intl,
-            changeLocale,
-            locale,
         } = this.props;
 
         return (
@@ -116,11 +107,7 @@ class SignUp extends Component {
                         </article>
                     </Card>
                     <TermsConditionsAndPrivacyPolicy />
-                    <Select
-                        className="rainbow-auth-firebase-signup-language"
-                        options={languages}
-                        value={locale}
-                        onChange={(event) => changeLocale(event.target.value)} />
+                    <LanguageSelector />
                 </section>
             </form>
         );
@@ -134,8 +121,6 @@ SignUp.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     intl: PropTypes.object.isRequired,
-    changeLocale: PropTypes.func.isRequired,
-    locale: PropTypes.string.isRequired,
 };
 
 SignUp.defaultProps = {
@@ -145,9 +130,7 @@ SignUp.defaultProps = {
 
 function stateToProps(state) {
     const { registration, authentication } = state;
-    const { i18n } = state;
     return {
-        locale: i18n.locale,
         isLoading: registration.get('isLoading'),
         errorMessage: registration.get('errorMessage'),
         isLoadingFacebook: authentication.get('isLoadingFacebook'),
@@ -159,7 +142,6 @@ function dispatchToProps(dispatch) {
     return bindActionCreators({
         loginWithFacebook,
         createAccount,
-        changeLocale,
     }, dispatch);
 }
 

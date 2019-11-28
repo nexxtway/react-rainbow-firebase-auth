@@ -10,7 +10,6 @@ import StyledSelect from './styled/select';
 import StyledLoginButton from './styled/loginButton';
 import StyledFacebookButton from './styled/facebookButton';
 import StyledIcon from './styled/icon';
-import GoogleIcon from './icons/googleIcon';
 import FacebookIcon from './icons/facebookIcon';
 
 const languages = [
@@ -40,7 +39,7 @@ function SocialLogin(props) {
                     variant="neutral"
                     onClick={loginWithGoogle}
                     isLoading={isLoadingGoogle}>
-                    <StyledIcon as={GoogleIcon} />
+                    <StyledIcon />
                     <FormattedMessage id="google.button.login" defaultMessage="Login with Google" />
                 </StyledLoginButton>
             </div>

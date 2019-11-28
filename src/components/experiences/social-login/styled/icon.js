@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import GoogleIcon from '../icons/googleIcon';
 
-
-const StyledIcon = styled.svg`
+const StyledIcon = styled(GoogleIcon)`
     position: absolute;
     left: 16px;
 `;

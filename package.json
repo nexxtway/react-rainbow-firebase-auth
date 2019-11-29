@@ -31,7 +31,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --runInBand",
-    "test:ci": "CI=true yarn test",
     "lint:js": "eslint src",
     "lint:styles": "stylelint './src/**/*.js'",
     "lint": "yarn lint:js && yarn lint:styles",
@@ -67,6 +66,6 @@
   },
   "pre-push": [
     "lint",
-    "test:ci"
+    "test"
   ]
 }

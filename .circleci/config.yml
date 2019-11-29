@@ -26,7 +26,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install --frozen-lockfile
+      - run: yarn install
+      - run: yarn cypress install  ## If there is a binary already present, it should finish quickly.
 
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}

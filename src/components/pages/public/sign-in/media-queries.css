@@ -24,11 +24,4 @@
         font-size: 20px;
         margin: 8px 0 12px 0;
     }
-    .rainbow-auth-firebase-signin-language {
-        display: block;
-        width: 140px;
-        height: 40px;
-        align-self: center;
-        margin-top: 32px;
-    }
 }

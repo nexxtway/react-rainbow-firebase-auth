@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { Select } from 'react-rainbow-components';
 
 const StyledSelect = styled(Select)`
-    width: 140px;
-    height: 40px;
-    align-self: center;
+    width: 110px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 
-    @media (max-width: 620px) {
-        display: none;
+    @media (min-width: 1600px) {
+        right: 120px;
     }
 `;
 

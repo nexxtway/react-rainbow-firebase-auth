@@ -19,6 +19,7 @@ import './media-queries.css';
 import { resetForm, sendEmailResetPassword } from '../../../../redux/actions/forgotPassword';
 import EmailIcon from '../../../icons/email';
 import validate from './validate';
+import LanguageSelector from '../../../experiences/language-selector';
 
 const translations = defineMessages({
     emailPlaceholder: {
@@ -81,6 +82,7 @@ class ForgotPassword extends Component {
                             />
                         </article>
                     </Card>
+                    <LanguageSelector />
                 </section>
             </form>
         );

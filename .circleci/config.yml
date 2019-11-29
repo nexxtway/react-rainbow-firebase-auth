@@ -37,6 +37,7 @@ jobs:
 
       # run tests!
       - run: yarn test
+      - run: yarn cypress:run
 
   deploy_firebase:
     docker:

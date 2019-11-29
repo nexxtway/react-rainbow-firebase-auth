@@ -7,6 +7,7 @@
 @media (max-width: 620px) {
     .rainbow-auth-firebase-signup_container {
         height: 100%;
+        padding-top: 96px;
     }
     .rainbow-auth-firebase-signup_card {
         width: 100%;

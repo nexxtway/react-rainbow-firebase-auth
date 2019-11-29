@@ -50,7 +50,7 @@ class ForgotPassword extends Component {
         return (
             <form onSubmit={handleSubmit((email) => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
-                    <Link className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
+                    <Link data-cy="go-back-link" className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
                         <BackIcon className="rainbow-auth-firebase-forgot-password_back-icon" />
                         <FormattedMessage id="forgotpassword.back.login" defaultMessage="Back" />
                     </Link>

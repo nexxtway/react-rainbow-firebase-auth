@@ -92,7 +92,7 @@ class SignIn extends Component {
                                 label={<FormattedMessage id="login.to.login" defaultMessage="Login" />}
                                 isLoading={isLoading}
                             />
-                            <Link to="/home/forgot-password" className="rainbow-auth-firebase-signin_link">
+                            <Link data-cy="forgot-password-link" to="/home/forgot-password" className="rainbow-auth-firebase-signin_link">
                                 <FormattedMessage
                                     id="form.sing.in.forgot.password"
                                     defaultMessage="Forgot your password?" />

@@ -27,16 +27,22 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      - run: yarn cypress install  ## If there is a binary already present, it should finish quickly.
 
       - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/.cache  ## cache both yarn and Cypress!
 
       - run: yarn lint
 
       # run tests!
       - run: yarn test
+      - run:
+          command: yarn start
+          background: true
+      - run: sleep 60
+      - run: yarn cypress:run
 
   deploy_firebase:
     docker:

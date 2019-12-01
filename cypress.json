@@ -1,0 +1,10 @@
+{
+    "chromeWebSecurity": false,
+    "pageLoadTimeout": 60000,
+    "execTimeout": 60000,
+    "video": false,
+    "defaultCommandTimeout": 60000,
+    "viewportHeight": 700,
+    "viewportWidth": 1440,
+    "baseUrl": "http://localhost:3000"
+}

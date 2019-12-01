@@ -13,7 +13,7 @@
     height: 72px;
     box-shadow: 0 1px 2px 0 #e3e5ed;
     border: solid 1px #e3e5ed;
-    background-color: #ffffff;
+    background-color: #ffffff;;
 }
 
 .rainbow-auth-firebase-privacy-policy_content {
@@ -24,23 +24,25 @@
     padding: 32px 30px;
 }
 
-.rainbow-auth-firebase-privacy-policy_back {
+.rainbow-auth-firebase-privacy-policy_back-button {
     position: absolute;
-    left: 30px;
+    top: 16px;
+    left: 12px;
 }
 
-.rainbow-auth-firebase-privacy-policy_back-icon {
-    margin-right: 8px;
+@media (min-width: 1600px) {
+    .rainbow-auth-firebase-privacy-policy_back-button {
+        left: 120px;
+    }
 }
 
 @media (max-width: 620px) {
-    .rainbow-auth-firebase-privacy-policy_back {
-        position: absolute;
-        left: 8px;
+    .rainbow-auth-firebase-privacy-policy_back-button {
+        left: 1px;
     }
     .rainbow-auth-firebase-privacy-policy_header {
         font-size: 18px;
-        padding-left: 32px;
+        padding-left: 60px;
     }
     .rainbow-auth-firebase-privacy-policy_content {
         font-size: 14px;

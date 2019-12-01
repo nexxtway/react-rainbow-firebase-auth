@@ -29,14 +29,21 @@
     left: 30px;
 }
 
-.rainbow-auth-firebase-terms-condition_back-icon {
-    margin-right: 8px;
+.rainbow-auth-firebase-terms-condition_back-button {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+}
+
+@media (min-width: 1600px) {
+    .rainbow-auth-firebase-terms-condition_back-button {
+        left: 120px;
+    }
 }
 
 @media (max-width: 620px) {
-    .rainbow-auth-firebase-terms-condition_back {
-        position: absolute;
-        left: 8px;
+    .rainbow-auth-firebase-terms-condition_back-button {
+        left: 2px;
     }
     .rainbow-auth-firebase-terms-condition_header {
         font-size: 18px;

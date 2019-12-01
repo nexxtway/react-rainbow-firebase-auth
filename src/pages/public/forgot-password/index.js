@@ -13,13 +13,13 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import BackIcon from '../../../components/icons/back';
-import './styles.css';
-import './media-queries.css';
 import { resetForm, sendEmailResetPassword } from '../../../redux/actions/forgotPassword';
 import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
 import LanguageSelector from '../../../components/experiences/language-selector';
+import BackButton from '../../../components/experiences/back-button';
+import './styles.css';
+import './media-queries.css';
 
 const translations = defineMessages({
     emailPlaceholder: {
@@ -50,10 +50,7 @@ class ForgotPassword extends Component {
         return (
             <form onSubmit={handleSubmit((email) => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
-                    <Link data-cy="go-back-link" className="rainbow-auth-firebase-forgot-password_back-link" to="/home/signin">
-                        <BackIcon className="rainbow-auth-firebase-forgot-password_back-icon" />
-                        <FormattedMessage id="forgotpassword.back.login" defaultMessage="Back" />
-                    </Link>
+                    <BackButton className="rainbow-auth-firebase-forgot-password_back-button" />
                     <Link to="/home">
                         <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-forgot-password_image" />
                     </Link>

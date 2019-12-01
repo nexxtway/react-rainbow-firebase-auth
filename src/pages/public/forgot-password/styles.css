@@ -13,30 +13,6 @@
     position: relative;
 }
 
-.rainbow-auth-firebase-forgot-password_back-link {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    position: absolute;
-    left: 24px;
-    top: 24px;
-    color: #01b6f5;
-    text-align: center;
-    font-size: 1rem;
-}
-
-.rainbow-auth-firebase-forgot-password_back-link:hover, .rainbow-auth-firebase-forgot-password_back-link:hover svg {
-    color: #005fb2;
-    fill: #005fb2;
-}
-
-.rainbow-auth-firebase-forgot-password_back-icon {
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
-}
-
 .rainbow-auth-firebase-forgot-password_image {
     height: 40px;
     width: 40px;
@@ -89,4 +65,10 @@
     color: #01b6f5;
     text-align: center;
     font-size: 1rem;
+}
+
+.rainbow-auth-firebase-forgot-password_back-button {
+    position: absolute;
+    top: 12px;
+    left: 12px;
 }

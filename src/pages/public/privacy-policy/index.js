@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-rainbow-components/components/Button';
-import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Prismic, QueryAt } from 'react-prismic-cms';
 import Content from '../../../components/experiences/prismic-content';
-import Back from '../../../components/icons/back';
+import BackButton from '../../../components/experiences/back-button';
 import './styles.css';
 
 function PrivacyPolicy(props) {
@@ -17,12 +15,7 @@ function PrivacyPolicy(props) {
     return (
         <div className={className} style={style}>
             <div className="rainbow-auth-firebase-privacy-policy_header">
-                <Link className="rainbow-auth-firebase-privacy-policy_back" to="/home/signup">
-                    <Button variant="base">
-                        <Back className="rainbow-auth-firebase-privacy-policy_back-icon" />
-                        Back
-                    </Button>
-                </Link>
+                <BackButton className="rainbow-auth-firebase-privacy-policy_back-button" />
                 <FormattedMessage
                     id="privacy"
                     defaultMessage="Privacy Policy" />

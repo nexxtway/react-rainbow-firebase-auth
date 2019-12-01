@@ -1,11 +1,13 @@
+@media (min-width: 1600px) {
+    .rainbow-auth-firebase-forgot-password_back-button {
+        left: 120px;
+    }
+}
+
 @media (max-width: 620px) {
     .rainbow-auth-firebase-forgot-password_container {
         height: 100%;
         padding-top: 116px;
-    }
-    .rainbow-auth-firebase-forgot-password_back-link {
-        left: 16px;
-        top: 16px;
     }
     .rainbow-auth-firebase-forgot-password_card {
         width: 100%;

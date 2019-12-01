@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PersonIcon from '../../../../icons/person';
+import PersonIcon from '../../../../components/icons/person';
 
 const StyledPersonIcon = styled(PersonIcon)`
     width: 86px;

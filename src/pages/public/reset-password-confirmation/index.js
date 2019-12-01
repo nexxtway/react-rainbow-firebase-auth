@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Button from 'react-rainbow-components/components/Button';
 import MailSendIcon from './icons/mailSendIcon';
-import { navigateTo } from '../../../../history';
+import { navigateTo } from '../../../history';
 import './styles.css';
 
 function ResetPasswordConfirmation({ email }) {

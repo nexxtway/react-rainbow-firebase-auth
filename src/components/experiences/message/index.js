@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ButtonIcon from 'react-rainbow-components/components/ButtonIcon';
-import CloseIcon from '../../icons/close/index.js';
+import CloseIcon from '../../icons/close';
 import MessageIcon from './icon';
 import hideMessage from '../../../redux/actions/app/hide-message';
 import './styles.css';

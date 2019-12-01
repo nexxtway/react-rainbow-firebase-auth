@@ -8,9 +8,9 @@ import {
 import { Field, reduxForm } from 'redux-form';
 import Input from 'react-rainbow-components/components/Input';
 import Button from 'react-rainbow-components/components/Button';
-import LockIcon from '../../../../icons/lock';
+import LockIcon from '../../../../components/icons/lock';
 import validate from './validate';
-import EmailIcon from '../../../../icons/email';
+import EmailIcon from '../../../../components/icons/email';
 import StyledForm from './styled/form';
 import StyledButtonContainer from './styled/buttonContainer';
 

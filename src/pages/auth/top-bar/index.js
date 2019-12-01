@@ -9,12 +9,12 @@ import AvatarMenu from 'react-rainbow-components/components/AvatarMenu';
 import Avatar from 'react-rainbow-components/components/Avatar';
 import MenuDivider from 'react-rainbow-components/components/MenuDivider';
 import MenuItem from 'react-rainbow-components/components/MenuItem';
-import { navigateTo } from '../../../../history';
-import { logoutUser } from '../../../../redux/actions/authentication';
+import { navigateTo } from '../../../history';
+import { logoutUser } from '../../../redux/actions/authentication';
 import StyledLanguageSelector from './styled/languageSelector';
-import PowerIcon from '../../../icons/power';
-import PencilIcon from '../../../icons/pencil';
-import PersonIcon from '../../../icons/person';
+import PowerIcon from '../../../components/icons/power';
+import PencilIcon from '../../../components/icons/pencil';
+import PersonIcon from '../../../components/icons/person';
 import './styles.css';
 
 function TopBar(props) {

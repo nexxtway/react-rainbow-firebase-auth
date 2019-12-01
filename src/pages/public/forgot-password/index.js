@@ -13,13 +13,13 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import BackIcon from '../../../icons/back/index.js';
+import BackIcon from '../../../components/icons/back';
 import './styles.css';
 import './media-queries.css';
-import { resetForm, sendEmailResetPassword } from '../../../../redux/actions/forgotPassword';
-import EmailIcon from '../../../icons/email';
+import { resetForm, sendEmailResetPassword } from '../../../redux/actions/forgotPassword';
+import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
-import LanguageSelector from '../../../experiences/language-selector';
+import LanguageSelector from '../../../components/experiences/language-selector';
 
 const translations = defineMessages({
     emailPlaceholder: {

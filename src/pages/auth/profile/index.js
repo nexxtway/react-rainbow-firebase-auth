@@ -12,13 +12,13 @@ import RenderIf from 'react-rainbow-components/components/RenderIf';
 import Input from 'react-rainbow-components/components/Input';
 import Button from 'react-rainbow-components/components/Button';
 import Modal from 'react-rainbow-components/components/Modal';
-import updateProfile from '../../../../redux/actions/profile/update-profile';
-import hideReauthenticateModal from '../../../../redux/actions/profile/hide-reauthenticate-modal';
-import handleReauthentication from '../../../../redux/actions/profile/handle-reauthentication';
-import UserIcon from '../../../icons/user';
-import EmailIcon from '../../../icons/email';
-import LockIcon from '../../../icons/lock';
-import TopBar from '../top-bar/index.js';
+import updateProfile from '../../../redux/actions/profile/update-profile';
+import hideReauthenticateModal from '../../../redux/actions/profile/hide-reauthenticate-modal';
+import handleReauthentication from '../../../redux/actions/profile/handle-reauthentication';
+import UserIcon from '../../../components/icons/user';
+import EmailIcon from '../../../components/icons/email';
+import LockIcon from '../../../components/icons/lock';
+import TopBar from '../top-bar';
 import validate from './validate';
 import isChangedValue from './isChangedValue';
 import ReauthenticateForm from './reauthenticateForm';
@@ -91,7 +91,7 @@ function Profile(props) {
                     <StyledContent>
                         <StyledInputContainer>
                             <StyledInput
-                                disabled={isSocialMediaUser}
+                                readOnly={isSocialMediaUser}
                                 component={Input}
                                 name="displayName"
                                 label={<FormattedMessage id="form.displayName.label" defaultMessage="Name" />}
@@ -101,7 +101,7 @@ function Profile(props) {
                                 }
                                 icon={<UserIcon />} />
                             <StyledInput
-                                disabled={isSocialMediaUser}
+                                readOnly={isSocialMediaUser}
                                 component={Input}
                                 name="email"
                                 label={<FormattedMessage id="form.email.label" defaultMessage="Email address" />}

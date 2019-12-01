@@ -4,8 +4,8 @@ import Button from 'react-rainbow-components/components/Button';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Prismic, QueryAt } from 'react-prismic-cms';
-import Content from '../../../experiences/prismic-content';
-import Back from '../../../icons/back';
+import Content from '../../../components/experiences/prismic-content';
+import Back from '../../../components/icons/back';
 import './styles.css';
 
 function PrivacyPolicy(props) {

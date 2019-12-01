@@ -13,23 +13,17 @@ import {
 import Card from 'react-rainbow-components/components/Card';
 import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
-import SocialLogin from '../../../experiences/social-login';
-import EmailIcon from '../../../icons/email/index.js';
-import LockIcon from '../../../icons/lock/index.js';
-import UserIcon from '../../../icons/user/index.js';
-import { loginWithFacebook } from '../../../../redux/actions/authentication';
-import { createAccount } from '../../../../redux/actions/registration';
+import { loginWithEmailAndPassword } from '../../../redux/actions/authentication';
+import LockIcon from '../../../components/icons/lock';
+import SocialLogin from '../../../components/experiences/social-login';
+import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
-import TermsConditionsAndPrivacyPolicy from '../../../experiences/termsConditions-and-privacyPolicy/idnex';
-import LanguageSelector from '../../../experiences/language-selector';
+import TermsConditionsAndPrivacyPolicy from '../../../components/experiences/termsConditions-and-privacyPolicy/idnex';
+import LanguageSelector from '../../../components/experiences/language-selector';
 import './styles.css';
 import './media-queries.css';
 
 const translations = defineMessages({
-    usernamePlaceholder: {
-        id: 'form.username.placeholder',
-        defaultValue: 'Enter your user name',
-    },
     emailPlaceholder: {
         id: 'form.email.placeholder',
         defaultValue: 'Enter your email address',
@@ -40,48 +34,42 @@ const translations = defineMessages({
     },
 });
 
-class SignUp extends Component {
+class SignIn extends Component {
     getClassName() {
         const { className } = this.props;
-        return classnames('rainbow-auth-firebase-signup_container', className);
+        return classnames('rainbow-auth-firebase-signin_container', className);
     }
 
     render() {
         const {
             handleSubmit,
+            loginWithEmailAndPassword,
             isLoading,
-            createAccount,
             style,
             intl,
         } = this.props;
 
         return (
-            <form noValidate onSubmit={handleSubmit(createAccount)}>
+            <form noValidate onSubmit={handleSubmit((user) => loginWithEmailAndPassword(user))}>
                 <section className={this.getClassName()} style={style}>
                     <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
+                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signin_image" />
                     </Link>
-                    <p className="rainbow-auth-firebase-signup_header">
-                        <FormattedMessage id="form.create.account" defaultMessage="Create Account" />
+                    <p className="rainbow-auth-firebase-signin_header">
+                        <FormattedMessage
+                            id="form.sign.in"
+                            defaultMessage="Sign in" />
                     </p>
-                    <p className="rainbow-auth-firebase-signup_have-account">
-                        <FormattedMessage id="login.do.you.have.account" defaultMessage="Already have an account?" />
+                    <p className="rainbow-auth-firebase-signin_do-not-have-account">
+                        <FormattedMessage id="login.do.not.have.account" defaultMessage="Don’t have an account?" />
                         <span>{' '}</span>
-                        <Link className="rainbow-auth-firebase-signup_link" to="/home/signin">
-                            <FormattedMessage id="login.here" defaultMessage="Login here" />
+                        <Link className="rainbow-auth-firebase-signin_link" to="/home/signup">
+                            <FormattedMessage id="sign.up" defaultMessage="Create Account here" />
                         </Link>
                     </p>
-                    <Card className="rainbow-auth-firebase-signup_card">
+                    <Card className="rainbow-auth-firebase-signin_card">
                         <SocialLogin />
-                        <article className="rainbow-auth-firebase-signup_inputs-container">
-
-                            <Field
-                                component={Input}
-                                name="name"
-                                label={<FormattedMessage id="form.username.label" defaultMessage="User name" />}
-                                required
-                                placeholder={intl.formatMessage(translations.usernamePlaceholder)}
-                                icon={<UserIcon />} />
+                        <article className="rainbow-auth-firebase-signin_inputs-container">
                             <Field
                                 component={Input}
                                 name="email"
@@ -101,9 +89,14 @@ class SignUp extends Component {
                             <Button
                                 variant="brand"
                                 type="submit"
-                                label={<FormattedMessage id="login.to.signup" defaultMessage="Create Account" />}
+                                label={<FormattedMessage id="login.to.login" defaultMessage="Login" />}
                                 isLoading={isLoading}
                             />
+                            <Link data-cy="forgot-password-link" to="/home/forgot-password" className="rainbow-auth-firebase-signin_link">
+                                <FormattedMessage
+                                    id="form.sing.in.forgot.password"
+                                    defaultMessage="Forgot your password?" />
+                            </Link>
                         </article>
                     </Card>
                     <TermsConditionsAndPrivacyPolicy />
@@ -114,8 +107,8 @@ class SignUp extends Component {
     }
 }
 
-SignUp.propTypes = {
-    createAccount: PropTypes.func.isRequired,
+SignIn.propTypes = {
+    loginWithEmailAndPassword: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     className: PropTypes.string,
@@ -123,32 +116,27 @@ SignUp.propTypes = {
     intl: PropTypes.object.isRequired,
 };
 
-SignUp.defaultProps = {
+SignIn.defaultProps = {
     className: undefined,
-    style: {},
+    style: undefined,
 };
 
 function stateToProps(state) {
-    const { registration, authentication } = state;
     return {
-        isLoading: registration.get('isLoading'),
-        errorMessage: registration.get('errorMessage'),
-        isLoadingFacebook: authentication.get('isLoadingFacebook'),
-        facebookErrorMessage: authentication.get('facebookErrorMessage'),
+        ...state.authentication.toJS(),
     };
 }
 
 function dispatchToProps(dispatch) {
     return bindActionCreators({
-        loginWithFacebook,
-        createAccount,
+        loginWithEmailAndPassword,
     }, dispatch);
 }
 
 export default connect(stateToProps, dispatchToProps)(
     reduxForm({
-        form: 'signup',
+        form: 'signin',
         touchOnBlur: false,
         validate,
-    })(injectIntl(SignUp)),
+    })(injectIntl(SignIn)),
 );

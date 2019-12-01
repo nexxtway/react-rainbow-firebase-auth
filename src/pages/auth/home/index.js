@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import TopBar from '../top-bar/index.js';
+import TopBar from '../top-bar';
 import './styles.css';
 import './media-queries.css';
 

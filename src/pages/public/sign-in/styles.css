@@ -15,11 +15,6 @@
     box-sizing: border-box;
 }
 
-.rainbow-auth-firebase-signin_image {
-    height: 40px;
-    width: 40px;
-}
-
 .rainbow-auth-firebase-signin_header {
     font-family: Lato;
     font-size: 24px;

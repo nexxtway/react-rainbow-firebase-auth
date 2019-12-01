@@ -13,11 +13,6 @@
     position: relative;
 }
 
-.rainbow-auth-firebase-forgot-password_image {
-    height: 40px;
-    width: 40px;
-}
-
 .rainbow-auth-firebase-forgot-password_header {
     font-family: Lato;
     font-size: 24px;

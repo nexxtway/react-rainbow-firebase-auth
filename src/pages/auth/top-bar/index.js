@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,6 +14,7 @@ import StyledLanguageSelector from './styled/languageSelector';
 import PowerIcon from '../../../components/icons/power';
 import PencilIcon from '../../../components/icons/pencil';
 import PersonIcon from '../../../components/icons/person';
+import LogoLink from '../../../components/experiences/logo-link';
 import './styles.css';
 
 function TopBar(props) {
@@ -29,9 +29,7 @@ function TopBar(props) {
 
     return (
         <section className={getContainerClassNames()} style={style}>
-            <Link to="/home">
-                <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-auth_logo" />
-            </Link>
+            <LogoLink />
             <div className="rainbow-auth-firebase_top-bar-content">
                 <StyledLanguageSelector />
                 <AvatarMenu

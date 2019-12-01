@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
@@ -18,6 +17,7 @@ import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
 import LanguageSelector from '../../../components/experiences/language-selector';
 import BackButton from '../../../components/experiences/back-button';
+import LogoLink from '../../../components/experiences/logo-link';
 import './styles.css';
 import './media-queries.css';
 
@@ -51,9 +51,7 @@ class ForgotPassword extends Component {
             <form onSubmit={handleSubmit((email) => sendEmailResetPassword(email))} noValidate>
                 <section className={this.getClassName()} style={style}>
                     <BackButton className="rainbow-auth-firebase-forgot-password_back-button" />
-                    <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-forgot-password_image" />
-                    </Link>
+                    <LogoLink />
                     <p className="rainbow-auth-firebase-forgot-password_header">
                         <FormattedMessage id="forgotpassword.title" defaultMessage="Reset password" />
                     </p>

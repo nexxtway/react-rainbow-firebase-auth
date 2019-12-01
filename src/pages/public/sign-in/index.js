@@ -20,6 +20,7 @@ import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
 import TermsConditionsAndPrivacyPolicy from '../../../components/experiences/termsConditions-and-privacyPolicy/idnex';
 import LanguageSelector from '../../../components/experiences/language-selector';
+import LogoLink from '../../../components/experiences/logo-link';
 import './styles.css';
 import './media-queries.css';
 
@@ -52,9 +53,7 @@ class SignIn extends Component {
         return (
             <form noValidate onSubmit={handleSubmit((user) => loginWithEmailAndPassword(user))}>
                 <section className={this.getClassName()} style={style}>
-                    <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signin_image" />
-                    </Link>
+                    <LogoLink />
                     <p className="rainbow-auth-firebase-signin_header">
                         <FormattedMessage
                             id="form.sign.in"

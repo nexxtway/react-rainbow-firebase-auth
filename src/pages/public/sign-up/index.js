@@ -22,6 +22,7 @@ import { createAccount } from '../../../redux/actions/registration';
 import validate from './validate';
 import TermsConditionsAndPrivacyPolicy from '../../../components/experiences/termsConditions-and-privacyPolicy/idnex';
 import LanguageSelector from '../../../components/experiences/language-selector';
+import LogoLink from '../../../components/experiences/logo-link';
 import './styles.css';
 import './media-queries.css';
 
@@ -58,9 +59,7 @@ class SignUp extends Component {
         return (
             <form noValidate onSubmit={handleSubmit(createAccount)}>
                 <section className={this.getClassName()} style={style}>
-                    <Link to="/home">
-                        <img src="/assets/rainbow-logo.svg" alt="rainbow logo" className="rainbow-auth-firebase-signup_image" />
-                    </Link>
+                    <LogoLink />
                     <p className="rainbow-auth-firebase-signup_header">
                         <FormattedMessage id="form.create.account" defaultMessage="Create Account" />
                     </p>

@@ -8,6 +8,8 @@ import { navigateTo } from '../../../history';
 import './styles.css';
 
 function ResetPasswordConfirmation({ email }) {
+    const getEmail = () => email || '';
+
     return (
         <article className="rainbow-auth-firebase-reset-password-confirmation_container">
             <MailSendIcon />
@@ -21,7 +23,7 @@ function ResetPasswordConfirmation({ email }) {
                     id="reset.password.confirmation.first.text"
                     defaultMessage="An email has been sent to your email address," />
                 <b className="rainbow-auth-firebase-reset-password-confirmation_user-mail">
-                    {` ${email}.`}
+                    {` ${getEmail()}`}
                 </b>
             </p>
             <p className="rainbow-auth-firebase-reset-password-confirmation_content">
@@ -40,7 +42,11 @@ function ResetPasswordConfirmation({ email }) {
 }
 
 ResetPasswordConfirmation.propTypes = {
-    email: PropTypes.string.isRequired,
+    email: PropTypes.string,
+};
+
+ResetPasswordConfirmation.defaultProps = {
+    email: undefined,
 };
 
 function stateToProps(state) {

@@ -15,9 +15,9 @@ import Input from 'react-rainbow-components/components/Input';
 import { resetForm, sendEmailResetPassword } from '../../../redux/actions/forgotPassword';
 import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
-import LanguageSelector from '../../../components/experiences/language-selector';
-import BackButton from '../../../components/experiences/back-button';
-import LogoLink from '../../../components/experiences/logo-link';
+import LanguageSelector from '../../../components/language-selector';
+import BackButton from '../../../components/back-button';
+import LogoLink from '../../../components/logo-link';
 import './styles.css';
 import './media-queries.css';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { goBack } from '../../../history';
+import { goBack } from '../../history';
 import StyledButton from './styled/button';
 import StyledIcon from './styled/icon';
 

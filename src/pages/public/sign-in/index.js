@@ -15,12 +15,12 @@ import Button from 'react-rainbow-components/components/Button';
 import Input from 'react-rainbow-components/components/Input';
 import { loginWithEmailAndPassword } from '../../../redux/actions/authentication';
 import LockIcon from '../../../components/icons/lock';
-import SocialLogin from '../../../components/experiences/social-login';
+import SocialLogin from '../../../components/social-login';
 import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
-import TermsConditionsAndPrivacyPolicy from '../../../components/experiences/termsConditions-and-privacyPolicy/idnex';
-import LanguageSelector from '../../../components/experiences/language-selector';
-import LogoLink from '../../../components/experiences/logo-link';
+import TermsConditionsAndPrivacyPolicy from '../../../components/termsConditions-and-privacyPolicy/idnex';
+import LanguageSelector from '../../../components/language-selector';
+import LogoLink from '../../../components/logo-link';
 import './styles.css';
 import './media-queries.css';
 

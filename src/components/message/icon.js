@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ErrorIcon from '../../icons/error';
-import DoneIcon from '../../icons/done';
+import ErrorIcon from '../icons/error';
+import DoneIcon from '../icons/done';
 
 export default function MessageIcon({ variant }) {
     if (variant === 'error') {

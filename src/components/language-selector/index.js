@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeLocale } from '../../../i18n';
+import { changeLocale } from '../../i18n';
 import StyledSelect from './styled/select';
 
 const languages = [

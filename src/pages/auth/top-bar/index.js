@@ -14,7 +14,7 @@ import StyledLanguageSelector from './styled/languageSelector';
 import PowerIcon from '../../../components/icons/power';
 import PencilIcon from '../../../components/icons/pencil';
 import PersonIcon from '../../../components/icons/person';
-import LogoLink from '../../../components/experiences/logo-link';
+import LogoLink from '../../../components/logo-link';
 import './styles.css';
 
 function TopBar(props) {

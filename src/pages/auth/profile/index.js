@@ -18,7 +18,7 @@ import handleReauthentication from '../../../redux/actions/profile/handle-reauth
 import UserIcon from '../../../components/icons/user';
 import EmailIcon from '../../../components/icons/email';
 import LockIcon from '../../../components/icons/lock';
-import TopBar from '../top-bar';
+import TopBar from '../../../components/top-bar';
 import validate from './validate';
 import isChangedValue from './isChangedValue';
 import ReauthenticateForm from './reauthenticateForm';

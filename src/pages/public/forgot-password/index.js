@@ -9,15 +9,19 @@ import {
     injectIntl,
     defineMessages,
 } from 'react-intl';
-import Card from 'react-rainbow-components/components/Card';
-import Button from 'react-rainbow-components/components/Button';
-import Input from 'react-rainbow-components/components/Input';
+import {
+    Card,
+    Button,
+    Input,
+} from 'react-rainbow-components/';
 import { resetForm, sendEmailResetPassword } from '../../../redux/actions/forgotPassword';
 import EmailIcon from '../../../components/icons/email';
 import validate from './validate';
-import LanguageSelector from '../../../components/language-selector';
-import BackButton from '../../../components/back-button';
-import LogoLink from '../../../components/logo-link';
+import {
+    LanguageSelector,
+    BackButton,
+    LogoLink,
+} from '../../../components';
 import './styles.css';
 import './media-queries.css';
 

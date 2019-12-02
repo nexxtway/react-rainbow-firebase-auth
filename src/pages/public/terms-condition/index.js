@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Prismic, QueryAt } from 'react-prismic-cms';
 import Content from '../../../components/prismic-content';
-import BackButton from '../../../components/back-button';
+import { BackButton } from '../../../components';
 import './styles.css';
 
 function TermsAndConditions(props) {

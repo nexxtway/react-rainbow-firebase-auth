@@ -10,19 +10,23 @@ import {
     injectIntl,
     defineMessages,
 } from 'react-intl';
-import Card from 'react-rainbow-components/components/Card';
-import Button from 'react-rainbow-components/components/Button';
-import Input from 'react-rainbow-components/components/Input';
-import SocialLogin from '../../../components/social-login';
+import {
+    Card,
+    Button,
+    Input,
+} from 'react-rainbow-components';
+import {
+    SocialLogin,
+    LanguageSelector,
+    TermsConditionsAndPrivacyPolicy,
+    LogoLink,
+} from '../../../components';
 import EmailIcon from '../../../components/icons/email';
 import LockIcon from '../../../components/icons/lock';
 import UserIcon from '../../../components/icons/user';
 import { loginWithFacebook } from '../../../redux/actions/authentication';
 import { createAccount } from '../../../redux/actions/registration';
 import validate from './validate';
-import TermsConditionsAndPrivacyPolicy from '../../../components/termsConditions-and-privacyPolicy/idnex';
-import LanguageSelector from '../../../components/language-selector';
-import LogoLink from '../../../components/logo-link';
 import './styles.css';
 import './media-queries.css';
 

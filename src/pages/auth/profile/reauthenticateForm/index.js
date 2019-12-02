@@ -6,8 +6,7 @@ import {
     injectIntl,
 } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
-import Input from 'react-rainbow-components/components/Input';
-import Button from 'react-rainbow-components/components/Button';
+import { Input, Button } from 'react-rainbow-components';
 import LockIcon from '../../../../components/icons/lock';
 import validate from './validate';
 import EmailIcon from '../../../../components/icons/email';

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Application from 'react-rainbow-components/components/Application';
 import { startApplication } from './redux/actions/app';
-import InitializingApp from './components/initializing-app';
+import { InitializingApp } from './components';
 import Routes from './routes';
 import Message from './components/message';
 

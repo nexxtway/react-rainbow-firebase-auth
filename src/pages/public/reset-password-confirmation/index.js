@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import Button from 'react-rainbow-components/components/Button';
+import { Button } from 'react-rainbow-components';
 import MailSendIcon from './icons/mailSendIcon';
 import { navigateTo } from '../../../history';
 import './styles.css';

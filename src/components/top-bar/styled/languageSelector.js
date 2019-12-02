@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LanguageSelector from '../../../../components/language-selector';
+import LanguageSelector from '../../language-selector';
 
 const StyledLanguageSelector = styled(LanguageSelector)`
     position: relative;

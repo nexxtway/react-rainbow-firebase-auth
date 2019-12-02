@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import history from './history';
-import AuthRoute from './components/auth-route';
+import { AuthRoute } from './components';
 import PublicRoute from './components/public-route';
 import PublicRoutes from './pages/public';
 import AuthRoutes from './pages/auth';

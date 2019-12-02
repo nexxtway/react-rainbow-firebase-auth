@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Spinner from 'react-rainbow-components/components/Spinner';
+import { Spinner } from 'react-rainbow-components';
 
 export default function InitializingApp(props) {
     const {

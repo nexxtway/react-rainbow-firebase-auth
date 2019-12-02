@@ -15,6 +15,7 @@ export default function BackButton(props) {
 
     return (
         <StyledButton
+            id="go-back-button"
             className={className}
             style={style}
             variant="base"

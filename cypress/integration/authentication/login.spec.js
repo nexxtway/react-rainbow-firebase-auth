@@ -1,7 +1,7 @@
 const SIGN_IN_URL = '/home/signin';
 const FORGOT_PASSORD_URL = '/home/forgot-password';
 const FORGOT_PASSWORD_LINK = '[data-cy="forgot-password-link"]';
-const GO_BACK_BUTTON = '[data-cy="go-back-link"]';
+const GO_BACK_BUTTON = '[id="go-back-button"]';
 
 describe('Login page', () => {
     beforeEach(() => {

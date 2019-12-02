@@ -20,9 +20,9 @@ function ResetPasswordConfirmation({ email }) {
                 <FormattedMessage
                     id="reset.password.confirmation.first.text"
                     defaultMessage="An email has been sent to your email address," />
-                <p className="rainbow-auth-firebase-reset-password-confirmation_user-mail">
+                <b className="rainbow-auth-firebase-reset-password-confirmation_user-mail">
                     {` ${email}.`}
-                </p>
+                </b>
             </p>
             <p className="rainbow-auth-firebase-reset-password-confirmation_content">
                 <FormattedMessage

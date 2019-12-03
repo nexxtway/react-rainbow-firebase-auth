@@ -6,10 +6,10 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import history from './history';
-import AuthRoute from './components/experiences/auth-route';
-import PublicRoute from './components/experiences/public-route';
-import PublicRoutes from './components/pages/public';
-import AuthRoutes from './components/pages/auth';
+import { AuthRoute } from './components';
+import PublicRoute from './components/public-route';
+import PublicRoutes from './pages/public';
+import AuthRoutes from './pages/auth';
 
 export default function Routes({ isAuth }) {
     return (

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Application from 'react-rainbow-components/components/Application';
 import { startApplication } from './redux/actions/app';
-import InitializingApp from './components/experiences/initializing-app';
+import { InitializingApp } from './components';
 import Routes from './routes';
-import Message from './components/experiences/message';
+import Message from './components/message';
 
 class App extends Component {
     componentDidMount() {

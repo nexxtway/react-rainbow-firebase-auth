@@ -59,7 +59,15 @@ jobs:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
+      - run:
+            name: Create .env file
+            command: |
+                touch .env;
+                echo REACT_APP_FIREBASE_APIKEY=$REACT_APP_FIREBASE_APIKEY >> .env;
+                echo REACT_APP_FIREBASE_AUTH_DOMAIN=$REACT_APP_FIREBASE_AUTH_DOMAIN >> .env;
+                echo REACT_APP_FIREBASE_DATABASE_URL=$REACT_APP_FIREBASE_DATABASE_URL >> .env;
+                echo REACT_APP_FIREBASE_PROJECT_ID=$REACT_APP_FIREBASE_PROJECT_ID >> .env;
+                echo REACT_APP_FIREBASE_MESSAGING_SENDERID=$REACT_APP_FIREBASE_MESSAGING_SENDERID >> .env;
       - run: yarn install
       - run: yarn deploy --token=$FIREBASE_TOKEN      
       

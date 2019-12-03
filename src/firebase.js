@@ -1,12 +1,11 @@
 import * as firebase from 'firebase';
 
 const config = {
-    apiKey: 'AIzaSyAEQeK7m80EKVJUgWqmbeOaaGGbVvYAsNU',
-    authDomain: 'react-rainbow-firebase-auth.firebaseapp.com',
-    databaseURL: 'https://react-rainbow-firebase-auth.firebaseio.com',
-    projectId: 'react-rainbow-firebase-auth',
-    storageBucket: '',
-    messagingSenderId: '35988928846',
+    apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDERID,
 };
 
 const instance = firebase.initializeApp(config);

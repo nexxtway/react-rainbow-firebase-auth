@@ -1,6 +1,6 @@
 @media (min-width: 1600px) {
     .rainbow-auth-firebase-forgot-password_back-button {
-        left: 120px;
+        left: 120px !important;
     }
 }
 

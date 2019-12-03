@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledArticle = styled.article`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding-right: 24px;
     width: 50%;
     height: 100%;

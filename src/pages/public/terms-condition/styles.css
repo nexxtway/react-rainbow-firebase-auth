@@ -30,20 +30,20 @@
 }
 
 .rainbow-auth-firebase-terms-condition_back-button {
-    position: absolute;
-    top: 16px;
-    left: 12px;
+    position: absolute !important;
+    top: 16px !important;
+    left: 12px !important;
 }
 
 @media (min-width: 1600px) {
     .rainbow-auth-firebase-terms-condition_back-button {
-        left: 120px;
+        left: 120px !important;
     }
 }
 
 @media (max-width: 620px) {
     .rainbow-auth-firebase-terms-condition_back-button {
-        left: 2px;
+        left: 2px !important;
     }
     .rainbow-auth-firebase-terms-condition_header {
         font-size: 18px;

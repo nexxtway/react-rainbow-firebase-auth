@@ -63,7 +63,7 @@
 }
 
 .rainbow-auth-firebase-forgot-password_back-button {
-    position: absolute;
-    top: 12px;
-    left: 12px;
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
 }

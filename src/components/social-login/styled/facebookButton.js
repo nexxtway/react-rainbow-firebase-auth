@@ -5,7 +5,6 @@ const StyledFacebookButton = styled(StyledLoginButton)`
     background-color: #004ca9;
     border-color: #004ca9;
     color: #fff;
-    margin-top: 38px;
     margin-bottom: 32px;
 
     &:hover,

@@ -25,20 +25,20 @@
 }
 
 .rainbow-auth-firebase-privacy-policy_back-button {
-    position: absolute;
-    top: 16px;
-    left: 12px;
+    position: absolute !important;
+    top: 16px !important;
+    left: 12px !important;
 }
 
 @media (min-width: 1600px) {
     .rainbow-auth-firebase-privacy-policy_back-button {
-        left: 120px;
+        left: 120px !important;
     }
 }
 
 @media (max-width: 620px) {
     .rainbow-auth-firebase-privacy-policy_back-button {
-        left: 1px;
+        left: 1px !important;
     }
     .rainbow-auth-firebase-privacy-policy_header {
         font-size: 18px;

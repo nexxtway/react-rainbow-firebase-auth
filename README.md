@@ -1,6 +1,6 @@
 # react-rainbow-firebase-auth
 
-User authentication is often the hardest part of building any web app, especially if you want to integrate multiple providers. Now all the tough work has been done for you as a templete build in `React` that will allow you in just a few minutes to authenticate using Firebase service.
+User authentication is often the hardest part of building any web app, especially if you want to integrate multiple providers. Having a profile is one of the most common features you will need to add on your projects. Now all the tough work has been done for you as a templete build in `React` that will allow you in just a few minutes to authenticate using Firebase service.
 
 #### The project uses:
 
@@ -26,7 +26,9 @@ User authentication is often the hardest part of building any web app, especiall
 ## Features:
 
 - Ideal authentication UI and security solution for modern Single Page Apps
-- Supports local login with username and password using best security practices
+- Supports local login with username, e-mail and password using best security practices
+- Supports social login with Facebook and Google using best security practices
+- User profile page with the ability to update your current password, username and e-mail
 - Sends system emails for password reset
 - Facebook and Google integration fully tested
 - Integration test with Cypress

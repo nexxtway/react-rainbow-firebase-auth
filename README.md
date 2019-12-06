@@ -46,7 +46,7 @@ User authentication is often the hardest part of building any web app, especiall
 
 ## Miscellaneous
 
-#### #### Before you begin
+#### Before you begin
 
 [Add Firebase to your JavaScript project](https://firebase.google.com/docs/web/setup)
 

@@ -58,7 +58,7 @@ User authentication is often the hardest part of building any web app, especiall
     2. On the **Sign in method** tab, enable the **Facebook** sign-in method and specify the **App ID** and **App Secret** you got from Facebook.
     3. Then, make sure your **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is listed as one of your **OAuth redirect URIs** in your Facebook app's settings page on the [Facebook for Developers](https://developers.facebook.com) site in the **Product Settings > Facebook Login** config.
 
-#### Be ready to get acces with Facebook provider
+#### Be ready to get acces with Google provider
 
 Enable Google Sign-In in the Firebase console:
     1. In the [Firebase console](https://console.firebase.google.com), open the **Auth** section.

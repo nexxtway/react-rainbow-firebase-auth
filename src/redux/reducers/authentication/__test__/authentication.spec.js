@@ -118,6 +118,26 @@ describe('authentication reducer', () => {
         });
     });
 
+    describe(`when ${AUTH_START_WITH_GITHUB} action`, () => {
+        it('should set isLoadingGitHub to true', () => {
+            const initialState = fromJS({
+                isLoadingGitHub: false,
+            });
+            const state = reducer(initialState, { type: AUTH_START_WITH_GITHUB });
+            expect(state.toJS().isLoadingGitHub).toBe(true);
+        });
+    });
+
+    describe(`when ${AUTH_SUCCESS_WITH_GITHUB} action`, () => {
+        it('should set isLoadingGitHub to false', () => {
+            const initialState = fromJS({
+                isLoadingGitHub: true,
+            });
+            const state = reducer(initialState, { type: AUTH_SUCCESS_WITH_GITHUB });
+            expect(state.toJS().isLoadingGitHub).toBe(false);
+        });
+    });
+
     describe(`when ${SHOW_ERROR_MESSAGE} action`, () => {
         it('should set isLoading, isLoadingGoogle and isLoadingFacebook to false', () => {
             const initialState = fromJS({

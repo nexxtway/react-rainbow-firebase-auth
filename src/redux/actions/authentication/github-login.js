@@ -9,7 +9,7 @@ export default function loginWithGitHub() {
     return (dispatch, getState) => {
         dispatch({ type: AUTH_START_WITH_GITHUB });
         const locale = getCurrentLocale(getState());
-        return signInWithGitHub(locale, ['profile', 'email'])
+        return signInWithGitHub(locale, ['user'])
             .then(() => {
                 dispatch({ type: AUTH_SUCCESS_WITH_GITHUB });
             })

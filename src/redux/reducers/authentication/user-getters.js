@@ -21,7 +21,7 @@ export function getEmail() {
     if (this.email) {
         return this.email;
     }
-    if (this.isFacebookUser() || this.isGoogleUser()) {
+    if (this.isFacebookUser() || this.isGoogleUser() || this.isGitHubUser()) {
         return this.providerData[0].email;
     }
     return undefined;

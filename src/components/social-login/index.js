@@ -10,6 +10,7 @@ import StyledFacebookButton from './styled/facebookButton';
 import StyledGitHubButton from './styled/githubButton';
 import StyledIcon from './styled/icon';
 import FacebookIcon from './icons/facebookIcon';
+import GitHubIcon from './icons/githubIcon';
 
 function SocialLogin(props) {
     const {
@@ -32,6 +33,7 @@ function SocialLogin(props) {
                 <StyledGitHubButton
                     onClick={loginWithGitHub}
                     isLoading={isLoadingGitHub}>
+                    <StyledIcon as={GitHubIcon} />
                     <FormattedMessage id="github.button.login" defaultMessage="Login with GitHub" />
                 </StyledGitHubButton>
                 <StyledLoginButton

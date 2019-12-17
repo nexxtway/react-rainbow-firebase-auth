@@ -195,7 +195,7 @@ function stateToProps(state) {
         user,
         isLoading: profile.get('isLoading'),
         isModalOpen: profile.get('showModal'),
-        isSocialMediaUser: user.isGoogleUser() || user.isFacebookUser(),
+        isSocialMediaUser: user.isGoogleUser() || user.isFacebookUser() || user.isGitHubUser(),
         initialValues: {
             displayName: user.displayName,
             email: user.getEmail(),

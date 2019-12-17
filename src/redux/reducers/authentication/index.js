@@ -8,6 +8,8 @@ import {
     UPDATE_USER_DATA,
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
+    AUTH_START_WITH_GITHUB,
+    AUTH_SUCCESS_WITH_GITHUB,
     AUTH_START_WITH_GOOGLE,
     AUTH_SUCCESS_WITH_GOOGLE,
 } from '../../actions/authentication';
@@ -21,6 +23,7 @@ const initialState = fromJS({
     user: null,
     isLoadingFacebook: false,
     isLoadingGoogle: false,
+    isLoadingGitHub: false,
 });
 
 function authenticateUser(state, user) {
@@ -43,6 +46,10 @@ function authStartWithFacebook(state) {
     return state.set('isLoadingFacebook', true);
 }
 
+function authStartWithGitHub(state) {
+    return state.set('isLoadingGitHub', true);
+}
+
 function authStartWithGoogle(state) {
     return state.set('isLoadingGoogle', true);
 }
@@ -58,6 +65,7 @@ export default function (state = initialState, action) {
         case SHOW_ERROR_MESSAGE:
             state = state.set('isLoadingFacebook', false);
             state = state.set('isLoadingGoogle', false);
+            state = state.set('isLoadingGitHub', false);
             return state.set('isLoading', false);
 
         case AUTH_SUCCESS:
@@ -74,6 +82,12 @@ export default function (state = initialState, action) {
 
         case AUTH_SUCCESS_WITH_FACEBOOK:
             return state.set('isLoadingFacebook', false);
+
+        case AUTH_START_WITH_GITHUB:
+            return authStartWithGitHub(state);
+
+        case AUTH_SUCCESS_WITH_GITHUB:
+            return state.set('isLoadingGitHub', false);
 
         case AUTH_START_WITH_GOOGLE:
             return authStartWithGoogle(state);

@@ -10,6 +10,8 @@ const AUTH_START_WITH_FACEBOOK = 'AUTH_START_WITH_FACEBOOK';
 const AUTH_SUCCESS_WITH_FACEBOOK = 'AUTH_SUCCESS_WITH_FACEBOOK';
 const AUTH_START_WITH_GOOGLE = 'AUTH_START_WITH_GOOGLE';
 const AUTH_SUCCESS_WITH_GOOGLE = 'AUTH_SUCCESS_WITH_GOOGLE';
+const AUTH_START_WITH_GITHUB = 'AUTH_START_WITH_GITHUB';
+const AUTH_SUCCESS_WITH_GITHUB = 'AUTH_SUCCESS_WITH_GITHUB';
 const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 describe('authentication reducer', () => {
@@ -24,6 +26,7 @@ describe('authentication reducer', () => {
                 getEmail: expect.any(Function),
                 isFacebookUser: expect.any(Function),
                 isGoogleUser: expect.any(Function),
+                isGitHubUser: expect.any(Function),
             });
         });
     });
@@ -37,6 +40,7 @@ describe('authentication reducer', () => {
                 user: null,
                 isLoadingFacebook: false,
                 isLoadingGoogle: false,
+                isLoadingGitHub: false,
             });
         });
     });
@@ -120,12 +124,14 @@ describe('authentication reducer', () => {
                 isLoading: true,
                 isLoadingGoogle: true,
                 isLoadingFacebook: true,
+                isLoadingGitHub: true,
             });
             const state = reducer(initialState, { type: SHOW_ERROR_MESSAGE });
             expect(state.toJS()).toEqual({
                 isLoading: false,
                 isLoadingGoogle: false,
                 isLoadingFacebook: false,
+                isLoadingGitHub: false,
             });
         });
     });

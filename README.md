@@ -60,9 +60,18 @@ User authentication is often the hardest part of building any web app, especiall
 
 #### Be ready to get acces with Google provider
 
-Enable Google Sign-In in the Firebase console:
+1. Enable Google Sign-In in the Firebase console:
     1. In the [Firebase console](https://console.firebase.google.com), open the **Auth** section.
     2. On the **Sign in method** tab, enable the **Google** sign-in method and click **Save**.
+
+#### Be ready to get acces with GitHub provider
+
+1. In the [Firebase console](https://console.firebase.google.com), open the **Auth** section.
+2. On the **Sign in method** tab, enable the **GitHub** provider.
+3. Add the **Client ID** and **Client Secret** from that provider's developer console to the provider configuration:
+    1. [Register your app](https://github.com/settings/applications/new) as a developer application on GitHub and get your app's OAuth 2.0 **Client ID** and **Client Secret**.
+    2. Make sure your Firebase **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is set as your **Authorization callback URL** in your app's settings page on your [GitHub app's config](https://github.com/settings/developers).
+4. Click **Save**.
 
 ## Supporters
 

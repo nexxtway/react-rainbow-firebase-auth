@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import StyledLoginButton from './loginButton';
 
 const StyledGitHubButton = styled(StyledLoginButton)`
-    background-color: #24292E;
-    border-color: #000000;
+    background-color: #24292e;
+    border-color: #000;
     color: #fff;
     margin-bottom: 32px;
 
     &:hover,
     &:focus {
-        background-color: #000000;
-        border-color: #000000;
+        background-color: #000;
+        border-color: #000;
         color: #fff;
     }
 

@@ -3,6 +3,7 @@ import handleAuthenticationChange from '../handle-auth-change';
 const user = {
     displayName: 'Pepe',
     uid: '1234qwerty',
+    photoURL: null,
 };
 
 describe('handleAuthenticationChange', () => {
@@ -20,10 +21,7 @@ describe('handleAuthenticationChange', () => {
         handleAuthenticationChange(user)(dispatch);
         expect(dispatch.mock.calls[1][0]).toEqual({
             type: 'USER_AUTHENTICATED',
-            user: {
-                displayName: 'Pepe',
-                uid: '1234qwerty',
-            },
+            user,
         });
         expect(dispatch.mock.calls[2][0]).toEqual({
             type: 'DONE_APP_INITIALIZATION',

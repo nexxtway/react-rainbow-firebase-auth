@@ -54,6 +54,13 @@ function authStartWithGoogle(state) {
     return state.set('isLoadingGoogle', true);
 }
 
+function stopLoading(state) {
+    state = state.set('isLoadingFacebook', false);
+    state = state.set('isLoadingGoogle', false);
+    state = state.set('isLoadingGitHub', false);
+    return state.set('isLoading', false);
+}
+
 export default function (state = initialState, action) {
     switch (action.type) {
         case USER_AUTHENTICATED:
@@ -63,13 +70,10 @@ export default function (state = initialState, action) {
             return authStart(state);
 
         case SHOW_ERROR_MESSAGE:
-            state = state.set('isLoadingFacebook', false);
-            state = state.set('isLoadingGoogle', false);
-            state = state.set('isLoadingGitHub', false);
-            return state.set('isLoading', false);
+            return stopLoading(state);
 
         case AUTH_SUCCESS:
-            return state.set('isLoading', false);
+            return stopLoading(state);
 
         case USER_LOGOUT_DONE:
             return initialState;
@@ -81,19 +85,19 @@ export default function (state = initialState, action) {
             return authStartWithFacebook(state);
 
         case AUTH_SUCCESS_WITH_FACEBOOK:
-            return state.set('isLoadingFacebook', false);
+            return stopLoading(state);
 
         case AUTH_START_WITH_GITHUB:
             return authStartWithGitHub(state);
 
         case AUTH_SUCCESS_WITH_GITHUB:
-            return state.set('isLoadingGitHub', false);
+            return stopLoading(state);
 
         case AUTH_START_WITH_GOOGLE:
             return authStartWithGoogle(state);
 
         case AUTH_SUCCESS_WITH_GOOGLE:
-            return state.set('isLoadingGoogle', false);
+            return stopLoading(state);
 
         default:
             return state;

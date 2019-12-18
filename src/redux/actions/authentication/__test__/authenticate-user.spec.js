@@ -16,6 +16,7 @@ jest.mock('../../../services/firebase', () => ({
 const user = {
     displayName: 'User',
     email: 'user@mail.com',
+    photoURL: null,
 };
 
 describe('authenticateUser', () => {
@@ -45,7 +46,7 @@ describe('authenticateUser', () => {
             },
         });
     });
-    it('should return an action with the user without photoUrl if the user is not a sicial user', () => {
+    it('should return an action with the user without photoUrl if the user is not a social user', () => {
         isFacebookUser.mockReturnValue(false);
         isGitHubUser.mockReturnValue(false);
         const action = authenticateUser(user);

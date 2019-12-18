@@ -4,6 +4,9 @@ import onAuthStateChanged from './auth-changed';
 import signInWithEmailAndPassword from './email-password-sign-in';
 import signInWithFacebook from './facebook-sign-in';
 import signInWithGoogle from './google-sign-in';
+import signInWithGitHub from './github-sign-in';
+import isGitHubUser from './is-github-user';
+import getGitHubUserId from './get-github-user-id';
 import signOutUser from './sign-out-user';
 import sendPasswordResetEmail from './send-password-reset-email';
 import createUser from './create-user';
@@ -24,4 +27,7 @@ export {
     isFacebookUser,
     getFacebookUserId,
     updateProfile,
+    signInWithGitHub,
+    isGitHubUser,
+    getGitHubUserId,
 };

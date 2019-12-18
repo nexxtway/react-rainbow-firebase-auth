@@ -1,19 +1,13 @@
-import { isFacebookUser, getFacebookUserId } from '../../services/firebase';
+import getUserPhotoURL from './get-user-photo-url';
 
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
+
 export default function authenticateUser(user) {
-    if (isFacebookUser(user)) {
-        const facebookUserId = getFacebookUserId(user);
-        return {
-            type: USER_AUTHENTICATED,
-            user: {
-                ...user,
-                photoURL: `https://graph.facebook.com/v2.12/${facebookUserId}/picture?type=large`,
-            },
-        };
-    }
     return {
         type: USER_AUTHENTICATED,
-        user,
+        user: {
+            ...user,
+            photoURL: getUserPhotoURL(user),
+        },
     };
 }

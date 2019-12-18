@@ -8,6 +8,8 @@ import {
     UPDATE_USER_DATA,
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
+    AUTH_START_WITH_GITHUB,
+    AUTH_SUCCESS_WITH_GITHUB,
     AUTH_START_WITH_GOOGLE,
     AUTH_SUCCESS_WITH_GOOGLE,
 } from '../../actions/authentication';
@@ -21,6 +23,7 @@ const initialState = fromJS({
     user: null,
     isLoadingFacebook: false,
     isLoadingGoogle: false,
+    isLoadingGitHub: false,
 });
 
 function authenticateUser(state, user) {
@@ -43,8 +46,19 @@ function authStartWithFacebook(state) {
     return state.set('isLoadingFacebook', true);
 }
 
+function authStartWithGitHub(state) {
+    return state.set('isLoadingGitHub', true);
+}
+
 function authStartWithGoogle(state) {
     return state.set('isLoadingGoogle', true);
+}
+
+function stopLoading(state) {
+    state = state.set('isLoadingFacebook', false);
+    state = state.set('isLoadingGoogle', false);
+    state = state.set('isLoadingGitHub', false);
+    return state.set('isLoading', false);
 }
 
 export default function (state = initialState, action) {
@@ -56,12 +70,10 @@ export default function (state = initialState, action) {
             return authStart(state);
 
         case SHOW_ERROR_MESSAGE:
-            state = state.set('isLoadingFacebook', false);
-            state = state.set('isLoadingGoogle', false);
-            return state.set('isLoading', false);
+            return stopLoading(state);
 
         case AUTH_SUCCESS:
-            return state.set('isLoading', false);
+            return stopLoading(state);
 
         case USER_LOGOUT_DONE:
             return initialState;
@@ -73,13 +85,19 @@ export default function (state = initialState, action) {
             return authStartWithFacebook(state);
 
         case AUTH_SUCCESS_WITH_FACEBOOK:
-            return state.set('isLoadingFacebook', false);
+            return stopLoading(state);
+
+        case AUTH_START_WITH_GITHUB:
+            return authStartWithGitHub(state);
+
+        case AUTH_SUCCESS_WITH_GITHUB:
+            return stopLoading(state);
 
         case AUTH_START_WITH_GOOGLE:
             return authStartWithGoogle(state);
 
         case AUTH_SUCCESS_WITH_GOOGLE:
-            return state.set('isLoadingGoogle', false);
+            return stopLoading(state);
 
         default:
             return state;

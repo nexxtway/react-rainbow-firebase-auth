@@ -4,6 +4,10 @@ import loginWithFacebook, {
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
 } from './facebook-login';
+import loginWithGitHub, {
+    AUTH_START_WITH_GITHUB,
+    AUTH_SUCCESS_WITH_GITHUB,
+} from './github-login';
 import loginWithGoogle, {
     AUTH_START_WITH_GOOGLE,
     AUTH_SUCCESS_WITH_GOOGLE,
@@ -20,6 +24,9 @@ export {
     loginWithFacebook,
     AUTH_START_WITH_FACEBOOK,
     AUTH_SUCCESS_WITH_FACEBOOK,
+    loginWithGitHub,
+    AUTH_START_WITH_GITHUB,
+    AUTH_SUCCESS_WITH_GITHUB,
     loginWithGoogle,
     AUTH_START_WITH_GOOGLE,
     AUTH_SUCCESS_WITH_GOOGLE,

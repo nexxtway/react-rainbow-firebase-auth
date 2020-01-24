@@ -75,4 +75,4 @@ User authentication is often the hardest part of building any web app, especiall
 
 ## Supporters
 
-This is an open-source projectOpen maintained by [nexxtway](https://nexxtway.com)
+This is an open-source projectOpen maintained by [Nexxtway Corp.](https://nexxtway.com)
